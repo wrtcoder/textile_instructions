@@ -11,3 +11,4 @@ It is advised that you update your Versatile Express board firmware to the lates
 ** Please contact Linaro for any issues related to this firmware update
 * Unmount the motherboard
 * Reboot the Versatile Express board
+** If the board is configured for UEFI, you will need to configure it to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI on the Linaro Wiki for more details on configuring UEFI.
