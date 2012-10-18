@@ -1,0 +1,87 @@
+Source Code
+
+h1. Accessing Source Code
+
+h2. Linaro Android JB Source Code
+
+When you run the "linaro_android_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh, it will download the entire source code for both Android JB and the kernel.
+
+The pinned and source manifests can be found here:
+
+* "Pinned Manifest":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/pinned-manifest.XML
+* "Source Manifest":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/source-manifest.xml
+
+h3. Kernel Source Code
+
+If you wish to obtain the exact *kernel source code* for this cycle, you can use the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_kernel_build_cmds.sh to download the source and build it.
+
+h1. Building from Source
+
+h2. Compiling Linaro Android RootFS+Kernel
+
+The following simple steps download, install and compile a complete Linaro Android distribution
+
+* Download and install Ubuntu 12.04 64 bit or newer ("download":http://www.ubuntu.com)
+* Install the following packages:
+
+bc.  sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \ 
+ gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \ 
+ uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev 
+      
+* Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. You can get other artifacts from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/
+
+* Run the script
+
+bc. chmod a+x linaro_android_build_cmds.sh                                          
+    ./linaro_android_build_cmds.sh
+      
+h3. Installing Android JB on your board
+
+Insert the SD card into your Versatile Express board and reboot it.
+If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found in the UEFI tab on this page.
+
+h2. Compiling and installing your Kernel
+
+h3. Pre-requisites
+
+* Download and install Ubuntu 12.04 64 bit or newer (download)
+* Install the following packages by typing:
+
+bc. sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
+      
+* Create a working subdirectory
+* Download the auto build script for this release from here (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here.
+* Run the build script
+
+bc. chmod a+x linaro_kernel_build_cmds.sh
+    ./linaro_kernel_build_cmds.sh
+
+    
+*Note:* When you run menuconfig, make sure you go to System Type -> Versatile Express platform type and make sure that both options are enabled.
+
+bc.   [*] Versatile Express Cortex-A9x4 tile
+      [*] Device Tree support for Versatile Express platforms
+      
+This will mean that the same kernel will run on A5, A9 and A15:
+
+* Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
+
+bc.  scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
+     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
+      
+h3. Installing your kernel
+
+* Insert the SD card containing the Linaro disk image
+* Copy the kernel onto the memory card
+
+bc. cp arch/arm/boot/uImage /media/boot/
+      
+* Copy the device tree blob (for A9 no device tree blob is needed)
+** For **A5** CoreTile:  @cp v2p-ca5s.dtb /media/boot/@
+** For **A15** CoreTile:  @cp v2p-ca15-tc1.dtb /media/boot/@
+ 
+?? - what about A9
+
+* Eject the memory card  @eject /media/boot@
+      
+* Insert the memory card into the Versatile Express board and power it on
