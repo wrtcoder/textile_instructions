@@ -14,7 +14,7 @@ h3. Create a config
 
 Do not use the defconfig for Versatile Express, instead, build a config from the config fragments that Linaro provides:
 
-bc.   
+bc. 
     ARCH=arm scripts/kconfig/merge_config.sh  \
     linaro/configs/linaro-base.conf \
     linaro/configs/ubuntu.conf \
@@ -24,7 +24,7 @@ h3. Build the kernel
 
 To build the kernel uImage, use the following command:
 
-bc.   
+bc. 
     make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
 
 
@@ -36,7 +36,7 @@ This section is common for both Android and Ubuntu
 
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
-bc.  
+bc. 
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
       

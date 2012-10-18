@@ -22,7 +22,7 @@ h3. Installation Steps
 * Unzip the downloaded pre-build image
 * Insert SD card and note the assigned @'/dev/sdX'@
 
-bc.  
+bc. 
      dmesg
      SDCARD=/dev/sdX   (sdcard found from dmesg above)
      sudo dd bs=64k if=vexpress-jb-gcc47-armlt-tracking-open.img.gz of=$SDCARD
@@ -46,7 +46,7 @@ h3. pre-requisites
 * Install Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * Download Artifacts from above or use the following command on your terminal
 
-bc.
+bc. 
 	wget http://releases.linaro.org/12.10/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
 
 * Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
@@ -55,14 +55,14 @@ There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
-bc.
+bc. 
 	sudo add-apt-repository ppa:linaro-maintainers/tools@
 	sudo apt-get update@
 	sudo apt-get install linaro-image-tools@
 
 ** Method 2: Building from source. 
 
-bc.
+bc. 
 	wget http://releases.linaro.org/12.09/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
@@ -79,7 +79,7 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create Media
 
-bc.
+bc. 
 	sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
 
 * Boot the board

@@ -29,13 +29,32 @@ bc.  sudo apt-get install zip curl flex bison build-essential git-core gnupg gpe
 
 * Run the script
 
-bc.    
+bc. 
     chmod a+x linaro_android_build_cmds.sh                                          
     ./linaro_android_build_cmds.sh
       
 h3. Installing Android JB on your board
 
 ?? so far we haven't explained that you need to take the output of the build script and write the tarballs to the disk using l-a-m-c ??
+
+* Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
+
+bc. 
+    dmesg | less
+
+Look for a line that looks like the following at the end of the log
+@[288582.790722] sdc: sdc1 sdc2 sdc3 sdc4 <sdc5 sdc6 >@
+Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
+@[10770.938042]  mmcblk0: p1 p2 p3 p4 < p5 p6 >@
+
+*WARNING:* In the next step, make sure you use /dev/"whatever you see above". You can erase your hard drive with the wrong parameter.
+
+* Create Media
+
+bc. 
+	sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
+
+
 
 Insert the SD card into your Versatile Express board and reboot it.
 If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found in the UEFI tab on this page.
@@ -53,14 +72,14 @@ bc. sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
 * Download the auto build script for this release from here (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here.
 * Run the build script
 
-bc.    
+bc. 
     chmod a+x linaro_kernel_build_cmds.sh
     ./linaro_kernel_build_cmds.sh
 
     
 *Note:* When you run menuconfig, make sure you go to System Type -> Versatile Express platform type and make sure that both options are enabled.
 
-bc.    
+bc. 
       [*] Versatile Express Cortex-A9x4 tile
       [*] Device Tree support for Versatile Express platforms
       
@@ -73,7 +92,7 @@ This section is common for both Android and Ubuntu
 
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
-bc.  
+bc. 
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
       
