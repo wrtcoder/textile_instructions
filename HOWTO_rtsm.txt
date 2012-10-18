@@ -1,3 +1,70 @@
 h1. Real-Time System Model (RTSM)
 
+h2. Pre-requists
+
+* Install the RTSM model(s) you wish to run
+** You must have a valid license and the environment set up to run models
+* Install linaro-image-tools
+
+h2. Create a 2GB image file
+
+RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts, as obtained in the Binary tab.
+
+@wget http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
+
+bc.     sudo linaro-android-media-create \
+      --dev vexpress \
+      --image-file linaro.img \
+      --image-size 2000M \
+      --system system.tar.bz2 \
+      --userdata userdata.tar.bz2 \
+      --boot boot.tar.bz2
+      tar jxvf boot.tar.bz2 
+
+
+h2. Run A15x4 model
+
+This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
+
+bc.     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
+    RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
+    RTSM_MMC=linaro.img
+    RTSM_KERNEL=boot/uImage
+    RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4.dtb
+    RTSM_INITRD=boot/uInitrd
+    RTSM_CMDLINE=" console=tty0 console=ttyAMA0,38400n8 rootwait ro init=/init androidboot.console=ttyAMA0"
+
+bc.    $RTSM_MODEL \
+    $RTSM_BOOTWRAPPER \
+    -C motherboard.smsc_91c111.enabled=1 \
+    -C motherboard.hostbridge.userNetworking=1 \
+    -C motherboard.mmc.p_mmc_file="$RTSM_MMC" \
+    -C cluster.cpu0.semihosting-cmd_line="--kernel $RTSM_KERNEL --dtb $RTSM_DTB --initrd $RTSM_INITRD -- $RTSM_CMDLINE"
+
+
+h2. Run A15x4-A7x4 model
+
+This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
+
+bc.     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
+    RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
+    RTSM_MMC=linaro.img
+    RTSM_KERNEL=uImage
+    RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4-ca7x4.dtb
+    RTSM_INITRD=uInitrd
+    RTSM_CMDLINE=" console=tty0 console=ttyAMA0,38400n8 rootwait ro init=/init androidboot.console=ttyAMA0"
+
+bc.    $RTSM_MODEL \
+    -a coretile.cluster0.*=$RTSM_BOOTWRAPPER \
+    -a coretile.cluster1.*=$RTSM_BOOTWRAPPER \
+    -C motherboard.smsc_91c111.enabled=1 \
+    -C motherboard.hostbridge.userNetworking=1 \
+    -C motherboard.mmc.p_mmc_file=$RTSM_MMC \
+    -C coretile.dualclustersystemconfigurationblock.CFG_ACTIVECLUSTER=0x3 \
+    -C coretile.cluster0.cpu0.semihosting-enable=1 \
+    -C coretile.cluster0.cpu0.semihosting-cmd_line="--kernel $RTSM_KERNEL --dtb $RTSM_DTB --initrd $RTSM_INITRD -- $RTSM_CMDLINE"
+
+
+
+
 

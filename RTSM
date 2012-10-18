@@ -1,6 +1,4 @@
-RTSM
-
-h1. Running The Linaro Versatile Express release on RTSM
+h1. Real-Time System Model (RTSM)
 
 h2. Pre-requists
 
@@ -9,34 +7,20 @@ h2. Pre-requists
 * Install linaro-image-tools
 * Install kpartx
 
-h3. kpartx
+h3. Installing kpartx
 
 bc. sudo apt-get install kpartx
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the pre-built images for Ubuntu and Android both require a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts, as obtained in the Binary tab.
+RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Ubuntu requires a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts, as obtained in the Binary tab.
 
-h3. Android
+We use a nano image for this example, however, you could also other image types so long as you can install it to a 2GB file. Note, you will also need the boot.tar.bz2 file from the Android release.
 
-@wget http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
-
-bc.     sudo linaro-android-media-create \
-      --dev vexpress \
-      --image-file linaro.img \
-      --image-size 2000M \
-      --system system.tar.bz2 \
-      --userdata userdata.tar.bz2 \
-      --boot boot.tar.bz2
-      tar jxvf boot.tar.bz2 
-      cp boot/uImage .
-      cp boot/uInitrd .
-
-h3. Ubuntu
-
-We use a nano image for this example, however, you could also other image types so long as you can install it to a 2GB file. Note, you will also need the boot.tar.bz2 file from the Android release
-
-@wget http://releases.linaro.org/12.09/ubuntu/precise-images/nano/linaro-precise-nano-20120923-417.tar.gz http://releases.linaro.org/12.09/ubuntu/vexpress/hwpack_linaro-vexpress_20120925-322_armhf_supported.tar.gz http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2@
+bc. @wget \
+http://releases.linaro.org/12.09/ubuntu/precise-images/nano/linaro-precise-nano-20120923-417.tar.gz \
+http://releases.linaro.org/12.09/ubuntu/vexpress/hwpack_linaro-vexpress_20120925-322_armhf_supported.tar.gz \
+http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2
 
 bc.     sudo linaro-media-create \
       --dev vexpress \
