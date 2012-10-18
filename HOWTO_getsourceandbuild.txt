@@ -89,6 +89,9 @@ To build the kernel uImage, use the following command:
 
 bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
 
+
+
+
 h1. Installing your kernel
 
 This section is common for both Android and Ubuntu

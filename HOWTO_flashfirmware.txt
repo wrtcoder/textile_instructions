@@ -1,5 +1,3 @@
-Firmware
-
 h1. Versatile Express Firmware Update
 
 It is advised that you update your Versatile Express board firmware to the latest version. To update your VE board firmware, please follow the instructions below.

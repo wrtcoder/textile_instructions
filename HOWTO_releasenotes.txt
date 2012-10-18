@@ -1,0 +1,44 @@
+h1. Linaro Versatile Express 12.10 Release Linaro releases monthly
+
+p. Linaro releases monthly binary images for the ARM "Versatile
+Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php
+including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE)
+CoreTiles. 
+
+p. This release includes Linaro Android Jelly Bean for Versatile
+Express and Real-Time System Model
+("RTMS":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php)
+images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using
+UEFI. Sources are also made available so you can build your own
+images.
+
+p. For support matters related to these images, please contact ARM support at support@arm.com
+
+h1. Release Notes
+
+h2. General Features
+
+* This release adds support for saving the self-hosted debugger setup
+ when a CPU goes through a low power state, where hardware breakpoints
+ are not preserved, and restoring the setup when the CPU is brought
+ back onlne.
+
+ Additionally, support for CPU PMUs present in big.LITTLE systems has
+ been integrated into the kernel, with the framework now also
+ supporting system PMUs. CCI-400 PMUs are the first example
+ implementation that is using the framework.
+
+ SCHED_HMP patches for scheduler have now been updated to take into
+ account multiple domains when making decisions on task
+ migration, with ftrace events added for tracking these
+ migrations.  * Feature one * Feature two * Feature three
+
+* Feature two
+
+h2. About the TC2 Evaluation Build
+
+h2. Fixed in this release
+
+h2. Known Issues
+
+

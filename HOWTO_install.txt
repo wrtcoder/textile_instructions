@@ -1,0 +1,69 @@
+h1. Binary Image Installation
+
+There are two methods to installing Linaro binary build:
+
+#. Using pre-built image
+#. Assembling your own image using Linaro "Android Image Creator":http://link (l-a-m-c)
+
+h2. Pre-Installation Steps
+
+Before installation begins, it is important that you ensure you Versatile Express board has the latest firmware and boot loader installed. Please check the firmware tab on this page for the latest "firmware":http://../../ updates and instructions.
+
+h2. Using pre-built image
+
+h3. Pre-requisites
+
+* 4GB SD card or larger
+* Latest firmware installed onto the Versatile Express
+* Download the pre-built image from (here)
+
+h3. Installation Steps
+
+* unzip the downloaded pre-build image
+* Insert SD card and note the assigned '/dev/sdX'
+
+bc.      dmesg
+     SDCARD=/dev/sdX   (sdcard found from dmesg above)
+     sudo dd bs=64k if=vexpress-jb-gcc47-armlt-tracking-open.img.gz of=$SDCARD
+
+* Continue with the instructions below to Configure your board to boot the image.
+
+*Note:* Windows users may use the "Image Writer for Windows":https://launchpad.net/win32-image-writer/+download 
+
+h2. Building a custom image using pre-built components. 
+
+Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the hardware pack ("?":https://wiki.linaro.org/HardwarePacks) for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the Linaro media tools ("?":https://launchpad.net/linaro-image-tools/) to create a custom image.
+
+?? - Need a wiki page to point us to the definition of the lmc and lamc.
+
+h3. pre-requisites
+
+* Install Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
+* Get Artifacts
+@wget http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
+* Get linaro image tools
+** Method 1: using binary package for Ubuntu (PPA)
+@sudo add-apt-repository ppa:linaro-maintainers/tools@
+@sudo apt-get update@
+@sudo apt-get install linaro-image-tools@
+** Method 2: using source code
+@wget http://releases.linaro.org/12.09/components/platform/linaro-image-tools/linaro-image-tools-2012.09.1.tar.gz@
+
+* Insert SD card and note the assigned '/dev/sdX' or '/dev/mmcblk0'
+@dmesg | less@
+Look for a line that looks like the following at the end of the log
+@[288582.790722] sdc: sdc1 sdc2 sdc3 sdc4 <sdc5 sdc6 >@
+Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
+@[10770.938042]  mmcblk0: p1 p2 p3 p4 < p5 p6 >@
+
+*WARNING:* In the next step, make sure you use /dev/"whatever you see above". You can erase your hard drive with the wrong parameter.
+
+* Create Media
+@sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2@
+
+* Boot the board
+** Insert the SD card into the board
+** Reboot the board
+*** “Cmd>" prompt from the Boot Loader
+*** Press the red reboot button
+

@@ -1,0 +1,20 @@
+
+* Map file name to a tab name
+    Ubuntu/OpenEmbedded
+       README -> “Release Notes”
+       INSTALL -> “Binary Image Installation”
+       HACKING -> “Building From Source”
+       FIRMWARE -> “Firmware Update”
+       RTSM -> “RTSM”
+   Android
+       howto/HOWTO_releasenotes.txt -> “Release Notes”
+       howto/HOWTO_install.txt -> “Binary Image Installation”
+       howto/HOWTO_getsourceandbuild.txt -> “Building From Source”
+       howto/HOWTO_flashfirmware.txt -> “Firmware Update”
+       howto/HOWTO_rtsm -> “RTSM”
+
+
+* If you wish to test your textile file, use this site: http://textile.thresholdstate.com/
+* For additional syntax help check the source files in this repo or check out wikipedia at http://en.wikipedia.org/wiki/Textile_(markup_language)
+
+
