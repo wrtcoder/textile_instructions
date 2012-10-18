@@ -29,10 +29,13 @@ bc.  sudo apt-get install zip curl flex bison build-essential git-core gnupg gpe
 
 * Run the script
 
-bc. chmod a+x linaro_android_build_cmds.sh                                          
+bc.    
+    chmod a+x linaro_android_build_cmds.sh                                          
     ./linaro_android_build_cmds.sh
       
 h3. Installing Android JB on your board
+
+?? so far we haven't explained that you need to take the output of the build script and write the tarballs to the disk using l-a-m-c ??
 
 Insert the SD card into your Versatile Express board and reboot it.
 If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found in the UEFI tab on this page.
@@ -50,46 +53,18 @@ bc. sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
 * Download the auto build script for this release from here (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here.
 * Run the build script
 
-bc. chmod a+x linaro_kernel_build_cmds.sh
+bc.    
+    chmod a+x linaro_kernel_build_cmds.sh
     ./linaro_kernel_build_cmds.sh
 
     
 *Note:* When you run menuconfig, make sure you go to System Type -> Versatile Express platform type and make sure that both options are enabled.
 
-bc.       [*] Versatile Express Cortex-A9x4 tile
+bc.    
+      [*] Versatile Express Cortex-A9x4 tile
       [*] Device Tree support for Versatile Express platforms
       
 This will mean that the same kernel will run on A5, A9, A15-TC1, A15-TC2 and various RTSM models.
-
-
-h1. Building Ubuntu Kernel from Source
-
-When working with Ubuntu, the simplest approach is to use create a disk image by following the instructions on the binary tab, then to build your own kernel and install it to the card.
-
-h2. Kernel Source
-
-h3. Get the source
-First you need to get the kernel source code 
-
-?? what is the official path for the source code ??
-
-
-h3. Create a config
-
-Do not use the defconfig for Versatile Express, instead, build a config from the config fragments that Linaro provides:
-
-bc. ARCH=arm scripts/kconfig/merge_config.sh  \
-    linaro/configs/linaro-base.conf \
-    linaro/configs/ubuntu.conf \
-    linaro/configs/vexpress.conf
-
-h3. Build the kernel
-
-To build the kernel uImage, use the following command:
-
-bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
-
-
 
 
 h1. Installing your kernel
@@ -98,8 +73,9 @@ This section is common for both Android and Ubuntu
 
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
-bc.      scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
-     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
+bc.  
+    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
+    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
       
 
 * Insert the SD card containing the Linaro disk image
