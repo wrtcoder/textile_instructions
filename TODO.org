@@ -1,7 +1,0 @@
-* [2012-10-16 Tue]
-1. Convert the file names to the proper ones so they can be integrated into the build system
-2. Update the instructions to the 12.10 release
-3. Add the RTSM tab
-4. Add a header (In the area on top of the tabs just like the ve_12.09 page
-5. Create the proper Ubuntu instructions for the Ubuntu build 
-6. Push these instructions somewhere (or is this bzr branch is enough) so they can be picked up by the build system
