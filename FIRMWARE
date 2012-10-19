@@ -2,11 +2,11 @@ h1. Versatile Express Firmware Update
 
 It is advised that you update your Versatile Express board firmware to the latest version. To update your VE board firmware, please follow the instructions below:
 
-* Install the Recovery firmware from the v4.0b VE CD/DVD that came with your Versatile Express
+* Install the Recovery firmware from CD that came with your Versatile Express. However, if this is older than Version 3, please download these latest from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1307626"
 * Connect and mount your Versatile Express motherboard USB mass storage device to your PC
 * Download the latest ARM firmware from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1307626
 ** Unzip the firmware zip to the root of the motherboard mounted drive
-*** Please contact support@arm.com for any issues related this firmware update
+** Please contact support@arm.com for any issues related this firmware update
 
 * Download additional Linaro firmware from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20120920-001.zip
 ** Unzip the firmware zip to the root of the motherboard mounted drive

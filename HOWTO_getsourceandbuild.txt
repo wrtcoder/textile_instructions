@@ -92,19 +92,19 @@ This section is common for both Android and Ubuntu
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
 bc. 
-    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
-    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
+    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
+    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
       
 
 * Insert the SD card containing the Linaro disk image
 * Copy the kernel onto the memory card
 @cp arch/arm/boot/uImage /media/boot/@
 * Copy the device tree blob
-** For **A9** CoreTile:  no device tree blob is needed
-** For **A5** CoreTile:  @cp v2p-ca5s.dtb /media/boot/@
-** For **A15-TC1** CoreTile:  @cp v2p-ca15-tc1.dtb /media/boot/@
-** For **A15-TC2** CoreTile:  @cp v2p-ca15-tc2.dtb /media/boot/@
- 
+** For A9 CoreTile: no device tree blob is needed
+** For A5 CoreTile: @cp arch/arm/boot/vexpress-v2p-ca5s.dtb /media/boot/v2p-ca5s.dtb@
+** For A15 CoreTile (TC1): @cp arch/arm/boot/vexpress-v2p-ca15-tc1.dtb /media/boot/v2p-ca15-tc1.dtb@
+** For A15_A7 CoreTile: (TC2): @cp arch/arm/boot/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb@
+
 * Eject the memory card  @eject /media/boot@
       
 * Insert the memory card into the Versatile Express board and power it on

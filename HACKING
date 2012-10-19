@@ -1,18 +1,10 @@
 h1. Building Ubuntu from Source
 
-Ubuntu images are comprised of a Hardware Pack
-("HWPack":https://wiki.linaro.org/HardwarePacks) and a root file
-system (RootFS).  The hardware pack contains the kernel, boot loader
-and Device Tree blobs (if applicable). There is no need to rebuild the
-RootFS since it is comprised of a large number of debian
-packages. Instead, the best approach is to use an image, which you can
-create as outlined in the "Binary Image Installation" tab then replace
-the kernel with your compiled one.  This is common practice that many
-engineers deploy when wanting a standard Linux image to use for
-testing and development purposes.
+Ubuntu images are comprised of a Hardware Pack ("HWPack":https://wiki.linaro.org/HardwarePacks) and a root file system (RootFS).  The hardware pack contains the kernel, boot loader and Device Tree blobs (if applicable). There is no need to rebuild the RootFS since it is comprised of a large number of debian packages. Instead, the best approach is to use an image, which you can create as outlined in the "Binary Image Installation" tab then replace the kernel with your compiled one.  This is common practice that many engineers deploy when wanting a standard Linux image to use for testing and development purposes.
 
-The following instructions will walk you through how to obtain the kernel
-source, build it, and add it to a pre-existing Ubuntu image.
+The root file systems are described "here":http://releases.linaro.org/12.09/ubuntu/precise-images where you can also download them.
+
+The following instructions will walk you through how to obtain the kernel source, build it, and add it to a pre-existing Ubuntu image.
 
 h1. Building Ubuntu Kernel from Source
 
@@ -37,7 +29,6 @@ bc.
     git checkout <release tag or commit ID>
 
 ?? how do we know what the release tag or commit ID was ??
-
 
 h3. Create a kernel config
 
@@ -66,8 +57,8 @@ This section is common for both Android and Ubuntu
   is no need for a device tree blob):
 
 bc. 
-    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
-    scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
+    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
+    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
 
 
 * Insert the SD card containing the Linaro disk image into your PC SD card reader
@@ -77,10 +68,10 @@ bc.
 bc.  cp arch/arm/boot/uImage /media/boot/
 
 * Copy the device tree blob
-** For **A9** CoreTile:  no device tree blob is needed
-** For **A5** CoreTile:  @cp v2p-ca5s.dtb /media/boot/@
-** For **A15(TC1)** CoreTile:  @cp v2p-ca15-tc1.dtb /media/boot/@
-** For **A15(TC2)** CoreTile:  @cp v2p-ca15-tc2.dtb /media/boot/@
+** For A9 CoreTile: no device tree blob is needed
+** For A5 CoreTile: @cp arch/arm/boot/vexpress-v2p-ca5s.dtb /media/boot/v2p-ca5s.dtb@
+** For A15 CoreTile (TC1): @cp arch/arm/boot/vexpress-v2p-ca15-tc1.dtb /media/boot/v2p-ca15-tc1.dtb@
+** For A15_A7 CoreTile: (TC2): @cp arch/arm/boot/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb@
  
 * Eject the memory card from your PC by using the following command
 

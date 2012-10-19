@@ -1,5 +1,9 @@
 h1. Binary Image Installation
 
+Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
+
+The root file systems are described "here":http://releases.linaro.org/12.09/ubuntu/precise-images where you can also download them.
+
 Linaro provides two methods for installing Linaro binary builds:
 
 # Using a pre-built image, which you can download
@@ -52,16 +56,14 @@ h3. Prerequisites
 bc. 
 	wget http://releases.linaro.org/12.10/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
 
-* Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
-
-There are multiple ways you can get the latest Linaro Image Tools:
+* Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools.  There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
 bc. 
-	sudo add-apt-repository ppa:linaro-maintainers/tools@
-	sudo apt-get update@
-	sudo apt-get install linaro-image-tools@
+	sudo add-apt-repository ppa:linaro-maintainers/tools
+	sudo apt-get update
+	sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source. 
 
