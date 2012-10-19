@@ -50,9 +50,9 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 bc. 
     sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress \
-      --system   system.tar.bz2 \
+      --system   ./android/out/target/product/vexpress/system.tar.bz2 \
       --boot     ./android/out/target/product/vexpress/boot.tar.bz2 \
-      --userdata userdata.tar.bz2
+      --userdata ./android/out/target/product/vexpress/userdata.tar.bz2
 
 ?? the system and userdata tar file paths above need updating ??
 
