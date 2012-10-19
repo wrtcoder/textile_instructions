@@ -25,10 +25,20 @@ bc. sudo apt-get install build-essential git gcc-arm-linux-gnueabi
 
 h2. Get the source
 
-You can find this release source "here":http://need_some_parth
+You can find this release source "here":http://need_some_path
 
 ?? what is the official path for the source code ??
 ?? We need to offer a tar ball and point them at the git repository ??
+
+Alternatively, you can use GIT to obtain the source code:
+
+bc. 
+    git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
+    cd linux-linaro-tracking
+    git checkout <release tag or commit ID>
+
+?? how do we know what the release tag or commit ID was ??
+
 
 h3. Create a kernel config
 
@@ -40,7 +50,7 @@ bc.
     linaro/configs/ubuntu.conf \
     linaro/configs/vexpress.conf
 
-?? Are the config fragments available in the git repository and the tar ball or they have to get those separately ??
+Note: the config fragments are part of the git repository and the source tar ball.
 
 h3. Build the kernel
 

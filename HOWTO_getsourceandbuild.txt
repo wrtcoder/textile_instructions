@@ -30,12 +30,10 @@ bc.
 * Run the script
 
 bc. 
-    chmod a+x linaro_android_build_cmds.sh                                          
+    chmod a+x linaro_android_build_cmds.sh
     ./linaro_android_build_cmds.sh
     
 h3. Installing Android JB on your board
-
-?? so far we haven't explained that you need to take the output of the build script and write the tarballs to the disk using l-a-m-c ??
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
@@ -50,7 +48,13 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create Media
 
-bc.    sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
+bc. 
+    sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress \
+      --system   system.tar.bz2 \
+      --boot     ./android/out/target/product/vexpress/boot.tar.bz2 \
+      --userdata userdata.tar.bz2
+
+?? the system and userdata tar file paths above need updating ??
 
 * Insert the SD card into your Versatile Express board and reboot it.
 
