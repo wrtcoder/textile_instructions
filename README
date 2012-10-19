@@ -3,7 +3,7 @@ h1. Linaro Versatile Express 12.10 Release Linaro releases monthly
 p. Linaro releases monthly binary images for the ARM "Versatile
 Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php
 including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE)
-CoreTiles. 
+CoreTiles.
 
 p. This release includes Linaro Android Jelly Bean for Versatile
 Express and Real-Time System Model
@@ -38,5 +38,3 @@ h2. About the TC2 Evaluation Build
 h2. Fixed in this release
 
 h2. Known Issues
-
-

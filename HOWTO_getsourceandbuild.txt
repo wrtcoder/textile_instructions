@@ -20,19 +20,19 @@ The following simple steps download, install and compile a complete Linaro Andro
 * Download and install Ubuntu 12.04 64 bit or newer ("download":http://www.ubuntu.com)
 * Install the following packages:
 
-bc.  
-     sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \ 
-     gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \ 
-     uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev 
-      
-* Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. or from the list of artifacts listed above. 
+bc.
+     sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \
+     gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \
+     uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev
+
+* Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. or from the list of artifacts listed above.
 
 * Run the script
 
-bc. 
+bc.
     chmod a+x linaro_android_build_cmds.sh
     ./linaro_android_build_cmds.sh
-    
+
 h3. Installing Android JB on your board
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
@@ -48,7 +48,7 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create Media
 
-bc. 
+bc.
     sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress \
       --system   ./android/out/target/product/vexpress/system.tar.bz2 \
       --boot     ./android/out/target/product/vexpress/boot.tar.bz2 \
@@ -62,27 +62,27 @@ If UEFI is already configured to boot a Linaro Android image, it will boot from 
 
 h2. Compiling and installing your Kernel
 
-h3. Prerequisites 
+h3. Prerequisites
 
 * Download and install Ubuntu 12.04 64 bit or newer (download)
 * Install the following packages by typing:
 
 bc.   sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
-      
+
 * Create a working subdirectory
 * Download the auto build script for this release from the list of artifacts above (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here
 * Run the build script
 
-bc. 
+bc.
     chmod a+x linaro_kernel_build_cmds.sh
     ./linaro_kernel_build_cmds.sh
 
 *Note:* When you run menuconfig, make sure you go to System Type -> Versatile Express platform type and make sure that both options are enabled.
 
-bc. 
+bc.
       [*] Versatile Express Cortex-A9x4 tile
       [*] Device Tree support for Versatile Express platforms
-      
+
 This will mean that the same kernel will run on A5, A9, A15-TC1, A15-TC2 and various RTSM models.
 
 h1. Installing your kernel
@@ -103,5 +103,5 @@ bc.   make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
 ** For A15_A7 CoreTile: (TC2): @cp arch/arm/boot/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb@
 
 * Eject the memory card  @eject /media/boot@
-      
+
 * Insert the memory card into the Versatile Express board and power it on

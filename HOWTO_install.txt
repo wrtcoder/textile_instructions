@@ -23,7 +23,7 @@ h3. Installation Steps
 * Unzip the downloaded pre-built image
 * Insert SD card into your PC and note the assigned @'/dev/sdX'@
 
-bc. 
+bc.
      dmesg
      SDCARD=/dev/sdX   (sdcard found from dmesg above)
      sudo dd bs=64k if=vexpress-jb-gcc47-armlt-tracking-open.img of=$SDCARD
@@ -34,11 +34,11 @@ bc.
 *** “Cmd>" prompt from the Boot Loader
 *** Press the red reboot button
 
-*Note:* Windows users may use the "Image Writer for Windows":https://launchpad.net/win32-image-writer/+download 
+*Note:* Windows users may use the "Image Writer for Windows":https://launchpad.net/win32-image-writer/+download
 
 <hr />
 
-h2. Building a custom image using pre-built components. 
+h2. Building a custom image using pre-built components.
 
 Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro media tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
@@ -49,7 +49,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc. 
+bc.
 	wget http://releases.linaro.org/12.10/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
 
 * Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
@@ -58,18 +58,18 @@ There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
-bc. 
+bc.
 	sudo add-apt-repository ppa:linaro-maintainers/tools@
 	sudo apt-get update@
 	sudo apt-get install linaro-image-tools@
 
-** Method 2: Building from source. 
+** Method 2: Building from source.
 
 bc.     wget http://releases.linaro.org/12.09/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
-bc. 
+bc.
     dmesg | less
 
 Look for a line that looks like the following at the end of the log

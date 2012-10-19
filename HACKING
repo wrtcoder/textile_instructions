@@ -23,7 +23,7 @@ You can find this release source "here":http://need_some_path
 
 Alternatively, you can use GIT to obtain the source code:
 
-bc. 
+bc.
     git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
     cd linux-linaro-tracking
     git checkout <release tag or commit ID>
@@ -34,7 +34,7 @@ h3. Create a kernel config
 
 Do not use the defconfig for Versatile Express, instead, build a config from the config fragments that Linaro provides:
 
-bc. 
+bc.
     ARCH=arm scripts/kconfig/merge_config.sh  \
     linaro/configs/linaro-base.conf \
     linaro/configs/ubuntu.conf \
@@ -67,7 +67,7 @@ bc. cp arch/arm/boot/uImage /media/boot/
 ** For A5 CoreTile: @cp arch/arm/boot/vexpress-v2p-ca5s.dtb /media/boot/v2p-ca5s.dtb@
 ** For A15 CoreTile (TC1): @cp arch/arm/boot/vexpress-v2p-ca15-tc1.dtb /media/boot/v2p-ca15-tc1.dtb@
 ** For A15_A7 CoreTile (TC2): @cp arch/arm/boot/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb@
- 
+
 * Eject the memory card from your PC by using the following command
 
 bc. eject /media/boot

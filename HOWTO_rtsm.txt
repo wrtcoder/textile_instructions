@@ -22,7 +22,7 @@ bc.
 	sudo apt-get update
 	sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source. 
+** Method 2: Building from source.
 
 bc.	wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
 
@@ -36,8 +36,8 @@ bc.
 	wget http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2
 
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
- 
-bc.     
+
+bc.
 	sudo linaro-android-media-create \
       --dev vexpress \
       --image-file linaro.img \
@@ -45,14 +45,14 @@ bc.
       --system system.tar.bz2 \
       --userdata userdata.tar.bz2 \
       --boot boot.tar.bz2
-      tar jxvf boot.tar.bz2 
+      tar jxvf boot.tar.bz2
 
 
 h2. Run A15x4 model
 
 This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 
-bc. 
+bc.
     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
     RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
     RTSM_MMC=linaro.img
@@ -61,7 +61,7 @@ bc.
     RTSM_INITRD=boot/uInitrd
     RTSM_CMDLINE=" console=tty0 console=ttyAMA0,38400n8 rootwait ro init=/init androidboot.console=ttyAMA0"
 
-bc.    
+bc.
     $RTSM_MODEL \
     $RTSM_BOOTWRAPPER \
     -C motherboard.smsc_91c111.enabled=1 \
@@ -74,7 +74,7 @@ h2. Run A15x4-A7x4 model
 
 This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 
-bc.     
+bc.
     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
     RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
     RTSM_MMC=linaro.img
@@ -83,7 +83,7 @@ bc.
     RTSM_INITRD=uInitrd
     RTSM_CMDLINE=" console=tty0 console=ttyAMA0,38400n8 rootwait ro init=/init androidboot.console=ttyAMA0"
 
-bc.    
+bc.
      $RTSM_MODEL \
     -a coretile.cluster0.*=$RTSM_BOOTWRAPPER \
     -a coretile.cluster1.*=$RTSM_BOOTWRAPPER \

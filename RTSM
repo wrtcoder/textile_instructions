@@ -23,7 +23,7 @@ bc.
 	sudo apt-get update@
 	sudo apt-get install linaro-image-tools@
 
-** Method 2: Building from source. 
+** Method 2: Building from source.
 
 bc.     wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
 
@@ -33,9 +33,9 @@ RTSM will only deal with file systems up to 2GB in size, however the pre-built i
 
 We use a "Nano":http://releases.linaro.org/12.09/ubuntu/precise-images RootFS for this example, however, you could use other RootFS types so long as you can install it to a 2GB file. Note, you will also need the @boot.tar.bz2@ file from the Android release.
 
-Using the following command, you will download the nano RootFS, the hardware back and the boot.tar.gz you need from the Android build. 
+Using the following command, you will download the nano RootFS, the hardware back and the boot.tar.gz you need from the Android build.
 
-bc. 
+bc.
     wget \
     http://releases.linaro.org/12.09/ubuntu/precise-images/nano/linaro-precise-nano-20120923-417.tar.gz \
     http://releases.linaro.org/12.09/ubuntu/vexpress/hwpack_linaro-vexpress_20120925-322_armhf_supported.tar.gz \
@@ -43,7 +43,7 @@ bc.
 
 Now you need to create the image using the following commands.
 
-bc.    
+bc.
       sudo linaro-media-create \
       --dev vexpress \
       --rootfs ext4 \
@@ -60,13 +60,13 @@ bc.
       cp boot/uImage .
       cp boot/uInitrd .
       sudo umount boot
-      tar jxvf boot.tar.bz2 
+      tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
 
 This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 
-bc. 
+bc.
     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
     RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
     RTSM_MMC=linaro.img
@@ -75,7 +75,7 @@ bc.
     RTSM_INITRD=uInitrd
     RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
-bc. 
+bc.
     $RTSM_MODEL \
     $RTSM_BOOTWRAPPER \
     -C motherboard.smsc_91c111.enabled=1 \
@@ -87,7 +87,7 @@ h2. Run A15x4-A7x4 model
 
 This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 
-bc.     
+bc.
     RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
     RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
     RTSM_MMC=linaro.img
@@ -96,7 +96,7 @@ bc.
     RTSM_INITRD=uInitrd
     RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
-bc.    
+bc.
     $RTSM_MODEL \
     -a coretile.cluster0.*=$RTSM_BOOTWRAPPER \
     -a coretile.cluster1.*=$RTSM_BOOTWRAPPER \

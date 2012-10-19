@@ -14,7 +14,7 @@
        howto/HOWTO_rtsm -> “RTSM”
 
 
-* If you wish to test your textile file, use this site: http://textile.thresholdstate.com/
+* If you wish to test your textile file, use this site: http://textile.thresholdstate.com/ or http://textile.sitemonks.com/#results
 * For additional syntax help check the source files in this repo or check out wikipedia at http://en.wikipedia.org/wiki/Textile_(markup_language)
 
 * [2012-10-16 Tue]
@@ -23,6 +23,6 @@
 3. [X] Add the RTSM tab
 4. [ ] Add a header (In the area on top of the tabs just like the ve_12.09 page
    - No possible due to current restrictions. For now, we added the header to the body of the Release Notes.
-5. [X] Create the proper Ubuntu instructions for the Ubuntu build 
+5. [X] Create the proper Ubuntu instructions for the Ubuntu build
 6. [X]Push these instructions somewhere (or is this bzr branch is enough) so they can be picked up by the build system
    - Committed the work into Github for now at (https://github.com/situmam/textile_instructions)
