@@ -1,35 +1,42 @@
 h1. Real-Time System Model (RTSM)
 
-h2. Pre-requists
+h2. Prerequisites
 
 * Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
-* Install linaro-image-tools
+* Install "linaro-image-tools":https://wiki.linaro.org/Linaro-Image-Tools
 
 h3. Install Linaro Image Tools
 
-Linaro Image tools contain scripts that allow you to combine a "Hardware Pack":https://wiki.linaro.org/HardwarePacks and the rootFS of your choice to generate an image that you can then boot from.
+Linaro Image tools contain scripts that allow you to combine a multiple components into a single Android image. The components are:
+
+* boot.tar.bz2 - contains the kernel and boot loaders
+* system.tar.bz2 - contains the entire system files and general OS
+* userdata.tar.bz2 - contains sample data and tests
 
 There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
 bc.
-	sudo add-apt-repository ppa:linaro-maintainers/tools@
-	sudo apt-get update@
-	sudo apt-get install linaro-image-tools@
+	sudo add-apt-repository ppa:linaro-maintainers/tools
+	sudo apt-get update
+	sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source. 
 
-bc.
-	wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
+bc.	wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts, as obtained in the Binary tab.
+RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts (displayed above)
+
+The following command downloads all the Android OS components necessary to make up a complete Android image.
 
 bc.
 	wget http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2
 
+Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
+ 
 bc.     
 	sudo linaro-android-media-create \
       --dev vexpress \
@@ -86,8 +93,3 @@ bc.
     -C coretile.dualclustersystemconfigurationblock.CFG_ACTIVECLUSTER=0x3 \
     -C coretile.cluster0.cpu0.semihosting-enable=1 \
     -C coretile.cluster0.cpu0.semihosting-cmd_line="--kernel $RTSM_KERNEL --dtb $RTSM_DTB --initrd $RTSM_INITRD -- $RTSM_CMDLINE"
-
-
-
-
-

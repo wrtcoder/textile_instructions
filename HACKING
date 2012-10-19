@@ -1,16 +1,36 @@
+h1. Building Ubuntu from Source
+
+Ubuntu images are comprised of a Hardware Pack
+("HWPack":https://wiki.linaro.org/HardwarePacks) and a root file
+system (RootFS).  The hardware pack contains the kernel, boot loader
+and Device Tree blobs (if applicable). There is no need to rebuild the
+RootFS since it is comprised of a large number of debian
+packages. Instead, the best approach is to use an image, which you can
+create as outlined in the "Binary Image Installation" tab then replace
+the kernel with your compiled one.  This is common practice that many
+engineers deploy when wanting a standard Linux image to use for
+testing and development purposes.
+
+The following instructions will walk you through how to obtain the kernel
+source, build it, and add it to a pre-existing Ubuntu image.
+
 h1. Building Ubuntu Kernel from Source
 
-When working with Ubuntu, the simplest approach is to use create a disk image by following the instructions on the binary tab, then to build your own kernel and install it to the card.
+h2. Pre-requisites
 
-h2. Kernel Source
+* Ubuntu 12.04 64 bit system. You can download Ubuntu from "ubuntu.com":http://www.ubuntu.com
+* git and toolchain. You can get those by typing the following command in your terminal
 
-h3. Get the source
-First you need to get the kernel source code 
+bc. sudo apt-get install build-essential git gcc-arm-linux-gnueabi
+
+h2. Get the source
+
+You can find this release source "here":http://need_some_parth
 
 ?? what is the official path for the source code ??
+?? We need to offer a tar ball and point them at the git repository ??
 
-
-h3. Create a config
+h3. Create a kernel config
 
 Do not use the defconfig for Versatile Express, instead, build a config from the config fragments that Linaro provides:
 
@@ -20,36 +40,43 @@ bc.
     linaro/configs/ubuntu.conf \
     linaro/configs/vexpress.conf
 
+?? Are the config fragments available in the git repository and the tar ball or they have to get those separately ??
+
 h3. Build the kernel
 
 To build the kernel uImage, use the following command:
 
-bc. 
-    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
+bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
 
-
-
-
-h1. Installing your kernel
+h2. Install your kernel
 
 This section is common for both Android and Ubuntu
 
-* Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
+* Create the Device Tree blob if you don’t have one in your Linaro
+  image (note, the A9 Core Tile boots using an ATAGS kernel so there
+  is no need for a device tree blob):
 
 bc. 
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
     scripts/dtc/dtc -I dts -O dtb -S 8192 arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
-      
 
-* Insert the SD card containing the Linaro disk image
-* Copy the kernel onto the memory card
-@cp arch/arm/boot/uImage /media/boot/@
+
+* Insert the SD card containing the Linaro disk image into your PC SD card reader
+
+* Copy the kernel onto the memory card using
+
+bc.  cp arch/arm/boot/uImage /media/boot/
+
 * Copy the device tree blob
 ** For **A9** CoreTile:  no device tree blob is needed
 ** For **A5** CoreTile:  @cp v2p-ca5s.dtb /media/boot/@
-** For **A15-TC1** CoreTile:  @cp v2p-ca15-tc1.dtb /media/boot/@
-** For **A15-TC2** CoreTile:  @cp v2p-ca15-tc2.dtb /media/boot/@
+** For **A15(TC1)** CoreTile:  @cp v2p-ca15-tc1.dtb /media/boot/@
+** For **A15(TC2)** CoreTile:  @cp v2p-ca15-tc2.dtb /media/boot/@
  
-* Eject the memory card  @eject /media/boot@
-      
+* Eject the memory card from your PC by using the following command
+
+bc. eject /media/boot
+
 * Insert the memory card into the Versatile Express board and power it on
+
+* You should boot your Ubuntu image using your own compiled kernel.

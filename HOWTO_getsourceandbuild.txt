@@ -1,8 +1,8 @@
-h1. Building Android from Source
+h1. Accessing Source Code
 
 h2. Linaro Android JB Source Code
 
-When you run the "linaro_android_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh, it will download the entire source code for both Android JB and the kernel.
+Run the "linaro_android_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh, it will download the entire source code for both Android JB and the kernel.
 
 The pinned and source manifests can be found here:
 
@@ -11,8 +11,7 @@ The pinned and source manifests can be found here:
 
 h2. Kernel Source Code
 
-If you wish to obtain the exact *kernel source code* for this cycle, you can use the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_kernel_build_cmds.sh to download the source and build it.
-
+Obtain the exact *kernel source code* for this cycle by using the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_kernel_build_cmds.sh script to download the source and build it.
 
 h2. Compiling Linaro Android RootFS+Kernel
 
@@ -21,26 +20,26 @@ The following simple steps download, install and compile a complete Linaro Andro
 * Download and install Ubuntu 12.04 64 bit or newer ("download":http://www.ubuntu.com)
 * Install the following packages:
 
-bc.  sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \ 
- gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \ 
- uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev 
+bc.  
+     sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \ 
+     gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \ 
+     uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev 
       
-* Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. You can get other artifacts from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/
+* Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. or from the list of artifacts listed above. 
 
 * Run the script
 
 bc. 
     chmod a+x linaro_android_build_cmds.sh                                          
     ./linaro_android_build_cmds.sh
-      
+    
 h3. Installing Android JB on your board
 
 ?? so far we haven't explained that you need to take the output of the build script and write the tarballs to the disk using l-a-m-c ??
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
-bc. 
-    dmesg | less
+bc.   dmesg | less
 
 Look for a line that looks like the following at the end of the log
 @[288582.790722] sdc: sdc1 sdc2 sdc3 sdc4 <sdc5 sdc6 >@
@@ -51,32 +50,29 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create Media
 
-bc. 
-	sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
+bc.    sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
 
+* Insert the SD card into your Versatile Express board and reboot it.
 
-
-Insert the SD card into your Versatile Express board and reboot it.
-If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found in the UEFI tab on this page.
+If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found on the Linaro wiki "here":https://wiki.linaro.org/ARM/UEFI.
 
 h2. Compiling and installing your Kernel
 
-h3. Pre-requisites
+h3. Prerequisites 
 
 * Download and install Ubuntu 12.04 64 bit or newer (download)
 * Install the following packages by typing:
 
-bc. sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
+bc.   sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
       
 * Create a working subdirectory
-* Download the auto build script for this release from here (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here.
+* Download the auto build script for this release from the list of artifacts above (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here
 * Run the build script
 
 bc. 
     chmod a+x linaro_kernel_build_cmds.sh
     ./linaro_kernel_build_cmds.sh
 
-    
 *Note:* When you run menuconfig, make sure you go to System Type -> Versatile Express platform type and make sure that both options are enabled.
 
 bc. 
@@ -84,7 +80,6 @@ bc.
       [*] Device Tree support for Versatile Express platforms
       
 This will mean that the same kernel will run on A5, A9, A15-TC1, A15-TC2 and various RTSM models.
-
 
 h1. Installing your kernel
 
