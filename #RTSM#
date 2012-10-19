@@ -13,7 +13,7 @@ Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://
 
 The RootFS can be:
 
-* "Nano":http://linktonanorootfs - a very small file system that support command prompt (no X)
+* "Nano":http:// - a very small file system that support command prompt (no X)
 * "Developer":http://linktodveloper - a very small file system like the nano but with basic X support
 * "ALIP":http:linktoALIP (ARM Linux Internet Platform) - A medium sized file system with full "LXDE":http://lxde.org/ light graphical desktop environment
 * "Ubuntu":http://linktoubunturootfs - A full fledged file system based on the Ubuntu 12.04 Desktop environment

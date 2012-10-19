@@ -42,8 +42,7 @@ h2. Building a custom image using pre-built components.
 
 Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro media tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
-
-?? I have to say I am puzzled how building the image from components vs. just mounting the pre-build image and replacing things is any different??
+Using components to generate the image will yield the same functionality found in the pre-built image of the same release.
 
 h3. Prerequisites
 
