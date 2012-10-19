@@ -56,10 +56,7 @@ This section is common for both Android and Ubuntu
   image (note, the A9 Core Tile boots using an ATAGS kernel so there
   is no need for a device tree blob):
 
-bc. 
-    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
-    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
-
+bc.  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
 
 * Insert the SD card containing the Linaro disk image into your PC SD card reader
 
