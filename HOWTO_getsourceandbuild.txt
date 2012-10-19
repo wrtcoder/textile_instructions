@@ -91,10 +91,7 @@ This section is common for both Android and Ubuntu
 
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
-bc. 
-    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca5s.dts -o v2p-ca5s.dtb
-    scripts/dtc/dtc -I dts -O dtb arch/arm/boot/dts/vexpress-v2p-ca15-tc1.dts -o v2p-ca15-tc1.dtb
-      
+bc.   make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
 
 * Insert the SD card containing the Linaro disk image
 * Copy the kernel onto the memory card
