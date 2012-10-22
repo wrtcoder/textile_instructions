@@ -23,7 +23,7 @@ The following simple steps download, install and compile a complete Linaro Andro
 bc.
      sudo apt-get install zip curl flex bison build-essential git-core gnupg gperf zlib1g-dev libx11-dev x11proto-core-dev \
      gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \
-     uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev
+     uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev xsltproc
 
 * Download the Android building script for this release from "here":http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/linaro_android_build_cmds.sh. or from the list of artifacts listed above.
 

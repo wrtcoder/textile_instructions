@@ -1,40 +1,84 @@
 h1. Linaro Versatile Express 12.10 Release Linaro releases monthly
 
-p. Linaro releases monthly binary images for the ARM "Versatile
-Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php
-including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE)
-CoreTiles.
+p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE) CoreTiles.
 
-p. This release includes Linaro Android Jelly Bean for Versatile
-Express and Real-Time System Model
-("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php)
-images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using
-UEFI. Sources are also made available so you can build your own
-images.
+p. This release includes Linaro Android Jelly Bean for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php)
+images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
 
 p. For support matters related to these images, please contact ARM support at support@arm.com
 
 h1. Release Notes
 
-h2. General Features
+h2. About the TC2 Evaluation Build
 
-This release adds support for saving the self-hosted debugger setup
-when a CPU goes through a low power state, where hardware breakpoints
-are not preserved, and restoring the setup when the CPU is brought
+The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
+
+The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group git repo . The integration branch present in 12.10 is big-LITTLE-MP-v9 which includes:
+
+* Scheduler modifications to support big.LITTLE
+** per-task-load-average-v3: Paul Turner’s patches enabling the calculation of load on a per-task basis.
+** task-placement-v2: Morten Rasmussen’s patches using the per-task load to schedule threads on the big or LITTLE cores as appropriate. New: Refactoring and new generalisation features are featured in this update to the patchset with the aim of facilitating review of the key features by the scheduler community.
+
+* Hot-plug improvements. The aim of this sequence of improvements is to speed-up and make consistent the time taken to hot-plug cores.
+** per-cpu-thread-hotplug-v3-fixed
+** cpu-hotplug-get_online_cpus-v1
+** rcu-hotplug-v1
+
+* Cluster and asymmetric system support
+** arm-asymmetric-support-v3-v3.6-rc1 - uses arch_scale_freq_power function to reflect the relative capacity of each core
+** arm-multi_pmu_v1 - NEW: enables the use of multiple PMU types or sources, for example profiling across both Cortex-A15 and Cortex-A7 clusters.
+** scheduler-misc-v1 - miscellaneous scheduler patches complementing the MP work
+
+* Platform Support. In addition to the big.LITTLE MP work the TC2 platform support includes
+** CPUidle & CPUfreq support
+** Misc fixes in this release
+*** safely handle missing CPU frequencies
+*** MMC Multi-Block fix
+*** amba-clcd Device Treee mods
+*** HDLCD fixes
+
+
+This release adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
 back onlne.
 
-Additionally, support for CPU PMUs present in big.LITTLE systems has
-been integrated into the kernel, with the framework now also
-supporting system PMUs. CCI-400 PMUs are the first example
+Additionally, support for CPU PMUs present in big.LITTLE systems has been integrated into the kernel, with the framework now also supporting system PMUs. CCI-400 PMUs are the first example
 implementation that is using the framework.
 
-SCHED_HMP patches for scheduler have now been updated to take into
-account multiple domains when making decisions on task
-migration, with ftrace events added for tracking these
-migrations.  * Feature one * Feature two * Feature three
-
-h2. About the TC2 Evaluation Build
+SCHED_HMP patches for scheduler have now been updated to take into account multiple domains when making decisions on task migration, with ftrace events added for tracking these
+migrations.
 
 h2. Fixed in this release
 
+Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net/linaro-android
+
+* #1047283 Boot crash in DHCP handler thread
+* #978060 system_server crashes when using Browser
+* #1037565 evdev mutex inconsistent lock state
+* #1040119 CLCD driver doesn’t support 64-bit addresses in device-tree
+* #1042653 sdcard partition not mounted on device-tree kernels
+* #1042592 “Native” test suite in “0xBenchmark” hangs vexpress A9 board on Jelly bean platform
+
 h2. Known Issues
+
+* #893127 vexpress-a9: No sound in Android
+* #906344 vexpress-a9: ICS: Suspend-Resume doesn’t work
+* #908082 vexpress-a9: Video playback fails in Gallery app
+* #973466 Can’t build Thumb–2 kernels
+* #987155 vexpress: Angrybirds display severely trucated
+* #890601 Missing GL ES 2.0 drivers, unable to run GLMark2 benchmark
+* #906363 vexpress-a9: ICS: No thumbnails in gallery application
+* #966411 vexpress-a9: ubuntu: Network manager doesn’t manage ethernet connection
+* #968972 Mali Streamline patches fail to build without CONFIG_TRACEPOINTS
+* #872819 Unable to play Angrybirds game on ICS, App opens but does not show proper game menu.
+* #893175 vexpress-a9: ADB over USB doesn’t work
+* #893185 vexpress-a9: USB mass storage doesn’t work
+* #900714 Camera App does not work on ICS
+* #987172 vexpress: YouTube video playback fails
+* #987187 vexpress: 0xbench hangs running native tests
+* #1009326 “e2eaudio” test failed on Origen, Snowball & vexpress ubuntu image.
+* #1028319 vexpress a5 crash on boot when booting with UEFI
+* #1037611 logcat showswarnings for “add_tid_to_cgroup failed”
+* #1041153 lockdep error on Android reboot
+* #1042755 powertop doesn’t show correct frequency stats
+* #1043302 Stream data failed in DS–5, caused by gator driver version error.
+* #1051993 RCU stall on TC2
