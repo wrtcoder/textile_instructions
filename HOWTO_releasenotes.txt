@@ -38,14 +38,29 @@ The release integrates big.LITTLE development work which can be traced in the bi
 *** HDLCD fixes
 
 
-This release adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
+p. This release adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
 back onlne.
 
-Additionally, support for CPU PMUs present in big.LITTLE systems has been integrated into the kernel, with the framework now also supporting system PMUs. CCI-400 PMUs are the first example
+p. Additionally, support for CPU PMUs present in big.LITTLE systems has been integrated into the kernel, with the framework now also supporting system PMUs. CCI-400 PMUs are the first example
 implementation that is using the framework.
 
-SCHED_HMP patches for scheduler have now been updated to take into account multiple domains when making decisions on task migration, with ftrace events added for tracking these
+p. SCHED_HMP patches for scheduler have now been updated to take into account multiple domains when making decisions on task migration, with ftrace events added for tracking these
 migrations.
+
+h2. Where To Find More Information
+
+More information on Linaro can be found on our "website":http://www.linaro.org/.
+
+h2. Feedback and Support
+
+Subscribe to the important Linaro mailing lists and join our IRC channels to stay on top of Linaro developments.
+
+* Linaro Android Development mailing list: http://lists.linaro.org/mailman/listinfo/linaro-dev
+* Linaro Android IRC channel on irc.freenode.net at @#linaro-android@
+
+* Bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro Android project":http://bugs.launchpad.net/linaro/+filebug.
+* Questions? "ask Linaro":http://ask.linaro.org/.
+* Interested in commercial support? inquire at "Linaro support":mailto:support@linaro.org
 
 h2. Fixed in this release
 
