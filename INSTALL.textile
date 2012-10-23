@@ -2,7 +2,7 @@ h1. Binary Image Installation
 
 Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
 
-The root file systems are described "here":http://releases.linaro.org/12.09/ubuntu/precise-images where you can also download them.
+The root file systems are described "here":http://releases.linaro.org/12.10/ubuntu/precise-images where you can also download them.
 
 Linaro provides two methods for installing Linaro binary builds:
 
@@ -29,9 +29,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX   (sdcard found from dmesg above)
-sudo dd bs=64k if=vexpress.img.bz2 of=$SDCARD
-
-?? need to fix the "if=" command line argument ??
+sudo dd bs=64k if=vexpress-precise_ubuntu-desktop_20121021-377.img of=$SDCARD
 
 ** Insert the SD card into the board
 ** Reboot the board
@@ -52,9 +50,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget \
-http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz \
-http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
+bc. wget http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
 * Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools.  There are multiple ways you can get the latest Linaro Image Tools:
 

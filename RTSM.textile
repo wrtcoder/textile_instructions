@@ -1,4 +1,4 @@
-h1. Real-Time System Model (RTSM)
+gh1. Real-Time System Model (RTSM)
 
 h2. Prerequisites
 
@@ -41,7 +41,7 @@ bc. wget \
 
 Now you need to create the image using the following commands.
 
-bc. sudo linaro-media-create \
+bc. linaro-media-create \
 --dev vexpress \
 --rootfs ext4 \
 --image-file linaro.img \

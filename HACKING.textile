@@ -21,7 +21,6 @@ You can use GIT to obtain the source code:
 
 bc. git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
 cd linux-linaro-tracking
-git fetch ll-20121018.0
 git checkout ll-20121018.0
 
 h3. Create a kernel config
