@@ -2,8 +2,7 @@ h1. Linaro Versatile Express 12.10 Release Linaro releases monthly
 
 p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE) CoreTiles.
 
-p. This release includes Linaro Android Jelly Bean for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php)
-images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
+p. This release includes Linaro Android Jelly Bean for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php) images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
 
 p. For support matters related to these images, please contact ARM support at "support@arm.com":mailto:support@arm.com
 
@@ -42,7 +41,7 @@ energy measurements to be read through standard sysfs interfaces
 *** amba-clcd Device Treee mods
 *** HDLCD fixes
 
-p. This release adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
+p. This release also adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
 back onlne.
 
 p. Additionally, support for CPU PMUs present in big.LITTLE systems has been integrated into the kernel, with the framework now also supporting system PMUs. CCI-400 PMUs are the first example
@@ -57,10 +56,11 @@ More information on Linaro can be found on our "website":http://www.linaro.org/.
 
 h2. Feedback and Support
 
-Subscribe to the important Linaro mailing lists and join our IRC channels to stay on top of Linaro developments.
+Subscribe to the important Linaro mailing lists and join our IRC channels to stay on top of Linaro development.
 
-* Linaro Android Development mailing list: http://lists.linaro.org/mailman/listinfo/linaro-dev
-* Linaro Android IRC channel on irc.freenode.net at @#linaro-android@
+** Linaro Android Development "mailing list":http://lists.linaro.org/mailman/listinfo/linaro-dev
+** Linaro Android IRC channel on irc.freenode.net at @#linaro-android@
+** Linaro IRC channel on irc.freenode.net at @#linaro@
 
 * Bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro Android project":http://bugs.launchpad.net/linaro/+filebug.
 * Questions? "ask Linaro":http://ask.linaro.org/.
@@ -68,10 +68,9 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Fixed in this release
 
-Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net/linaro-android
+Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net
 
 * #1051993 RCU stall on TC2
-* #1028319 UEFI: vexpress a5 crashes on boot
 * #1029844 UEFI: A5/A9/A15 aren't supported in latest code
 * #1029854 UEFI: TC2 port only boots with 1 CPU
 * #1036228 UEFI: A9 does not pass command line to kernel when booted  with device tree
@@ -80,6 +79,7 @@ Details of each item can be found by searching for the issue number (without the
 
 h2. Known Issues
 
+* #1028319 UEFI: vexpress a5 crashes on boot
 * #1068595 Enabling function tracer hangs the system on TC2
 * #1067784 UEFI: A9 crashes on boot with Device Tree
 * #1067780 UEFI: TC1 is unstable when booted via UEFI
@@ -118,4 +118,4 @@ h2. Known Issues
 * #893127 vexpress-a9: No sound in Android
 * #890601 Missing GL ES 2.0 drivers, unable to run GLMark2 benchmark
 * #873283 Snowball: Taking device screenshot using ddms tool fails
-* #872819 Unable to play Angrybirds game on ICS, App opens but does not show proper game menu.
+* #872819 Unable to play Angrybirds game on ICS, App opens but does not show proper game menu
