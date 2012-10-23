@@ -37,7 +37,6 @@ The release integrates big.LITTLE development work which can be traced in the bi
 *** amba-clcd Device Treee mods
 *** HDLCD fixes
 
-
 p. This release adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
 back onlne.
 
