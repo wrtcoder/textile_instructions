@@ -16,7 +16,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts
+* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts or just click "here":http://releases.linaro.org/12.10/android/vexpress/vexpress.img.bz2
 
 h3. Installation Steps
 
@@ -25,7 +25,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX   (sdcard found from dmesg above)
-sudo dd bs=64k if=vexpress-jb-gcc47-armlt-tracking-open.img of=$SDCARD
+sudo dd bs=64k if=vexpress.img of=$SDCARD
 
 * Insert the SD card into the board
 * Reboot the board

@@ -6,7 +6,7 @@ It is advised that you update your Versatile Express board firmware to the lates
 * Connect and mount your Versatile Express motherboard USB mass storage device to your PC
 * Download the latest ARM firmware from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1307626
 ** Unzip the firmware zip to the root of the motherboard mounted drive
-** Please contact support@arm.com for any issues related this firmware update
+** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
 
 * Download additional Linaro firmware from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20120920-001.zip
 ** Unzip the firmware zip to the root of the motherboard mounted drive

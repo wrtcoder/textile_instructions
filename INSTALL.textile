@@ -20,27 +20,26 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress*.img.bz2), which you can downloaded from the above list of artifacts
+* This release pre-built image (vexpress-precise_ubuntu_desktop*.img.bz2), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/12.10/ubuntu/vexpress/vexpress-precise_ubuntu-desktop_20121021-377.img.gz
 
 h3. Installation Steps
 
 * Unzip the downloaded pre-built image
 * Insert SD card into your PC and note the assigned @'/dev/sdX'@
 
-bc.
-     dmesg
-     SDCARD=/dev/sdX   (sdcard found from dmesg above)
-     sudo dd bs=64k if=vexpress-precise_ubuntu-desktop_20120925-322.img of=$SDCARD
+bc. dmesg
+SDCARD=/dev/sdX   (sdcard found from dmesg above)
+sudo dd bs=64k if=vexpress.img.bz2 of=$SDCARD
 
-* Boot the board
+?? need to fix the "if=" command line argument ??
+
 ** Insert the SD card into the board
 ** Reboot the board
-*** “Cmd>" prompt from the Boot Loader
-*** Press the red reboot button
+*** When prompsed with “Cmd>" prompt, press the red reboot button
 
 *Note:* Windows users may use the "Image Writer for Windows":https://launchpad.net/win32-image-writer/+download
 
-<hr />
+<hr>
 
 h2. Building a custom image using pre-built components.
 
@@ -53,48 +52,46 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc.
-	wget http://releases.linaro.org/12.10/android/images/vexpress-jb-gcc47-armlt-tracking-open/boot.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/system.tar.bz2 http://releases.linaro.org/12.09/android/images/vexpress-jb-gcc47-armlt-tracking-open/userdata.tar.bz2@
+bc. wget \
+http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz \
+http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
 * Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools.  There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
-bc.
-	sudo add-apt-repository ppa:linaro-maintainers/tools
-	sudo apt-get update
-	sudo apt-get install linaro-image-tools
+bc. sudo add-apt-repository ppa:linaro-maintainers/tools
+sudo apt-get update
+sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source.
 
-bc.     wget http://releases.linaro.org/12.09/components/platform/linaro-image-tools/linaro-image-tools-2012.10.1.tar.gz
+bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
-bc.
-    dmesg | less
+bc. dmesg | less
 
 Look for a line that looks like the following at the end of the log
+
 @[288582.790722] sdc: sdc1 sdc2 sdc3 sdc4 <sdc5 sdc6 >@
+
 Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
+
 @[10770.938042]  mmcblk0: p1 p2 p3 p4 < p5 p6 >@
 
 *WARNING:* In the next step, make sure you use /dev/"whatever you see above". You can erase your hard drive with the wrong parameter.
 
 * Create Media
 
-bc.
-    sudo linaro-media-create \
-      --dev vexpress \
-      --rootfs ext4 \
-      --mmc /dev/sdX \
-      --nocheck-mmc \
-      --hwpack-force-yes \
-      --binary linaro-precise-ubuntu-desktop-*.tar.gz \
-      --hwpack hwpack_linaro-vexpress_*_armhf_supported.tar.gz
+bc. sudo linaro-media-create \
+--dev vexpress \
+--rootfs ext4 \
+--mmc /dev/sdX \
+--nocheck-mmc \
+--hwpack-force-yes \
+--binary linaro-precise-ubuntu-desktop-*.tar.gz \
+--hwpack hwpack_linaro-vexpress_*_armhf_supported.tar.gz
 
-* Boot the board
 ** Insert the SD card into the board
-** Reboot the board
-*** “Cmd>" prompt from the Boot Loader
-*** Press the red reboot button
+** Reboot the board. When presented with “Cmd>" prompt, press the red button
