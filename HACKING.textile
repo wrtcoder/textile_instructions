@@ -17,11 +17,7 @@ bc. sudo apt-get install build-essential git gcc-arm-linux-gnueabi
 
 h2. Get the source
 
-You can find this release source "here":http://need_some_path
-
-?? what is the official path for the source code ??
-
-Alternatively, you can use GIT to obtain the source code:
+You can use GIT to obtain the source code:
 
 bc.
     git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
