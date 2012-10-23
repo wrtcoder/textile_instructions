@@ -70,9 +70,9 @@ This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
 RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
-RTSM_KERNEL=uImage
+RTSM_KERNEL=boot/uImage
 RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4-ca7x4.dtb
-RTSM_INITRD=uInitrd
+RTSM_INITRD=boot/uInitrd
 RTSM_CMDLINE=" console=tty0 console=ttyAMA0,38400n8 rootwait ro init=/init androidboot.console=ttyAMA0"
 
 bc. $RTSM_MODEL \
