@@ -26,9 +26,8 @@ Alternatively, you can use GIT to obtain the source code:
 bc.
     git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
     cd linux-linaro-tracking
-    git checkout <release tag or commit ID>
-
-?? how do we know what the release tag or commit ID was ??
+	git fetch ll-20121018.0
+    git checkout ll-20121018.0
 
 h3. Create a kernel config
 
