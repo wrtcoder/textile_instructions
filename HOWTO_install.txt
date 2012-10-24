@@ -76,7 +76,7 @@ Or, if your machine uses @'/dev/mmcblkX'@, you may see a line line this:
 
 * Create Media
 
-bc. sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
+bc. linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
 
 * Insert the SD card into the board
 * Reboot the board
