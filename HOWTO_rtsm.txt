@@ -35,7 +35,7 @@ bc. wget http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2 http://r
 
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
 
-bc. sudo linaro-android-media-create \
+bc. linaro-android-media-create \
 --dev vexpress \
 --image-file linaro.img \
 --image-size 2000M \

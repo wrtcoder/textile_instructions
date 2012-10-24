@@ -4,7 +4,7 @@ p. Linaro releases monthly binary images for the ARM "Versatile Express":http://
 
 p. This release includes Linaro Android Jelly Bean for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php) images.  The image is able to boot A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
 
-p. For support matters related to these images, please contact ARM support at "support@arm.com":mailto:support@arm.com
+p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact ARM support at "support@arm.com":mailto:support@arm.com
 
 h1. Release Notes
 
