@@ -1,9 +1,7 @@
-gh1. Real-Time System Model (RTSM)
-
 h2. Prerequisites
 
 * Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
-* Install "linaro-image-tools":https://wiki.linaro.org/Linaro-Image-Tools
+* Install "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
 * Install kpartx which you can get by issuing the following command in your terminal
 
 bc. sudo apt-get install kpartx
@@ -22,7 +20,7 @@ bc. sudo add-apt-repository ppa:linaro-maintainers/tools
 sudo apt-get update
 sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source.
+** Method 2: Building from source
 
 bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
 
@@ -34,21 +32,13 @@ We use a "Nano":http://releases.linaro.org/12.10/ubuntu/precise-images RootFS fo
 
 Using the following command, you will download the nano RootFS, the hardware back and the boot.tar.gz you need from the Android build.
 
-bc. wget \
-    http://releases.linaro.org/12.10/ubuntu/precise-images/nano/linaro-precise-nano-20121021-473.tar.gz \
-    http://releases.linaro.org/12.10/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz \
-    http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2
+bc. wget http://releases.linaro.org/12.10/ubuntu/precise-images/nano/linaro-precise-nano-20121021-473.tar.gz
+wget http://releases.linaro.org/12.10/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz
+wget http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create \
---dev vexpress \
---rootfs ext4 \
---image-file linaro.img \
---image-size 2000M \
---hwpack-force-yes \
---binary linaro-precise-nano-20121021-473.tar.gz \
---hwpack hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz --binary linaro-precise-nano-20121021-473.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot

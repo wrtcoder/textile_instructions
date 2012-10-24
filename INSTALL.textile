@@ -1,5 +1,3 @@
-h1. Binary Image Installation
-
 Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
 
 The root file systems are described "here":http://releases.linaro.org/12.10/ubuntu/precise-images where you can also download them.
@@ -11,7 +9,7 @@ Linaro provides two methods for installing Linaro binary builds:
 
 h2. Pre-Installation Steps
 
-Before any installation begins, it is important that you ensure you Versatile Express board has the latest firmware and boot loader installed. Please check the "Firmware Update" on this page for the latest updates and installation instructions.
+Before any installation begins, it is important that you ensure you Versatile Express board has the latest firmware and boot loader installed. Please check the "Firmware Update" tab on this page for the latest updates and installation instructions.
 
 h2. Using pre-built image
 
@@ -20,7 +18,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress-precise_ubuntu_desktop*.img.bz2), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/12.10/ubuntu/vexpress/vexpress-precise_ubuntu-desktop_20121021-377.img.gz
+* This release pre-built image (vexpress-precise_ubuntu-desktop_20121021-377.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/12.10/ubuntu/vexpress/vexpress-precise_ubuntu-desktop_20121021-377.img.gz
 
 h3. Installation Steps
 
@@ -28,20 +26,20 @@ h3. Installation Steps
 * Insert SD card into your PC and note the assigned @'/dev/sdX'@
 
 bc. dmesg
-SDCARD=/dev/sdX   (sdcard found from dmesg above)
+SDCARD=/dev/sdX # sdcard found from dmesg above
 zcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
 
 ** Insert the SD card into the board
 ** Reboot the board
-*** When prompted with the “Cmd>" prompt, press the red reboot button
+*** When prompsed with “Cmd>" prompt, press the red reboot button
 
-*Note:* Windows users may use the "Image Writer for Windows":https://launchpad.net/win32-image-writer/+download
+*Note:* Windows users may use the "Image Writer for Windows.":https://launchpad.net/win32-image-writer/+download
 
 <hr>
 
-h2. Building a custom image using pre-built components.
+h2. Building a custom image using pre-built components
 
-Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or use a different "root file system":http://releases.linaro.org/12.10/ubuntu/precise-images other than Ubuntu. Whatever the reason, you will want to use the "Linaro media tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
+Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
 Using components to generate the image will yield the same functionality found in the pre-built image of the same release.
 
@@ -50,11 +48,13 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
+* Download artifacts from above or use the following command in your terminal
 
 *Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/12.10/ubuntu/precise-images
+bc. wget http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz
+wget http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
-* Get "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools.  There are multiple ways you can get the latest Linaro Image Tools:
+* Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
@@ -62,7 +62,7 @@ bc. sudo add-apt-repository ppa:linaro-maintainers/tools
 sudo apt-get update
 sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source.
+** Method 2: Building from source
 
 bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
 
@@ -78,18 +78,11 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 @[10770.938042]  mmcblk0: p1 p2 p3 p4 < p5 p6 >@
 
-*WARNING:* In the next step, make sure you use /dev/"whatever you see above". *You can erase your hard* drive with the wrong parameter.
+*WARNING:* In the next step, make sure you use /dev/"whatever you see above". *You can erase your hard drive* with the wrong parameter.
 
-* Create Media
+* Create media
 
-bc. linaro-media-create \
---dev vexpress \
---rootfs ext4 \
---mmc /dev/sdX \
---nocheck-mmc \
---hwpack-force-yes \
---binary linaro-precise-ubuntu-desktop-*.tar.gz \
---hwpack hwpack_linaro-vexpress_*_armhf_supported.tar.gz
+bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz --binary linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
 ** Insert the SD card into the board
-** Reboot the board. When presented with the “Cmd>" prompt, press the red button
+** Reboot the board. When presented with “Cmd>" prompt, press the red button
