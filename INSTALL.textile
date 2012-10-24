@@ -52,7 +52,7 @@ h3. Prerequisites
 bc. wget http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz
 wget http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
-Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
+* Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
