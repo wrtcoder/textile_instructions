@@ -1,3 +1,5 @@
+This release was boot tested on RTSM A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other RTSM models.
+
 h2. Prerequisites
 
 * Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
@@ -26,11 +28,11 @@ bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Ubuntu requires a 4GB filesystem.  Therefore we will build our own image using the pre-built artifacts, as obtained in the Binary Image Installation tab on this page.
+RTSM will only deal with file systems up to 2GB in size, however the released pre-built image for Ubuntu Desktop requires a 4GB filesystem.  Therefore we will build our own Nano image using the pre-built artifacts as listed below.
 
-We use a "Nano":http://releases.linaro.org/12.10/ubuntu/precise-images RootFS for this example, however, you could use other RootFS types so long as you can install it to a 2GB file. Note, you will also need the @boot.tar.bz2@ file from the Android release.
+We use a "Nano":http://releases.linaro.org/12.10/ubuntu/precise-images RootFS for this example, however, you could use other RootFS types such as ALIP or Developer so long as you can install it to a 2GB file (Ubuntu Desktop doesn't fit the 2GB limit). Note, you will also need the @boot.tar.bz2@ file from the Android release.
 
-Using the following command, you will download the nano RootFS, the hardware back and the boot.tar.gz you need from the Android build.
+Using the following command, you will download the nano RootFS, the hardware pack and the boot.tar.gz you need from the Android build.
 
 bc. wget http://releases.linaro.org/12.10/ubuntu/precise-images/nano/linaro-precise-nano-20121021-473.tar.gz
 wget http://releases.linaro.org/12.10/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz

@@ -28,8 +28,7 @@ Cluster and asymmetric system support
 
 Platform Support. In addition to the big.LITTLE MP work the TC2 platform support includes
 ** CPUidle & CPUfreq support
-** hwmon driver allowing, amongst other things, TC2's power, current and
-energy measurements to be read through standard sysfs interfaces
+** hwmon driver allowing, amongst other things, TC2's power, current andenergy measurements to be read through standard sysfs interfaces
 ** Common clocks implementation
 ** Regulator driver
 ** Drivers for previously hard-coded configuration interfaces

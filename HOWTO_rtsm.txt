@@ -1,3 +1,5 @@
+This release was boot tested on RTSM A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other RTSM models.
+
 h2. Prerequisites
 
 * Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
@@ -25,7 +27,7 @@ bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem. Therefore, we will build our own image using the pre-built artifacts (displayed above)
+RTSM will only deal with file systems up to 2GB in size, however the Linaro pre-built image for Android requires a 4GB filesystem. Therefore, we will build our own image using the pre-built artifacts (displayed above)
 
 The following command downloads all the Android OS components necessary to make up a complete Android image.
 

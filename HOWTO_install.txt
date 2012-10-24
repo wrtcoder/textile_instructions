@@ -23,9 +23,9 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
-sudo dd bs=64k if=vexpress.img of=$SDCARD
+zcat vexpress.img.bz2 | sudo dd bs=64k of=$SDCARD
 
-* Insert the SD card into the board
+* After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
 * Reboot the board
 ** Wait until you are presented with the “Cmd>" prompt before pressing the red button
 
@@ -78,6 +78,6 @@ Or, if your machine uses @'/dev/mmcblkX'@, you may see a line line this:
 
 bc. linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
 
-* Insert the SD card into the board
+* After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
 * Reboot the board
 ** Wait until you are presented with the “Cmd>" prompt before pressing the red button

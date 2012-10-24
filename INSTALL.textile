@@ -15,7 +15,7 @@ h2. Using pre-built image
 
 h3. Prerequisites
 
-* Ubuntu 12.04 64 bit or newer on your desktop PC (www.ubuntu.com)
+* Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
 * This release pre-built image (vexpress-precise_ubuntu-desktop_20121021-377.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/12.10/ubuntu/vexpress/vexpress-precise_ubuntu-desktop_20121021-377.img.gz
@@ -29,7 +29,7 @@ bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
 zcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
 
-** Insert the SD card into the board
+** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
 ** Reboot the board
 *** When prompsed with “Cmd>" prompt, press the red reboot button
 
@@ -48,13 +48,11 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-* Download artifacts from above or use the following command in your terminal
-
 *Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/12.10/ubuntu/precise-images
 bc. wget http://releases.linaro.org/12.10/ubuntu/vexpress/hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz
 wget http://releases.linaro.org/12.10/ubuntu/vexpress/linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
-* Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
+Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
@@ -62,9 +60,9 @@ bc. sudo add-apt-repository ppa:linaro-maintainers/tools
 sudo apt-get update
 sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source
+** Method 2: Building from source </LI>
 
-bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
+bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz@
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
@@ -84,5 +82,5 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz --binary linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
-** Insert the SD card into the board
+** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
 ** Reboot the board. When presented with “Cmd>" prompt, press the red button

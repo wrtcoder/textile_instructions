@@ -6,7 +6,7 @@ Run the "linaro_android_build_cmds.sh":http://releases.linaro.org/12.10/android/
 
 The pinned and source manifests can be found here:
 
-* "Pinned Manifest":http://releases.linaro.org/12.10/android/vexpress/pinned-manifest.xml
+* "Pinned Manifest":http://releases.linaro.org/12.10/android/vexpress/pinned-manifest.xml ("?":https://wiki.linaro.org/Platform/Android/ReproduceABuildExactly)
 * "Source Manifest":http://releases.linaro.org/12.10/android/vexpress/source-manifest.xml
 
 h2. Kernel Source Code
@@ -54,7 +54,7 @@ sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.b
 
 * Insert the SD card into your Versatile Express board and reboot it
 
-p. If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI” found on the Linaro wiki "here":https://wiki.linaro.org/ARM/UEFI.
+p. If UEFI is already configured to boot a Linaro Android image, it will boot from the SD card. If not, follow the instructions in the section: “Configure UEFI”:https://wiki.linaro.org/ARM/UEFI#Configure_UEFI found on the Linaro wiki.
 
 h2. Compiling and installing your Kernel
 
