@@ -113,17 +113,6 @@ h3. Android Bugs:
 * "LP: #908082":https://launchpad.net/bugs/908082 vexpress-a9: Video playback fails in Gallery app
 * "LP: #873283":https://launchpad.net/bugs/873283 Snowball: Taking device screenshot using ddms tool fails
 
-h3. Ubuntu Bugs:
-* "LP: #1018654":https://launchpad.net/bugs/1018654 YouTube can't be played smoothly on vexpress Linaro ubuntu image.
-* "LP: #1017479":https://launchpad.net/bugs/1017479 Many SD card errors in vexpress Linaro ubuntu image.
-* "LP: #1009845":https://launchpad.net/bugs/1009845 lava-test run pwrmgmt failed on vexpress board with Linaro ubuntu image.
-* "LP: #1009326":https://launchpad.net/bugs/1009326 e2eaudio test failed on Origen, Snowball & vexpress ubuntu image.
-* "LP: #966411":https://launchpad.net/bugs/966411 vexpress-a9: ubuntu: Network manager doesn't manage ethernet connection
-* "LP: #966406":https://launchpad.net/bugs/966406 vexpress-a9: ubuntu: Booting without an ethernet connection hangs
-* "LP: #966377":https://launchpad.net/bugs/966377 vexpress-a9: ubuntu: Suspend-Resume doesn't work
-* "LP: #966373":https://launchpad.net/bugs/966373 vexpress-a9: ubuntu: Reboot and shutdown don't work
-* "LP: #1006737":https://launchpad.net/bugs/1006737 vexpress: lots of mmc errors on boot
-
 h3. Generic Landing Team Bugs:
 * "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer hangs the system on TC2
 * "LP: #1065633":https://launchpad.net/bugs/1065633 Can't access CCI on RTSM
