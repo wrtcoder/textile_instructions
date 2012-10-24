@@ -78,6 +78,7 @@ UEFI bugs:
 h2. Known Issues
 
 h3. UEFI Bugs:
+
 * "LP: #1028319":https://launchpad.net/bugs/1028319 UEFI: vexpress a5 crashes on boot
 * "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
 * "LP: #1067780":https://launchpad.net/bugs/1067780 UEFI: TC1 is unstable when booted via UEFI
@@ -90,6 +91,7 @@ h3. UEFI Bugs:
 * "LP: #941995":https://launchpad.net/bugs/941995 UEFI: Don't require UUID for MMC cards
 
 h3. Ubuntu Bugs:
+
 * "LP: #1018654":https://launchpad.net/bugs/1018654 YouTube can't be played smoothly on vexpress Linaro ubuntu image.
 * "LP: #1017479":https://launchpad.net/bugs/1017479 Many SD card errors in vexpress Linaro ubuntu image.
 * "LP: #1009845":https://launchpad.net/bugs/1009845 lava-test run pwrmgmt failed on vexpress board with Linaro ubuntu image.
@@ -101,6 +103,7 @@ h3. Ubuntu Bugs:
 * "LP: #1006737":https://launchpad.net/bugs/1006737 vexpress: lots of mmc errors on boot
 
 h3. Generic Landing Team Bugs:
+
 * "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer hangs the system on TC2
 * "LP: #1065633":https://launchpad.net/bugs/1065633 Can't access CCI on RTSM
 * "LP: #893185":https://launchpad.net/bugs/893185 vexpress-a9: USB mass storage doesn't work

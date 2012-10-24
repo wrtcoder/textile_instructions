@@ -72,6 +72,7 @@ Android bugs:
 * "LP: #1051993":https://launchpad.net/bugs/1051993 RCU stall on TC2
 
 UEFI bugs:
+
 * "LP: #1029844":https://launchpad.net/bugs/1029844 UEFI: A5/A9/A15 aren't supported in latest code
 * "LP: #1029854":https://launchpad.net/bugs/1029854 UEFI: TC2 port only boots with 1 CPU
 * "LP: #1036228":https://launchpad.net/bugs/1036228 UEFI: A9 does not pass command line to kernel when booted  with device tree
@@ -81,6 +82,7 @@ UEFI bugs:
 h2. Known Issues
 
 h3. UEFI Bugs:
+
 * "LP: #1028319":https://launchpad.net/bugs/1028319 UEFI: vexpress a5 crashes on boot
 * "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
 * "LP: #1067780":https://launchpad.net/bugs/1067780 UEFI: TC1 is unstable when booted via UEFI
@@ -93,6 +95,7 @@ h3. UEFI Bugs:
 * "LP: #941995":https://launchpad.net/bugs/941995 UEFI: Don't require UUID for MMC cards
 
 h3. Android Bugs:
+
 * "LP: #1067376":https://launchpad.net/bugs/1067376 Android doesn't boot on RTSM A15x1-A7x1
 * "LP: #1067373":https://launchpad.net/bugs/1067373 Keyboard and mouse input doesn't work on RTSM Android
 * "LP: #906363":https://launchpad.net/bugs/906363 vexpress-a9: ICS: No thumbnails in gallery application
@@ -113,6 +116,7 @@ h3. Android Bugs:
 * "LP: #873283":https://launchpad.net/bugs/873283 Snowball: Taking device screenshot using ddms tool fails
 
 h3. Generic Landing Team Bugs:
+
 * "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer hangs the system on TC2
 * "LP: #1065633":https://launchpad.net/bugs/1065633 Can't access CCI on RTSM
 * "LP: #893185":https://launchpad.net/bugs/893185 vexpress-a9: USB mass storage doesn't work
