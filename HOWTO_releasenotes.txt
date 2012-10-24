@@ -1,8 +1,8 @@
-p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE) CoreTiles.
+p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for A9, A5, A15 (TC1), TC2 (big.LITTLE) CoreTiles and RTSM.
 
 p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
 
-p. This release includes Linaro Android Jelly Bean and Ubuntu Precise Pangolin for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php).  The images are able to boot A5 (using U-boot), A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
+p. This release includes Linaro Android Jelly Bean and Ubuntu Precise Pangolin for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS), TC1 and TC2 using UEFI. Sources are also made available so you can build your own images.
 
 h2. About the TC2 Evaluation Build
 
@@ -42,7 +42,7 @@ energy measurements to be read through standard sysfs interfaces
 *** HDLCD fixes
 
 p. This release also adds support for saving the self-hosted debugger setup when a CPU goes through a low power state, where hardware breakpoints are not preserved, and restoring the setup when the CPU is brought
-back onlne.
+back online.
 
 p. Additionally, support for CPU PMUs present in big.LITTLE systems has been integrated into the kernel, with the framework now also supporting system PMUs. CCI-400 PMUs are the first example
 implementation that is using the framework.
@@ -52,7 +52,7 @@ migrations.
 
 h2. Where To Find More Information
 
-More information on Linaro can be found on our "website":http://www.linaro.org/.
+More information on Linaro can be found on our "website.":http://www.linaro.org/
 
 h2. Feedback and Support
 
