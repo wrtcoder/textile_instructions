@@ -36,13 +36,6 @@ wget http://releases.linaro.org/12.10/android/vexpress/userdata.tar.bz2
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
 
 bc. linaro-android-media-create --image-file linaro.img --image-size 2000M --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
-
-bc. sudo kpartx -a linaro.img
-mkdir boot
-sudo mount /dev/mapper/loop0p1 boot
-cp boot/uImage .
-cp boot/uInitrd .
-sudo umount boot
 tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
