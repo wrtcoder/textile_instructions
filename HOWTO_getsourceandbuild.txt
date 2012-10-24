@@ -49,7 +49,8 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create media
 
-bc. sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
+bc. cd android/out/target/product/
+sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
 
 * Insert the SD card into your Versatile Express board and reboot it
 
