@@ -1,13 +1,11 @@
-h1. Real-Time System Model (RTSM)
-
 h2. Prerequisites
 
 * Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
-* Install "linaro-image-tools":https://wiki.linaro.org/Linaro-Image-Tools
+* Install "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
 
 h3. Install Linaro Image Tools
 
-Linaro Image tools contain scripts that allow you to combine a multiple components into a single Android image. The components are:
+Linaro Image Tools contain scripts that allow you to combine multiple components into a single Android image. The components are:
 
 * boot.tar.bz2 - contains the kernel and boot loaders
 * system.tar.bz2 - contains the entire system files and general OS
@@ -27,21 +25,24 @@ bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem.  Therefore, we will build our own image using the pre-built artifacts (displayed above)
+RTSM will only deal with file systems up to 2GB in size, however the pre-built image for Android requires a 4GB filesystem. Therefore, we will build our own image using the pre-built artifacts (displayed above)
 
 The following command downloads all the Android OS components necessary to make up a complete Android image.
 
-bc. wget http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2 http://releases.linaro.org/12.10/android/vexpress/system.tar.bz2 http://releases.linaro.org/12.10/android/vexpress/userdata.tar.bz2
+bc. wget http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2
+wget http://releases.linaro.org/12.10/android/vexpress/system.tar.bz2
+wget http://releases.linaro.org/12.10/android/vexpress/userdata.tar.bz2
 
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
 
-bc. linaro-android-media-create \
---dev vexpress \
---image-file linaro.img \
---image-size 2000M \
---system system.tar.bz2 \
---userdata userdata.tar.bz2 \
---boot boot.tar.bz2
+bc. linaro-android-media-create --image-file linaro.img --image-size 2000M --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
+
+bc. sudo kpartx -a linaro.img
+mkdir boot
+sudo mount /dev/mapper/loop0p1 boot
+cp boot/uImage .
+cp boot/uInitrd .
+sudo umount boot
 tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model

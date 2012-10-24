@@ -1,5 +1,3 @@
-h1. Binary Image Installation
-
 Linaro provides two methods for installing Linaro binary builds:
 
 # Using a pre-built image, which you can download
@@ -7,7 +5,7 @@ Linaro provides two methods for installing Linaro binary builds:
 
 h2. Pre-Installation Steps
 
-Before any installation begins, it is important that you ensure your Versatile Express board has the latest firmware and boot loader installed. Please check the "Firmware Update" on this page for the latest updates and installation instructions.
+Before any installation begins, it is important that you ensure your Versatile Express board has the latest firmware and boot loader installed. Please check the "Firmware Update" tab on this page for the latest updates and installation instructions.
 
 h2. Using pre-built image
 
@@ -24,7 +22,7 @@ h3. Installation Steps
 * Insert SD card into your PC and note the assigned @'/dev/sdX'@
 
 bc. dmesg
-SDCARD=/dev/sdX   (sdcard found from dmesg above)
+SDCARD=/dev/sdX # sdcard found from dmesg above
 sudo dd bs=64k if=vexpress.img of=$SDCARD
 
 * Insert the SD card into the board
@@ -37,18 +35,20 @@ sudo dd bs=64k if=vexpress.img of=$SDCARD
 
 h2. Building a custom image using pre-built components.
 
-Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro media tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
+Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
 Using components to generate the image will yield the same functionality found in the pre-built image of the same release.
 
 h3. Prerequisites
 
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
-* Download Artifacts from above or use the following command in your
+* Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/12.10/android/vexpress/system.tar.bz2 http://releases.linaro.org/12.10/android/vexpress/userdata.tar.bz2 http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2
+bc. wget http://releases.linaro.org/12.10/android/vexpress/boot.tar.bz2
+wget http://releases.linaro.org/12.10/android/vexpress/system.tar.bz2
+wget http://releases.linaro.org/12.10/android/vexpress/userdata.tar.bz2
 
-* Download "linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools which can be obtained in two ways:
+* Download "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools which can be obtained in two ways:
 
 ** Method 1: Install them from the Linaro Image Tools "PPA":https://launchpad.net/~linaro-maintainers/+archive/tools
 
@@ -56,7 +56,7 @@ bc. sudo add-apt-repository ppa:linaro-maintainers/tools
 sudo apt-get update
 sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source.
+** Method 2: Building from source
 
 bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
 
@@ -74,9 +74,9 @@ Or, if your machine uses @'/dev/mmcblkX'@, you may see a line line this:
 
 *WARNING:* In the next step, make sure you use @/dev/"whatever you see above"@. *You can erase your hard drive* with the wrong parameter.
 
-* Create Media
+* Create media
 
-bc. linaro-android-media-create --mmc /dev/sdX --dev vexpress --system system.tar.bz2 --boot boot.tar.bz2 --userdata userdata.tar.bz2
+bc. linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
 
 * Insert the SD card into the board
 * Reboot the board

@@ -11,7 +11,7 @@ The pinned and source manifests can be found here:
 
 h2. Kernel Source Code
 
-Obtain the exact *kernel source code* for this cycle by using the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/12.10/android/vexpress/linaro_kernel_build_cmds.sh script to download the source and build it. You can get the kernel config from "here":http://releases.linaro.org/12.10/android/vexpress/kernel_config (listed above)
+Obtain the exact *kernel source code* for this cycle by using the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/12.10/android/vexpress/linaro_kernel_build_cmds.sh script to download the source and build it. You can get the kernel configuration from "here":http://releases.linaro.org/12.10/android/vexpress/kernel_config (listed above)
 
 h2. Compiling Linaro Android RootFS+Kernel
 
@@ -35,7 +35,7 @@ h3. Installing Android JB on your board
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
-bc.   dmesg | less
+bc. dmesg | less
 
 Look for a line that looks like the following at the end of the log
 
@@ -47,12 +47,9 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 *WARNING:* In the next step, make sure you use /dev/"whatever you see above". *You can erase your hard drive* with the wrong parameter.
 
-* Create Media
+* Create media
 
-bc. sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress \
---system   ./android/out/target/product/vexpress/system.tar.bz2 \
---boot     ./android/out/target/product/vexpress/boot.tar.bz2 \
---userdata ./android/out/target/product/vexpress/userdata.tar.bz2
+bc. sudo linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz2 --system system.tar.bz2 --userdata userdata.tar.bz2
 
 * Insert the SD card into your Versatile Express board and reboot it
 
@@ -65,10 +62,10 @@ h3. Prerequisites
 * Download and install Ubuntu 12.04 64 bit or newer ("download":http://www.ubuntu.com)
 * Install the following packages by typing:
 
-bc. sudo apt-get gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
+bc. sudo apt-get install gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
 
 * Create a working subdirectory
-* Download the auto build script for this release from the list of artifacts above (The kernel config will be automatically downloaded). You can get the kernel config and other artifacts from here
+* Download the auto build script for this release from the list of artifacts above (the kernel configuration will be automatically downloaded).
 * Run the build script
 
 bc. chmod a+x linaro_kernel_build_cmds.sh
