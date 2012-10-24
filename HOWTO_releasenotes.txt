@@ -1,4 +1,4 @@
-h1. Linaro Versatile Express 12.10 Release Linaro releases monthly
+h1. Linaro Versatile Express 12.10 Release
 
 p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for A9, A5, A15 (TC1), and TC2 (big.LITTLE) CoreTiles.
 
