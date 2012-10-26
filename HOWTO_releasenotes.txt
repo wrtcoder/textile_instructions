@@ -69,6 +69,7 @@ h2. Fixed in this release
 Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net
 
 Android bugs:
+
 * "LP: #1051993":https://launchpad.net/bugs/1051993 RCU stall on TC2
 
 UEFI bugs:
@@ -83,7 +84,7 @@ h2. Known Issues
 
 h3. UEFI Bugs:
 
-* "LP: #1028319":https://launchpad.net/bugs/1028319 UEFI: vexpress a5 crashes on boot
+* "LP: #1028319":https://launchpad.net/bugs/1028319 UEFI: vexpress A5 crashes on boot
 * "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
 * "LP: #1067780":https://launchpad.net/bugs/1067780 UEFI: TC1 is unstable when booted via UEFI
 * "LP: #1067715":https://launchpad.net/bugs/1067715 UEFI: booting A9/A5/TC1 via Boot Monitor fails
@@ -98,25 +99,25 @@ h3. Android Bugs:
 
 * "LP: #1067376":https://launchpad.net/bugs/1067376 Android doesn't boot on RTSM A15x1-A7x1
 * "LP: #1067373":https://launchpad.net/bugs/1067373 Keyboard and mouse input doesn't work on RTSM Android
-* "LP: #906363":https://launchpad.net/bugs/906363 vexpress-a9: ICS: No thumbnails in gallery application
-* "LP: #906344":https://launchpad.net/bugs/906344 vexpress-a9: ICS: Suspend-Resume doesn't work
+* "LP: #906363":https://launchpad.net/bugs/906363 vexpress: ICS: No thumbnails in gallery application
+* "LP: #906344":https://launchpad.net/bugs/906344 vexpress: ICS: Suspend-Resume doesn't work
 * "LP: #900714":https://launchpad.net/bugs/900714 Camera App does not work on ICS
 * "LP: #872819":https://launchpad.net/bugs/872819 Unable to play Angrybirds game on ICS, App opens but does not show proper game menu
 * "LP: #987197":https://launchpad.net/bugs/987197 Testing calendar app requires Exchange server
 * "LP: #987172":https://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
 * "LP: #987155":https://launchpad.net/bugs/987155 vexpress: Angrybirds display severely trucated
-* "LP: #893175":https://launchpad.net/bugs/893175 vexpress-a9: ADB over USB doesn't work
-* "LP: #893127":https://launchpad.net/bugs/893127 vexpress-a9: No sound in Android
+* "LP: #893175":https://launchpad.net/bugs/893175 vexpress: ADB over USB doesn't work
+* "LP: #893127":https://launchpad.net/bugs/893127 vexpress: No sound in Android
 * "LP: #890601":https://launchpad.net/bugs/890601 Missing GL ES 2.0 drivers, unable to run GLMark2 benchmark
 * "LP: #1041153":https://launchpad.net/bugs/1041153 lockdep error on Android reboot
-* "LP: #1042755":https://launchpad.net/bugs/1042755 powertop doesn't show correct frequency stats
+* "LP: #1042755":https://launchpad.net/bugs/1042755 TC2: powertop doesn't show correct frequency stats
 * "LP: #1037611":https://launchpad.net/bugs/1037611 logcat showswarnings for "add_tid_to_cgroup failed"
 * "LP: #973466":https://launchpad.net/bugs/973466 Can't build Thumb-2 kernels
-* "LP: #908082":https://launchpad.net/bugs/908082 vexpress-a9: Video playback fails in Gallery app
-* "LP: #873283":https://launchpad.net/bugs/873283 Snowball: Taking device screenshot using ddms tool fails
+* "LP: #908082":https://launchpad.net/bugs/908082 vexpress: Video playback fails in Gallery app
+* "LP: #873283":https://launchpad.net/bugs/873283 Taking device screenshot using ddms tool fails
 
 h3. Generic Landing Team Bugs:
 
 * "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer hangs the system on TC2
 * "LP: #1065633":https://launchpad.net/bugs/1065633 Can't access CCI on RTSM
-* "LP: #893185":https://launchpad.net/bugs/893185 vexpress-a9: USB mass storage doesn't work
+* "LP: #893185":https://launchpad.net/bugs/893185 vexpress: USB mass storage doesn't work
