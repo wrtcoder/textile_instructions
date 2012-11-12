@@ -79,13 +79,11 @@ bc. [*] Versatile Express Cortex-A9x4 tile
 
 This will mean that the same kernel will run on A5, A9, A15-TC1, A15-TC2 and various RTSM models.
 
-h1. Installing your kernel
-
-This section is common for both Android and Ubuntu
-
 * Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel):
 
 bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
+
+h1. Installing your kernel and DTB on hardware
 
 * Insert the SD card containing the Linaro disk image
 * Copy the kernel onto the memory card
@@ -101,3 +99,7 @@ bc. cp arch/arm/boot/uImage /media/boot/
 * Eject the memory card  @eject /media/boot@
 
 * Insert the memory card into the Versatile Express board and power it on
+
+h2. Installing your kernel and DTB on RTSM
+
+Follow the instructions on the RTSM tab, changing the RTSM_KERNEL and RTSM_DTB environment variables to point to your newly created binaries.

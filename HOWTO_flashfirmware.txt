@@ -6,10 +6,12 @@ Ensure that you update your Versatile Express board firmware to the latest versi
 ** Unzip the firmware zip to the root of the motherboard mounted drive
 ** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
 
-* Download additional Linaro firmware from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20120920-001.zip
+* Download additional Linaro binaries and configuration from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20120920-001.zip
 ** Unzip the firmware zip to the root of the motherboard mounted drive
 ** Please "contact Linaro":http://www.linaro.org/engineering/getting-started/discuss for any issues related to this firmware update
 
 * Unmount the Versatile Express motherboard
+* Set "SW[0]":http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0496a/CACFDBII.html on the rear panel of the board to ON
 * Reboot the Versatile Express board
-** If the board is configured for UEFI, you will need to configure it to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
+** You will need to configure UEFI to boot the image on the SD card.
+** See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.

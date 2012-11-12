@@ -36,13 +36,13 @@ To build the kernel uImage, use the following command:
 
 bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
 
-h2. Install your kernel
+h3. Build the Flattened Device Tree binaries
 
-This section is common for both Android and Ubuntu.
-
-* Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel so there is no need for a device tree blob):
+Create the Device Tree blob if you don’t have one in your Linaro image (note, the A9 Core Tile boots using an ATAGS kernel so there is no need for a device tree blob):
 
 bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
+
+h2. Installing your kernel and DTB on hardware
 
 * Insert the SD card containing the Linaro disk image into your PC SD card reader
 
@@ -62,4 +62,6 @@ bc. eject /media/boot
 
 * Insert the memory card into the Versatile Express board and power it on
 
-* You should boot your Ubuntu image using your own compiled kernel
+h2. Installing your kernel and DTB on RTSM
+
+Follow the instructions on the RTSM tab, changing the RTSM_KERNEL and RTSM_DTB environment variables to point to your newly created binaries.

@@ -29,9 +29,7 @@ bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
 zcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
 
-** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
-** Reboot the board
-*** When prompsed with “Cmd>" prompt, press the red reboot button
+When the image is created, skip down to the section "Copy the missing DTB files to the boot partition"
 
 *Note:* Windows users may use the "Image Writer for Windows.":https://launchpad.net/win32-image-writer/+download
 
@@ -62,7 +60,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source </LI>
 
-bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz@
+bc. wget http://releases.linaro.org/12.10/components/platform/linaro-image-tools/linaro-image-tools-2012.10.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
@@ -82,5 +80,24 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20121021-377_armhf_supported.tar.gz --binary linaro-precise-ubuntu-desktop-20121021-492.tar.gz
 
+
+h2. Copy the missing DTB files to the boot partition
+
+The DTB files for 12.10 are not on the boot parition of the created media.  You should copy these files from the rootfs parition.
+
+First, insert or mount the SD card created in the above steps.  It's often easiest to safely unmount the card, eject it and re-insert the card in order to get your PC to mount the partitions.
+
+bc. cp /media/rootfs/lib/firmware/3.*-linaro-vexpress/device-tree/vexpress-v2p-ca5s.dtb /media/boot/v2p-ca5s.dtb
+cp /media/rootfs/lib/firmware/3.*-linaro-vexpress/device-tree/vexpress-v2p-ca9.dtb /media/boot/v2p-ca9.dtb
+cp /media/rootfs/lib/firmware/3.*-linaro-vexpress/device-tree/vexpress-v2p-ca15-tc1.dtb /media/boot/v2p-ca15-tc1.dtb
+cp /media/rootfs/lib/firmware/3.*-linaro-vexpress/device-tree/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb
+
+After copying, safely unmount the SD card.
+
+h2. Booting the image
+
 ** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
-** Reboot the board. When presented with “Cmd>" prompt, press the red button
+** Ensure you have followed the instructions on the Firmware Update tab
+** Reboot the board
+*** When prompsed with “Cmd>" prompt, press the red reboot button
+
