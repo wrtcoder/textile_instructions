@@ -78,8 +78,7 @@ bc. linaro-android-media-create --mmc /dev/sdX --dev vexpress --boot boot.tar.bz
 
 h2. Booting the image
 
-** After the media create command has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
-** Ensure you have followed the instructions on the Firmware Update tab
-** Reboot the board
-*** When prompsed with “Cmd>" prompt, press the red reboot button
+After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board.
+
+Before you can boot the image you will need to install the UEFI boot loader into NOR flash and update the Versatile MMC card configuration files. The instructions on the Firmware Update tab provide information on how to do this and how to configure UEFI to specify the SD card as a boot device.
 
