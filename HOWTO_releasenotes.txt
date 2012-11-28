@@ -40,7 +40,6 @@ The following patches are no longer part of the tracked branch as they have been
 ** rcu-hotplug-v1
 ** arm-asymmetric-support-v3-v3.6-rc1
 
-
 h2. Where To Find More Information
 
 More information on Linaro can be found on our "website.":http://www.linaro.org/
