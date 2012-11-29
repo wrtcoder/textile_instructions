@@ -62,14 +62,13 @@ Details of each item can be found by searching for the issue number (without the
 Android bugs:
 
 * "LP: #1051993":https://launchpad.net/bugs/1051993 RCU stall on TC2
+* "LP: #893127":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/893127 Vexpress: No sound in Android
+* "LP: #973466":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/973466 Can't build Thumb-2 kernels
 
 UEFI bugs:
 
-* "LP: #1029844":https://launchpad.net/bugs/1029844 UEFI: A5/A9/A15 aren't supported in latest code
-* "LP: #1029854":https://launchpad.net/bugs/1029854 UEFI: TC2 port only boots with 1 CPU
-* "LP: #1036228":https://launchpad.net/bugs/1036228 UEFI: A9 does not pass command line to kernel when booted  with device tree
-* "LP: #1050364":https://launchpad.net/bugs/1050364 UEFI: TC2 does not boot with big.LITTLE kernel features enabled
-* "LP: #1053343":https://launchpad.net/bugs/1053343 UEFI: TC2 does not support OSPM
+* "LP: #1028319":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1028319 UEFI: vexpress A5 crashes on boot
+* "LP: #1067780":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1067780 UEFI: TC1 is unstable when booted via UEFI 
 
 h2. Known Issues
 
