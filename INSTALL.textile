@@ -27,7 +27,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
-bzcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
+zcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
 
 When the image is created, skip down to the section "Booting the image".
 
