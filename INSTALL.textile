@@ -29,10 +29,6 @@ bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
 zcat vexpress-precise_ubuntu-desktop_20121021-377.img.gz | sudo dd bs=64k of=$SDCARD
 
-** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
-** Reboot the board
-*** When prompsed with “Cmd>" prompt, press the red reboot button
-
 *Note:* Windows users may use the "Image Writer for Windows.":https://launchpad.net/win32-image-writer/+download
 
 <hr>
@@ -82,5 +78,9 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20121127-445_armhf_supported.tar.gz --binary linaro-precise-ubuntu-desktop-20121124-560.tar.gz
 
-** After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board
-** Reboot the board. When presented with “Cmd>" prompt, press the red button
+h2. Booting the image
+
+After the media create tool has finished executing, remove the SD card from your PC and insert it into the Versatile Express board.
+
+Before you can boot the image you will need to install the UEFI boot loader into NOR flash and update the Versatile MMC card configuration files. The instructions on the Firmware Update tab provide information on how to do this and how to configure UEFI to specify the SD card as a boot device.
+
