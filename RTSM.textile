@@ -48,6 +48,7 @@ sudo mount /dev/mapper/loop0p1 boot
 cp boot/uImage .
 cp boot/uInitrd .
 cp -ar boot/rtsm rtsm
+sudo umount boot
 tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
