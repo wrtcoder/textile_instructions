@@ -44,9 +44,6 @@ bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpres
 bc. sudo kpartx -a linaro.img
 mkdir boot
 sudo mount /dev/mapper/loop0p1 boot
-cp boot/uImage .
-cp boot/uInitrd .
-sudo umount boot
 
 h2. Run A15x4 model
 
@@ -55,9 +52,9 @@ This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
 RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
-RTSM_KERNEL=uImage
+RTSM_KERNEL=boot/uImage
 RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4.dtb
-RTSM_INITRD=uInitrd
+RTSM_INITRD=boot/uInitrd
 RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
 bc. $RTSM_MODEL \
@@ -74,9 +71,9 @@ This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
 RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
-RTSM_KERNEL=uImage
+RTSM_KERNEL=boot/uImage
 RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4-ca7x4.dtb
-RTSM_INITRD=uInitrd
+RTSM_INITRD=boot/uInitrd
 RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
 bc. $RTSM_MODEL \
@@ -88,3 +85,12 @@ bc. $RTSM_MODEL \
 -C coretile.dualclustersystemconfigurationblock.CFG_ACTIVECLUSTER=0x3 \
 -C coretile.cluster0.cpu0.semihosting-enable=1 \
 -C coretile.cluster0.cpu0.semihosting-cmd_line="--kernel $RTSM_KERNEL --dtb $RTSM_DTB --initrd $RTSM_INITRD -- $RTSM_CMDLINE"
+
+h2. Unmount the image file
+
+When you are finished testing an image, you can unmount the file:
+
+bc. sudo unmount boot
+sudo kpartx -d linaro.img
+
+note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh.
