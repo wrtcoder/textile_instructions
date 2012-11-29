@@ -36,6 +36,7 @@ Using the following command, you will download the nano RootFS, the hardware pac
 
 bc. wget http://releases.linaro.org/12.11/ubuntu/precise-images/nano/linaro-precise-nano-20121124-538.tar.gz
 wget http://releases.linaro.org/12.11/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121127-445_armhf_supported.tar.gz
+wget http://releases.linaro.org/12.11/android/vexpress/boot.tar.bz2
 
 Now you need to create the image using the following commands.
 
@@ -44,17 +45,21 @@ bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpres
 bc. sudo kpartx -a linaro.img
 mkdir boot
 sudo mount /dev/mapper/loop0p1 boot
+cp boot/uImage .
+cp boot/uInitrd .
+cp -ar boot/rtsm rtsm
+tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
 
 This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
-RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
+RTSM_BOOTWRAPPER=rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
-RTSM_KERNEL=boot/uImage
-RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4.dtb
-RTSM_INITRD=boot/uInitrd
+RTSM_KERNEL=uImage
+RTSM_DTB=rtsm/rtsm_ve-ca15x4.dtb
+RTSM_INITRD=uInitrd
 RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
 bc. $RTSM_MODEL \
@@ -69,11 +74,11 @@ h2. Run A15x4-A7x4 model
 This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
-RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
+RTSM_BOOTWRAPPER=rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
-RTSM_KERNEL=boot/uImage
-RTSM_DTB=boot/rtsm/rtsm_ve-ca15x4-ca7x4.dtb
-RTSM_INITRD=boot/uInitrd
+RTSM_KERNEL=uImage
+RTSM_DTB=rtsm/rtsm_ve-ca15x4-ca7x4.dtb
+RTSM_INITRD=uInitrd
 RTSM_CMDLINE="console=ttyAMA0,115200n8 root=/dev/mmcblk0p2 rootwait ro mem=1024M ip=dhcp"
 
 bc. $RTSM_MODEL \
@@ -90,7 +95,6 @@ h2. Unmount the image file
 
 When you are finished testing an image, you can unmount the file:
 
-bc. sudo unmount boot
-sudo kpartx -d linaro.img
+bc. sudo kpartx -d linaro.img
 
-note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh.
+note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh and you will end up using the old image.
