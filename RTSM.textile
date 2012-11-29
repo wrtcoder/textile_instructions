@@ -56,7 +56,7 @@ h2. Run A15x4 model
 This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
-RTSM_BOOTWRAPPER=rtsm/linux-system-semi.axf
+RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
 RTSM_KERNEL=uImage
 RTSM_DTB=rtsm/rtsm_ve-ca15x4.dtb
@@ -75,7 +75,7 @@ h2. Run A15x4-A7x4 model
 This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
-RTSM_BOOTWRAPPER=rtsm/linux-system-semi.axf
+RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
 RTSM_KERNEL=uImage
 RTSM_DTB=rtsm/rtsm_ve-ca15x4-ca7x4.dtb
