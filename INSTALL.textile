@@ -60,7 +60,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source </LI>
 
-bc. wget http://releases.linaro.org/12.11/components/platform/linaro-image-tools/linaro-image-tools-2012.11.tar.gz@
+bc. wget http://releases.linaro.org/12.11/components/platform/linaro-image-tools/linaro-image-tools-2012.11.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
