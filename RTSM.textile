@@ -30,13 +30,12 @@ h2. Create a 2GB image file
 
 RTSM will only deal with file systems up to 2GB in size, however the released pre-built image for Ubuntu Desktop requires a 4GB filesystem.  Therefore we will build our own Nano image using the pre-built artifacts as listed below.
 
-We use a "Nano":http://releases.linaro.org/12.11/ubuntu/precise-images RootFS for this example, however, you could use other RootFS types such as ALIP or Developer so long as you can install it to a 2GB file (Ubuntu Desktop doesn't fit the 2GB limit). Note, you will also need the @boot.tar.bz2@ file from the Android release.
+We use a "Nano":http://releases.linaro.org/12.11/ubuntu/precise-images RootFS for this example, however, you could use other RootFS types such as ALIP or Developer so long as you can install it to a 2GB file (Ubuntu Desktop doesn't fit the 2GB limit).
 
-Using the following command, you will download the nano RootFS, the hardware pack and the boot.tar.gz you need from the Android build.
+Using the following command, you will download the nano RootFS, the hardware pack.
 
 bc. wget http://releases.linaro.org/12.11/ubuntu/precise-images/nano/linaro-precise-nano-20121124-538.tar.gz
 wget http://releases.linaro.org/12.11/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121127-445_armhf_supported.tar.gz
-wget http://releases.linaro.org/12.11/android/vexpress/boot.tar.bz2
 
 Now you need to create the image using the following commands.
 
@@ -48,7 +47,6 @@ sudo mount /dev/mapper/loop0p1 boot
 cp boot/uImage .
 cp boot/uInitrd .
 sudo umount boot
-tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
 
