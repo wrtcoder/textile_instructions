@@ -94,7 +94,7 @@ bc. $RTSM_MODEL \
 
 h2. Unmount the image file
 
-When you are finished testing an image, you can unmount the file:
+When you are finished testing an image, you can delete the mapping to the image file:
 
 bc. sudo kpartx -d linaro.img
 
