@@ -27,11 +27,6 @@ Platform Support. In addition to the big.LITTLE MP work the TC2 platform support
 ** Drivers for previously hard-coded configuration interfaces
 ** Support self-hosted debugging through idle
 ** In addition to the CPU PMUs the perf framework supports the CCI-400 PMUs
-** Misc fixes in this release
-*** safely handle missing CPU frequencies
-*** MMC Multi-Block fix
-*** amba-clcd Device Treee mods
-*** HDLCD fixes
 
 The following patches are no longer part of the tracked branch as they have been accepted upstream. These will be removed from the release notes in the next cycle.
 
@@ -57,8 +52,6 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Fixed in this release
 
-Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net
-
 Android bugs:
 
 * "LP: #1051993":https://launchpad.net/bugs/1051993 RCU stall on TC2
@@ -74,7 +67,6 @@ h2. Known Issues
 
 h3. UEFI Bugs:
 
-* "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
 * "LP: #941995":https://launchpad.net/bugs/941995 UEFI: Don't require UUID for MMC cards
 * "LP: #942155":https://launchpad.net/bugs/942155 UEFI: copy/paste doesn't work over serial port
 * "LP: #942162":https://launchpad.net/bugs/942162 UEFI: vexpress A5 & TC1: No LCD/HDLCD support

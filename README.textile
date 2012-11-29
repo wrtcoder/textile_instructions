@@ -57,8 +57,6 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Fixed in this release
 
-Details of each item can be found by searching for the issue number (without the #) "here":https://bugs.launchpad.net
-
 Ubuntu bugs:
 
 * "LP: #973466":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/973466 Can't build Thumb-2 kernels
@@ -67,7 +65,6 @@ UEFI bugs:
 
 * "LP: #1028319":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1028319 UEFI: vexpress A5 crashes on boot
 * "LP: #1067780":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1067780 UEFI: TC1 is unstable when booted via UEFI 
-
 
 h2. Known Issues
 
