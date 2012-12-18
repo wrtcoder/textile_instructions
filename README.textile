@@ -49,7 +49,7 @@ h2. Fixed in this release
 
 h3. Ubuntu bugs:
 
-No Ubuntu specific bugs were fixed in this release.
+* "LP: #1084117":https://launchpad.net/bugs/1084117 Gator version doesn't match with DS-5 v5.12 build 1571. 
 
 h3. UEFI bugs:
 
