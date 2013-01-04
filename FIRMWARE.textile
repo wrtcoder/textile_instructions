@@ -6,7 +6,7 @@ Ensure that you update your Versatile Express board firmware to the latest versi
 ** Unzip the firmware zip to the root of the motherboard mounted drive
 ** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
 
-* Download additional Linaro firmware from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20120920-001.zip
+* Download additional Linaro firmware from "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20121108-001.zip
 ** Unzip the firmware zip to the root of the motherboard mounted drive
 ** Please "contact Linaro":http://www.linaro.org/engineering/getting-started/discuss for any issues related to this firmware update
 
