@@ -90,4 +90,6 @@ h3. Android Bugs:
 
 h3. Generic Landing Team Bugs:
 
-None listed.
+* "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer kills the system on TC2 
+* "LP: #1103485":https://launchpad.net/bugs/1103485 Lockdep warning for (fb_notifier_list).rwsem 
+
