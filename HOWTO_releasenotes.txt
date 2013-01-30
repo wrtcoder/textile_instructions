@@ -50,15 +50,19 @@ h2. Fixed in this release
 h3. Android bugs:
 
 * "LP: #1088375":https://launchpad.net/bugs/1074389 tracking-vexpress builds are broken due to broken perf support 
+* "LP: #1099486":https://launchpad.net/bugs/1099486 Scripts in uInitrd loose execute permissions 
+* "LP: #906363":https://launchpad.net/bugs/906363 vexpress: Android: No thumbnails in gallery application
+* "LP: #1041153":https://launchpad.net/bugs/1041153 lockdep error or hangs on Android reboot 
+* "LP: #1081945":https://launchpad.net/bugs/1081945 TC2 Android gives occasional "Error -11 while setting required OPP" 
 
 h3. UEFI bugs:
 
-* "LP: #1029848":https://launchpad.net/bugs/1029848 UEFI: device tree is global, not per image
+* "LP: #1083476":https://launchpad.net/bugs/1083476 edk2-uefi ftbfs 
 
 h3. Generic Landing Team Bugs:
 
+* "LP: #1084117":https://launchpad.net/bugs/1084117 Gator version doesn't match with DS-5 v5.12 build 1571.
 * "LP: #1065633":https://launchpad.net/bugs/1065633 Can't access CCI on RTSM 
-* "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer kills the system on TC2 
 * "LP: #1074389":https://launchpad.net/bugs/1074389 Kernel does not boot with LPAE enabled 
 
 h2. Known Issues
@@ -66,23 +70,24 @@ h2. Known Issues
 h3. UEFI Bugs:
 
 * "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
+* "LP: #1091447":https://launchpad.net/bugs/1091447 UEFI: A9 crashes on boot with ATAGS 
 * "LP: #941995":https://launchpad.net/bugs/941995 UEFI: Don't require UUID for MMC cards
-* "LP: #942155":https://launchpad.net/bugs/942155 UEFI: copy/paste doesn't work over serial port
+* "LP: #942155":https://launchpad.net/bugs/942155 UEFI: TC2: copy/paste doesn't work over serial port
 * "LP: #942162":https://launchpad.net/bugs/942162 UEFI: vexpress A5 & TC1: No LCD/HDLCD support
 * "LP: #972623":https://launchpad.net/bugs/972623 UEFI: vexpress A9: flash to address zero
-* "LP: #1091447":https://launchpad.net/bugs/1091447 UEFI: A9 crashes on boot with ATAGS 
 
 h3. Android Bugs:
 
-* "LP: #1041153":https://launchpad.net/bugs/1041153 lockdep error on Android reboot
 * "LP: #873283":https://launchpad.net/bugs/873283 Taking device screenshot using ddms tool fails
 * "LP: #987172":https://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
 * "LP: #1083175":https://launchpad.net/bugs/1083175 vexpress: Android: Recorded message is just a harsh loud noise
 * "LP: #1086599":https://launchpad.net/bugs/1086599 SunSpider JavaScript Benchmark doesn't work on vexpress with Linaro Android Jelly Bean 4.2
 * "LP: #1086623":https://launchpad.net/bugs/1086623 SD card partition unavailable on vexpress with Linaro Android Jelly Bean 4.2
 * "LP: #1091279":https://launchpad.net/bugs/1091279 All text missing in Ethernet settings menu
-* "LP: #873283":https://launchpad.net/bugs/873283 Taking device screenshot using ddms tool fails 
+* "LP: #1092492":https://launchpad.net/bugs/1092492 No boot instruction for ARM Versatile Express A9 Android Jelly Bean. 
+* "LP: #1097309":https://launchpad.net/bugs/1097309 serial console doesn't received characters on TC2 
+
 
 h3. Generic Landing Team Bugs:
 
-* "LP: #1081945":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1081945 TC2 Android gives occasional "Error -11 while setting required OPP" 
+None listed.
