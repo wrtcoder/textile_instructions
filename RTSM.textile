@@ -34,13 +34,13 @@ We use a "Nano":http://releases.linaro.org/13.01/ubuntu/precise-images RootFS fo
 
 Using the following command, you will download the nano RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.01/ubuntu/precise-images/nano/linaro-precise-nano-20121124-538.tar.gz
-wget http://releases.linaro.org/13.01/ubuntu/precise-hwpacks/hwpack_linaro-vexpress_20121127-445_armhf_supported.tar.gz
+bc. wget http://releases.linaro.org/13.01/ubuntu/vexpress/hwpack_linaro-vexpress_20130128-58_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.01/ubuntu/vexpress/linaro-quantal-developer-20130128-256.tar.gz
 wget http://releases.linaro.org/13.01/android/vexpress/boot.tar.bz2
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20121127-445_armhf_supported.tar.gz --binary linaro-precise-nano-20121124-538.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130128-58_armhf_supported.tar.gz --binary linaro-quantal-developer-20130128-256.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot
