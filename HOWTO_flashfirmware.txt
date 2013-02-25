@@ -12,4 +12,9 @@ Ensure that you update your Versatile Express board firmware to the latest versi
 
 * Unmount the Versatile Express motherboard
 * Reboot the Versatile Express board
-** If the board is configured for UEFI, you will need to configure it to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
+* At the "Cmd> " prompt, type the following commands:
+Cmd> flash
+Cmd> eraseall
+Cmd> exit
+Cmd> reboot
+** You may need to configure UEFI to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
