@@ -34,13 +34,12 @@ We use a "Nano":http://releases.linaro.org/13.02/ubuntu/precise-images RootFS fo
 
 Using the following command, you will download the nano RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.02/ubuntu/vexpress/hwpack_linaro-vexpress_20130128-58_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.02/ubuntu/vexpress/linaro-quantal-developer-20130128-256.tar.gz
-wget http://releases.linaro.org/13.02/android/vexpress/boot.tar.bz2
+bc. wget http://releases.linaro.org/13.02/ubuntu/vexpress/hwpack_linaro-vexpress_20130224-256_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.02/ubuntu/vexpress/linaro-quantal-developer-20130224-286.tar.gz
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130128-58_armhf_supported.tar.gz --binary linaro-quantal-developer-20130128-256.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130224-256_armhf_supported.tar.gz --binary linaro-quantal-developer-20130224-286.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot
@@ -49,14 +48,13 @@ cp boot/uImage .
 cp boot/uInitrd .
 cp -ar boot/rtsm rtsm
 sudo umount boot
-tar jxvf boot.tar.bz2
 
 h2. Run A15x4 model
 
 This example shows how to run the Linaro kernel on a quad core A15 RTSM model:
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
-RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
+RTSM_BOOTWRAPPER=rtsm/linux-system-semi.axf
 RTSM_MMC=linaro.img
 RTSM_KERNEL=uImage
 RTSM_DTB=rtsm/rtsm_ve-ca15x4.dtb
