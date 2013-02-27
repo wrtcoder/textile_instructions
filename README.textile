@@ -8,7 +8,7 @@ h2. About the TC2 Evaluation Build
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
 
-The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group "git repo":http://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=summary . *Note:*  This repository has the following tree: big-LITTLE-MP-master-v14 that has been used for the 13.02 evaluation build. This tree includes the following patches that have been developed and qualified for correctness to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This new functionality has been optimised for energy usage at near Cortex-A15 (big) performance. These patches are not currently ready to be submitted to the Linux mainline for integration (upstreaming), since they do not yet work seamlessly with the load-balancer. Work is ongoing to make the load-balancer more big.LITTLE aware, making the changes suitable for integration into the Linux mainline.
+The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group "git repo":http://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=summary . *Note:*  This repository has the following tree: big-LITTLE-MP-master-v15 that has been used for the 13.02 evaluation build. This tree includes the following patches that have been developed and qualified for correctness to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This new functionality has been optimised for energy usage at near Cortex-A15 (big) performance. These patches are not currently ready to be submitted to the Linux mainline for integration (upstreaming), since they do not yet work seamlessly with the load-balancer. Work is ongoing to make the load-balancer more big.LITTLE aware, making the changes suitable for integration into the Linux mainline.
 
 Scheduler modifications to support big.LITTLE
 ** sched: Basic global balancing support for HMP: This patch introduces an extra-check at task up-migration to prevent overloading the cpus in the faster hmp_domain while the slower hmp_domain is not fully utilized. The patch also introduces a periodic balance check that can down-migrate tasks if the faster domain is oversubscribed and the slower is under-utilized.
@@ -17,7 +17,6 @@ Scheduler modifications to support big.LITTLE
 ** task-placement-v2: Morten Rasmussen’s patches using the per-task load to schedule threads on the big or LITTLE cores as appropriate. The patches take into account multiple domains when making decisions on task migration, with ftrace events added for tracking these migrations. *New* Basic global balancing support for HMP - improves performance for cases where multiple 'big' threads are running but allowing the use of LITTLE cores.
 
 ** Experimental patches for making load values invariant to frequency settings. This helps reduce the chance of unnecessary up migrations to big cores. 
-** An initial version of patches from Vincent Guittot which attempt to pack small (low-load) tasks onto the Cortex-A7 cores and also to improving idle balancing
 ** A patch from Thomas Gliexner which supports a IRQ affinity mask being specified in the command line. This can be used to reduce unnecessary IRQ wakeups on Cortex-A15. For instructions see the irqaffinity entry in Documentation/kernel-parameters.txt
 ** arm-multi_pmu_v2 - enables the use of multiple PMU types or sources, for example profiling across both Cortex-A15 and Cortex-A7 clusters and getting results for CCI. 
 ** scheduler-misc-v1 - miscellaneous scheduler patches complementing the MP work
@@ -49,6 +48,10 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Fixed in this release
 
+h3. Generic bugs:
+
+* "LP: #1110632":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1110632 BLS-470: Logical CPU topology view constructed wrongly affecting CPU_fast and CPU_slow masks relied on by HMP patch.
+
 h3. Ubuntu bugs:
 
 None listed.
@@ -65,7 +68,6 @@ h3. Generic Landing Team Bugs:
 
 h2. Known Issues
 
-* "LP: #1110632":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1110632 BLS-470: Logical CPU topology view constructed wrongly affecting CPU_fast and CPU_slow masks relied on by HMP patch.
 * "LP: #1110634":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1110634 BLS-460: Perf group counting requires 'cpu_cycles' event as the first event in the event list specified to the perf tool.
 
 h3. UEFI Bugs:
