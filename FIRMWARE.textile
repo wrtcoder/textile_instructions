@@ -1,8 +1,8 @@
 Ensure that you update your Versatile Express board firmware to the latest version. To update your VE board firmware, please follow the instructions below:
 
 * Connect and mount your Versatile Express motherboard USB mass storage device to your PC
-* Install the Recovery firmware from the "v5.0 VE DVD":https://silver.arm.com/download/download.tm?pv=1357386 that came with your Versatile Express onto your board.
-* Download ARM's CPU Migration patch for version 5.0 from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1335158
+* Install the Recovery firmware from the "v5.0 VE DVD":https://silver.arm.com/download/download.tm?pv=1335158 onto your board.
+* Download ARM's CPU Migration patch for version 5.0 from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1357386
 ** Unzip the firmware zip to the root of the motherboard mounted drive
 ** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
 
