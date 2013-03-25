@@ -8,7 +8,9 @@ h2. About the TC2 Evaluation Build
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
 
-The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group "git repo":http://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=summary . *Note:*  This repository has the following tree: big-LITTLE-MP-master-v15 that has been used for the 13.02 evaluation build. This tree includes the following patches that have been developed and qualified for correctness to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This new functionality has been optimised for energy usage at near Cortex-A15 (big) performance. These patches are not currently ready to be submitted to the Linux mainline for integration (upstreaming), since they do not yet work seamlessly with the load-balancer. Work is ongoing to make the load-balancer more big.LITTLE aware, making the changes suitable for integration into the Linux mainline.
+The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group "git repo":http://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=summary . *Note:*  This repository has the following tree: big-LITTLE-MP-master-v16 that has been used for the 13.03 evaluation build. This tree includes the following patches that have been developed and qualified for correctness to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This new functionality has been optimised for energy usage at near Cortex-A15 (big) performance. These patches are not currently ready to be submitted to the Linux mainline for integration (upstreaming), since they do not yet work seamlessly with the load-balancer. Work is ongoing to make the load-balancer more big.LITTLE aware, making the changes suitable for integration into the Linux mainline.
+
+This release introduces optional configurable kernel support for an example implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. Using PSCI support requires the use of secure firmware that is currently available to ARM licensees upon request to ARM. Please contact the ARM Landing Team for further details.
 
 Scheduler modifications to support big.LITTLE
 ** sched: Basic global balancing support for HMP: This patch introduces an extra-check at task up-migration to prevent overloading the cpus in the faster hmp_domain while the slower hmp_domain is not fully utilized. The patch also introduces a periodic balance check that can down-migrate tasks if the faster domain is oversubscribed and the slower is under-utilized.
@@ -22,6 +24,17 @@ Scheduler modifications to support big.LITTLE
 ** scheduler-misc-v1 - miscellaneous scheduler patches complementing the MP work
 
 Platform Support. In addition to the big.LITTLE MP work the TC2 platform support includes:
+** TC2: reset CPUs spuriously woken up on cluster power up
+** vexpress: add shim layer for psci backend on TC2
+** vexpress: allow native pm ops backends to probe for psci suppport
+** psci: add cmdline option to enable use of psci
+** psci: add probe function to discover presence of a psci implementation
+** psci: convert psci '-EALREADYON' error code to linux '-EAGAIN'
+** vexpress: add psci support in TC2 device tree
+** psci: add constants to specify affinity levels
+** TC2: replace hard coded cluster and cpu values with constants
+** TC2: use generic accessors to extract cpu and cluster ids
+
 ** CPUidle & CPUfreq support
 ** hwmon driver allowing, amongst other things, TC2's power, current and energy measurements to be read through standard sysfs interfaces
 ** Common clocks implementation
