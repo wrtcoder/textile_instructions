@@ -14,7 +14,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts or just click "here":http://releases.linaro.org/13.02/android/vexpress/vexpress.img.bz2
+* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts or just click "here":http://releases.linaro.org/13.03/android/vexpress/vexpress.img.bz2
 
 h3. Installation Steps
 
@@ -42,9 +42,9 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/13.02/android/vexpress/boot.tar.bz2
-wget http://releases.linaro.org/13.02/android/vexpress/system.tar.bz2
-wget http://releases.linaro.org/13.02/android/vexpress/userdata.tar.bz2
+bc. wget http://releases.linaro.org/13.03/android/vexpress/boot.tar.bz2
+wget http://releases.linaro.org/13.03/android/vexpress/system.tar.bz2
+wget http://releases.linaro.org/13.03/android/vexpress/userdata.tar.bz2
 
 * Download "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools which can be obtained in two ways:
 
@@ -56,7 +56,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source
 
-bc. wget http://releases.linaro.org/13.02/components/platform/linaro-image-tools/linaro-image-tools-2013.02.tar.gz
+bc. wget http://releases.linaro.org/13.03/components/platform/linaro-image-tools/linaro-image-tools-2013.03.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
