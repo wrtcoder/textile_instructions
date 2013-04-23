@@ -96,7 +96,7 @@ bc. cp arch/arm/boot/uImage /media/boot/
 ** For A9 CoreTile: no device tree blob is needed
 ** For A5 CoreTile: @cp arch/arm/boot/vexpress-v2p-ca5s.dtb /media/boot/v2p-ca5s.dtb@
 ** For A15 CoreTile (TC1): @cp arch/arm/boot/vexpress-v2p-ca15-tc1.dtb /media/boot/v2p-ca15-tc1.dtb@
-** For A15_A7 CoreTile: (TC2): @cp arch/arm/boot/vexpress-v2p-ca15-tc2.dtb /media/boot/v2p-ca15-tc2.dtb@
+** For A15_A7 CoreTile: (TC2): @cp arch/arm/boot/vexpress-v2p-ca15_a7.dtb /media/boot/v2p-ca15-tc2.dtb@
 
 * Eject the memory card  @eject /media/boot@
 
