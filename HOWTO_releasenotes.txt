@@ -10,7 +10,7 @@ The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and 
 
 The release integrates big.LITTLE development work which can be traced in the big.LITTLE MP working group "git repo":http://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=summary . *Note:*  This repository has the following tree: big-LITTLE-MP-master-v16 that has been used for the 13.04 evaluation build. This tree includes the following patches that have been developed and qualified for correctness to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This new functionality has been optimised for energy usage at near Cortex-A15 (big) performance. These patches are not currently ready to be submitted to the Linux mainline for integration (upstreaming), since they do not yet work seamlessly with the load-balancer. Work is ongoing to make the load-balancer more big.LITTLE aware, making the changes suitable for integration into the Linux mainline.
 
-This release introduces optional configurable kernel support for an example implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. Using PSCI support requires the use of secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
+This release contains optional configurable kernel support for an example implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. Using PSCI support requires the use of secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
 
 Scheduler modifications to support big.LITTLE
 ** sched: Basic global balancing support for HMP: This patch introduces an extra-check at task up-migration to prevent overloading the cpus in the faster hmp_domain while the slower hmp_domain is not fully utilized. The patch also introduces a periodic balance check that can down-migrate tasks if the faster domain is oversubscribed and the slower is under-utilized.
@@ -63,7 +63,8 @@ h2. Fixed in this release
 
 h3. Generic bugs:
 
-* "LP: #1110632":https://bugs.launchpad.net/linaro-landing-team-arm/+bug/1110632 BLS-470: Logical CPU topology view constructed wrongly affecting CPU_fast and CPU_slow masks relied on by HMP patch.
+* "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer kills the system on TC2 
+* "LP: #1161037":https://launchpad.net/bugs/1161037 drivers/video/amba_clcld.c does not link properly as a module
 
 h3. Android bugs:
 
@@ -71,7 +72,9 @@ h3. Android bugs:
 
 h3. UEFI bugs:
 
-None listed.
+* "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
+* "LP: #1091447":https://launchpad.net/bugs/1091447 UEFI: A9 crashes on boot with ATAGS 
+* "LP: #1058013":https://launchpad.net/bugs/1058013 "device-tree" test failed on vexpress A9 ubuntu.
 
 h3. Generic Landing Team Bugs:
 
@@ -83,13 +86,14 @@ h2. Known Issues
 
 h3. UEFI Bugs:
 
-* "LP: #1067784":https://launchpad.net/bugs/1067784 UEFI: A9 crashes on boot with Device Tree
-* "LP: #1091447":https://launchpad.net/bugs/1091447 UEFI: A9 crashes on boot with ATAGS 
 * "LP: #942155":https://launchpad.net/bugs/942155 UEFI: TC2: copy/paste doesn't work over serial port
 * "LP: #942162":https://launchpad.net/bugs/942162 UEFI: vexpress A5 & TC1: No LCD/HDLCD support
 * "LP: #972623":https://launchpad.net/bugs/972623 UEFI: vexpress A9: flash to address zero
-* "LP: #1117464":https://launchpad.net/bugs/1117464 UEFI/TFTP: server must provide a filename in DHCPOFFER 
+* "LP: #1117464":https://launchpad.net/bugs/1117464 UEFI/TFTP: server must provide a filename in DHCPOFFER
 * "LP: #1157203":https://launchpad.net/bugs/1157203 UEFI: TC2: Shell cannot write to SD card when booting from A7 core
+* "LP: #1166364":https://launchpad.net/bugs/1166364 UEFI: VExpress 4xA9 support not bindings compliant
+* "LP: #1171780":https://launchpad.net/bugs/1171780 UEFI: vexpress A9 default config should use Device Tree
+* "LP: #1171779":https://launchpad.net/bugs/1171779 UEFI: RTSM binaries don't have Linaro default config
 
 h3. Android Bugs:
 
@@ -104,7 +108,6 @@ h3. Android Bugs:
 
 h3. Generic Landing Team Bugs:
 
-* "LP: #1068595":https://launchpad.net/bugs/1068595 Enabling function tracer kills the system on TC2 
 * "LP: #1131208":https://launchpad.net/bugs/1131208 arm64: create config fragments and work with other teams to use them
 * "LP: #1131078":https://launchpad.net/bugs/1131078 Juice: CONFIG_SYNC should be enabled in the kernel 
 * "LP: #1129005":https://launchpad.net/bugs/1129005 Intermitent failure of LTP shmat01 testcase 
