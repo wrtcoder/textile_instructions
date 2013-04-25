@@ -34,12 +34,12 @@ We use a "Nano":http://releases.linaro.org/13.04/ubuntu/quantal-images RootFS fo
 
 Using the following command, you will download the nano RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.04/ubuntu/vexpress/hwpack_linaro-vexpress_20130324-276_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.04/ubuntu/vexpress/linaro-quantal-developer-20130324-313.tar.gz
+bc. wget http://releases.linaro.org/13.04/ubuntu/vexpress/hwpack_linaro-vexpress_20130423-299_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.04/ubuntu/vexpress/linaro-quantal-developer-20130422-342.tar.gz
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130324-276_armhf_supported.tar.gz --binary linaro-quantal-developer-20133224-313.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130423-299_armhf_supported.tar.gz --binary linaro-quantal-developer-20130422-342.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot
