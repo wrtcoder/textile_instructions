@@ -35,7 +35,7 @@ h3. Build the kernel
 
 To build the kernel uImage, use the following command:
 
-bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- uImage
+bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LOADADDR=0x60008000 uImage
 
 h2. Install your kernel
 
