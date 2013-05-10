@@ -18,3 +18,7 @@ Cmd> eraseall
 Cmd> exit
 Cmd> reboot
 ** You may need to configure UEFI to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
+
+You may want to set /media/VEMSD/config.txt AUTORUN to TRUE to be make the CoreTile boot from power on.
+
+For TC2, you should set the DIP swich closest to the black reset button is down so that the Boot Monitor runs the boot script on power on.
