@@ -1,6 +1,6 @@
-Ubuntu images are comprised of a Hardware Pack ("HWPack":https://wiki.linaro.org/HardwarePacks) and a root file system ("RootFS":http://releases.linaro.org/13.05/ubuntu/quantal-images).  The hardware pack contains the kernel, boot loader and Device Tree blobs (if applicable). There is no need to rebuild the RootFS since it is comprised of a large number of debian packages. Instead, the best approach is to use an image, which you can create as outlined in the "Binary Image Installation" tab then replace the kernel with your compiled one.  This is common practice that many engineers deploy when wanting a standard Linux image to use for testing and development purposes.
+Ubuntu images are comprised of a Hardware Pack ("HWPack":https://wiki.linaro.org/HardwarePacks) and a root file system ("RootFS":http://releases.linaro.org/13.05/ubuntu/raring-images).  The hardware pack contains the kernel, boot loader and Device Tree blobs (if applicable). There is no need to rebuild the RootFS since it is comprised of a large number of debian packages. Instead, the best approach is to use an image, which you can create as outlined in the "Binary Image Installation" tab then replace the kernel with your compiled one.  This is common practice that many engineers deploy when wanting a standard Linux image to use for testing and development purposes.
 
-The root file systems are described "here":http://releases.linaro.org/13.05/ubuntu/quantal-images where you can also download them.
+The root file systems are described "here":http://releases.linaro.org/13.05/ubuntu/raring-images where you can also download them.
 
 The following instructions will walk you through how to obtain the kernel source, build it, and add it to a pre-existing Ubuntu image.
 
