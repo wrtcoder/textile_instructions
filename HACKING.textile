@@ -17,7 +17,7 @@ You can use GIT to obtain the kernel source code for this release:
 
 bc. git clone git://git.linaro.org/kernel/linux-linaro-tracking.git
 cd linux-linaro-tracking
-git checkout ll_20130422.0
+git checkout ll_20130523.0
 
 h3. Create a kernel config
 

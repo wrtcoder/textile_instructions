@@ -18,7 +18,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress-quantal_developer_20130423-299.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/13.05/ubuntu/vexpress/vexpress-quantal_developer_20130423-299.img.gz
+* This release pre-built image (vexpress-raring_developer_20130526-344.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/13.05/ubuntu/vexpress/vexpress-raring_developer_20130526-344.img.gz
 
 h3. Installation Steps
 
@@ -27,7 +27,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
-zcat vexpress-quantal_developer_20130423-299.img.gz | sudo dd bs=64k of=$SDCARD
+zcat vexpress-raring_developer_20130526-344.img.gz | sudo dd bs=64k of=$SDCARD
 
 When the image is created, skip down to the section "Booting the image".
 
@@ -47,7 +47,7 @@ h3. Prerequisites
 * Download Artifacts from above or use the following command in your terminal
 
 *Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/13.05/ubuntu/quantal-images
-bc. wget http://releases.linaro.org/13.05/ubuntu/vexpress/hwpack_linaro-vexpress_20130423-299_armhf_supported.tar.gz
+bc. wget http://releases.linaro.org/13.05/ubuntu/vexpress/hwpack_linaro-vexpress_20130526-344_armhf_supported.tar.gz
 wget http://releases.linaro.org/13.05/ubuntu/vexpress/linaro-quantal-developer-20130422-342.tar.gz
 
 * Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
@@ -78,7 +78,7 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create media
 
-bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20130423-299_armhf_supported.tar.gz --binary linaro-quantal-developer-20130422-342.tar.gz
+bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20130526-344_armhf_supported.tar.gz --binary linaro-quantal-developer-20130422-342.tar.gz
 
 h2. Booting the image
 
