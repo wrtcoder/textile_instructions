@@ -23,7 +23,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Build from source
 
-bc. wget http://releases.linaro.org/13.05/components/platform/linaro-image-tools/linaro-image-tools-2013.05.tar.gz
+bc. wget http://releases.linaro.org/13.06/components/platform/linaro-image-tools/linaro-image-tools-2013.06.tar.gz
 
 h2. Create a 2GB image file
 
@@ -31,9 +31,9 @@ RTSM will only deal with file systems up to 2GB in size, however the Linaro pre-
 
 The following command downloads all the Android OS components necessary to make up a complete Android image.
 
-bc. wget http://releases.linaro.org/13.05/android/vexpress/boot.tar.bz2
-wget http://releases.linaro.org/13.05/android/vexpress/system.tar.bz2
-wget http://releases.linaro.org/13.05/android/vexpress/userdata.tar.bz2
+bc. wget http://releases.linaro.org/13.06/android/vexpress/boot.tar.bz2
+wget http://releases.linaro.org/13.06/android/vexpress/system.tar.bz2
+wget http://releases.linaro.org/13.06/android/vexpress/userdata.tar.bz2
 
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
 
