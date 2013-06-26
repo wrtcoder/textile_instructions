@@ -61,31 +61,51 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 * Questions? "ask Linaro":http://ask.linaro.org/.
 * Interested in commercial support? inquire at "Linaro support":mailto:support@linaro.org
 
-h2. Fixed in this release
+h2. Resolved in this release
 
-None listed.
+* "ARM-15":http://cards.linaro.org/browse/ARM-15 LP:1068595 - Enabling function tracer kills the system on TC2 
+* "ARM-17":http://cards.linaro.org/browse/ARM-17 LP:1110634 - BLS-460: Perf group counting requires 'cpu_cycles' event as the first event in the event list specified to the perf tool.
+* "ARM-18":http://cards.linaro.org/browse/ARM-18 LP:1131208 - arm64: create config fragments and work with other teams to use them
+* "ARM-21":http://cards.linaro.org/browse/ARM-21 LP:1180778 - vexpress: A9: Reboot fails with lockup or crashes
+* "ARM-28":http://cards.linaro.org/browse/ARM-28 Kernel crashes observed with 13.05 LEB release candidate
+* "ARM-33":http://cards.linaro.org/browse/ARM-33 CPU PMUs broken by IKS topic branch
+* "LP: #1183781":https://launchpad.net/bugs/1183781 Enabling IKS after boot crashes Android
+
 
 h2. Known Issues
 
-* "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplgging and reconnecting HDMI cable hangs vexpress Android
+h3. General Issues
 
-* "ARM-28":http://cards.linaro.org/browse/ARM-28 Kernel crashes observed with 13.05 LEB release candidate
-* "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
-* "ARM-21":http://cards.linaro.org/browse/ARM-21 LP:1180778 - vexpress: A9: Reboot fails with lockup or crashes
-* "ARM-18":http://cards.linaro.org/browse/ARM-18 LP:1131208 - arm64: create config fragments and work with other teams to use them
-* "ARM-17":http://cards.linaro.org/browse/ARM-17 LP:1110634 - BLS-460: Perf group counting requires 'cpu_cycles' event as the first event in the event list specified to the perf tool.
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
-* "ARM-15":http://cards.linaro.org/browse/ARM-15 LP:1068595 - Enabling function tracer kills the system on TC2 
-* "LP: #873283":https://launchpad.net/bugs/873283 Taking device screenshot using ddms tool fails
-* "LP: #880859":https://launchpad.net/bugs/880859 U-Boot boot script doesn't work on Versatile Express
-* "LP: #912595":https://launchpad.net/bugs/912595 l-m-c fails on vexpress due to a change in u-boot name
+* "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
+* "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplgging and reconnecting HDMI cable hangs vexpress Android
+* "ARM-30":http://cards.linaro.org/browse/ARM-30 Intermittent rcu_sched messages reporting CPU stall observed, which keep on repeating
+* "ARM-32":http://cards.linaro.org/browse/ARM-32 VE firmware from Linaro 1304 patch seemingly breaks the debugger connection to TC2 (A15x2, A7x3)
+* "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
+
+
+h3. Known Issues due to lack of video acceleration
+
 * "LP: #987155":https://launchpad.net/bugs/987155 vexpress: Angrybirds display severely trucated
-* "LP: #987172":https://launchpad.net/bugs/987172 vexpress: android: YouTube video playback fails
+* "LP: #987172":https://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
+
+
+h3. Known Issues due to lack of software implementation
+
 * "LP: #1042755":https://launchpad.net/bugs/1042755 TC2: powertop doesn't show correct frequency stats
-* "LP: #1083175":https://launchpad.net/bugs/1083175 vexpress: Android: Recorded message is just a harsh loud noise
-* "LP: #1086599":https://launchpad.net/bugs/1086599 SunSpider JavaScript Benchmark doesn't work on vexpress with Linaro Android
-* "LP: #1091279":https://launchpad.net/bugs/1091279 All text missing in Ethernet settings menu
-* "LP: #1092492":https://launchpad.net/bugs/1092492 No boot instruction for ARM Versatile Express A9 Android Jelly Bean. 
-* "LP: #1112449":https://launchpad.net/bugs/1112449 Android Gallery app disappears on first boot 
-* "LP: #1183781":https://launchpad.net/bugs/1183781 Enabling IKS after boot crashes Android 
+
+h3. Known Issues due to generic Android features
+
+None
+
+h3. Known Issues due to generic Ubuntu features
+
+* "LP: #966411":https://launchpad.net/bugs/966411 vexpress: ubuntu: Network manager doesn't manage ethernet connection
+* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermitent failure of LTP shmat01 testcase
+
+h3. Known Issues that are "Won't Fix" by ARMLT
+
+* "LP: #912595":https://launchpad.net/bugs/912595 l-m-c fails on vexpress due to a change in u-boot name
+* "LP: #880859":https://launchpad.net/bugs/880859 U-Boot boot script doesn't work on Versatile Express
+* "LP: #1009326":https://launchpad.net/bugs/1009326 e2eaudio test failed on Origen, Snowball & vexpress ubuntu image.
 
