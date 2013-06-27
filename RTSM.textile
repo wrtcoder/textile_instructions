@@ -48,6 +48,9 @@ cp boot/uImage .
 cp boot/uInitrd .
 cp -ar boot/rtsm rtsm
 sudo umount boot
+sudo kpartx -d linaro.img
+
+note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh and you will end up using the old image.
 
 h2. Run RTSM with UEFI
 
@@ -75,7 +78,7 @@ RTSM_UEFI=rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run the model with UEFI
 
-bc.  RTSM_MMC=linaro.img
+bc. RTSM_MMC=linaro.img
 RTSM_UEFI_VARS=$HOME/uefi-vars.fd
 
 bc. $RTSM_MODEL \
@@ -108,7 +111,7 @@ $RTSM_BOOTWRAPPER \
 
 h2. Run A15x4-A7x4 model with the Boot Wrapper
 
-This example shows how to run the Linaro kernel on a big.LITTLE RTSM model:
+This example shows how to run the Linaro kernel on a big.LITTLE RTSM model.  There is no UEFI binary for the big.LITTLE model, so we only use the boot wrapper for this model.
 
 bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4-A7x4/RTSM_VE_Cortex-A15x4-A7x4
 RTSM_BOOTWRAPPER=boot/rtsm/linux-system-semi.axf
@@ -128,10 +131,3 @@ bc. $RTSM_MODEL \
 -C coretile.cluster0.cpu0.semihosting-enable=1 \
 -C coretile.cluster0.cpu0.semihosting-cmd_line="--kernel $RTSM_KERNEL --dtb $RTSM_DTB --initrd $RTSM_INITRD -- $RTSM_CMDLINE"
 
-h2. Unmount the image file
-
-When you are finished testing an image, you can delete the mapping to the image file:
-
-bc. sudo kpartx -d linaro.img
-
-note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh and you will end up using the old image.
