@@ -58,7 +58,9 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 ** Linaro Development "mailing list":http://lists.linaro.org/mailman/listinfo/linaro-dev
 ** Linaro IRC channel on irc.freenode.net at @#linaro@
 
-* Bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro project":http://bugs.launchpad.net/linaro/+filebug.
+* Landing Team bug reports should be filed in "JIRA":http://cards.linaro.org/browse/ARM#selectedTab=com.atlassian.jira.plugin.system.project%3Aissues-panel by clicking on the "Create issue" button on the top menu bar.
+** You will need to login to your JIRA account.  If you do not have an account or are having problems, email its@linaro.org for help.
+* More general bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro project":http://bugs.launchpad.net/linaro/+filebug.
 * Questions? "ask Linaro":http://ask.linaro.org/.
 * Interested in commercial support? inquire at "Linaro support":mailto:support@linaro.org
 
