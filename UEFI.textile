@@ -4,9 +4,9 @@ h2. Tianocore baselines
 
 p. The Linaro UEFI tree is based on the following upstream versions of code from Tianocore:
 
-** edk2 at subversion revision 14323
+** edk2 at subversion revision 14395
 ** edk2-fatdriver2 at subversion revision 73
-** edk2-buildtools at subversion revision 2579
+** edk2-buildtools at subversion revision 2582
 
 h2. Platform Support
 
