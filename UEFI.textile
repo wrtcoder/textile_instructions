@@ -14,15 +14,14 @@ p. Platforms currently supported include:
 
 ** Versatile Express A5/A9/TC1/TC2 and RTSM A9x4 and A15x1, A15 MPCore.
 ** Samsung Arndale
-** Samsung Origen
-** TI Pandaboard
 ** TI Beagleboard
 
 h2. Fixed in this release
 
 p. The following issues were fixed in this release:
 
-* "LP: #1171780":https://launchpad.net/bugs/1171780 UEFI: vexpress A9 default config should use Device Tree
+* "LP: #1171779":https://launchpad.net/bugs/1171779 UEFI: RTSM binaries don't have Linaro default config
+* "LP: #1193428":https://launchpad.net/bugs/1193428 UEFI: EditHIInputStr() doesn't wait for cariage return
 
 h2. Known Issues
 
@@ -32,7 +31,6 @@ p. The following issues were unresolved in this release:
 * "LP: #1166301":https://launchpad.net/bugs/1166301 Arndale port uses an embedded copy of the GIC library
 * "LP: #1179461":https://launchpad.net/bugs/1179461 UEFI: TC2: booting from A7 core causes boot failures due to MMC/SD timeouts
 * "LP: #1163341":https://launchpad.net/bugs/1163341 Ax88772 drivers assume CPU is Little-Endian
-* "LP: #1171779":https://launchpad.net/bugs/1171779 UEFI: RTSM binaries don't have Linaro default config
 * "LP: #1157203":https://launchpad.net/bugs/1157203 UEFI: TC2: Shell cannot write to SD card when booting from A7 core
 * "LP: #1166364":https://launchpad.net/bugs/1166364 UEFI: VExpress 4xA9 support not bindings compliant
 * "LP: #1057164":https://launchpad.net/bugs/1057164 Panda UEFI is not ready for real deployment
@@ -43,6 +41,7 @@ p. The following issues were unresolved in this release:
 * "LP: #1131141":https://launchpad.net/bugs/1131141 UEFI: arndale does not store Boot Device config
 * "LP: #1161355":https://launchpad.net/bugs/1161355 Arndale port console should use SerialDxe
 * "LP: #1174318":https://launchpad.net/bugs/1174318 SetVirtualAddressMap ASSERT failure in DEBUG build 
-
-
+* "LP: #1192941":https://launchpad.net/bugs/1192941 Lava : vexpress-tc2-01 and vexpress-tc2-benchmark jobs are running incomplete due to various reasons
+* "LP: #1192961":https://launchpad.net/bugs/1192961 UEFI: panda: BSP doesn't compile
+* "LP: #1192963":https://launchpad.net/bugs/1192963 UEFI: origen: BSP doesn't compile
 
