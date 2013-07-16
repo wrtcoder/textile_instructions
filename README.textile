@@ -14,6 +14,16 @@ The release contains the big.LITTLE MP patchset developed by ARM. This patchset 
 
 Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. Using PSCI support requires the use of secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
 
+h3. Optimization Pack
+
+Recently a set of patches has been developed that focus on performance and power optimisation. These patches give considerable uplift across a range of benchmarks. Early access to these patches is provided here:
+
+"https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=bigLITTLE-MP-13.06-optimization-pack-10072013-02.tar.gz":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=bigLITTLE-MP-13.06-optimization-pack-10072013-02.tar.gz
+
+The patches in the pack apply cleanly on top of this 13.06 release.
+
+These patches will also be included in the next release (13.07).
+
 h3. Scheduler modifications to support big.LITTLE
 
 The following patchsets make up the big.LITTLE MP patchset. 
