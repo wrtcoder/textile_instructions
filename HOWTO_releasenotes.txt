@@ -2,7 +2,7 @@ p. Linaro releases monthly binary images for the ARM "Versatile Express":http://
 
 p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
 
-p. This release includes Linaro Android Jelly Bean and Ubuntu Raring for Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images.
+p. This release includes Linaro Android Jelly Bean and Ubuntu Raring for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images.
 
 h2. About the TC2 Engineering Build
 
@@ -10,23 +10,45 @@ This release is based on the Linux v3.10 kernel.  As a consequence, almost all o
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
 
-The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/heads/big-LITTLE-MP-master-v18. These patches have been developed and rigourously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. The functionality has been optimised for minimal energy usage at near Cortex-A15 (big) performance and is stable and ready for use on other platforms.
+The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/heads/big-LITTLE-MP-master-v19. These patches have been developed and rigorously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This functionality has been optimised for energy and performance bringing it close to the Cortex-A7 (LITTLE) in energy consumption with near Cortex-A15 (big) performance. The patchset also includes optimizations that provide a considerable performance uplift across a wide range of benchmarks. The functionality introduced by this patchset is stable and ready for use on other platforms. Note that at present this LEB release is the reference point for big.LITTLE MP functionality. In future, an LSK (Linaro Stable Kernel) release shall become this reference point and we will clearly advertise this when the change happens.
 
-Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. Using PSCI support requires the use of secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
+The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located at : <https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.07.tar.bz2>. This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact support-sw@arm.com with 'Query about ARM big.LITTLE MP patchset package' in the subject line in case of any queries related to this package.
 
-h3. Optimization Pack
-
-Included in this release are a set of patches developed to focus on performance and power optimisation. These patches give considerable uplift across a range of benchmarks. 
+Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
 
 h3. Scheduler modifications to support big.LITTLE
 
-The following patchsets make up the big.LITTLE MP patchset. 
+The following patches make up the big.LITTLE MP patchset. 
 
-** sched: Global balancing support for HMP: This patch introduces an extra-check at task up-migration to prevent overloading the cpus in the faster hmp_domain while the slower hmp_domain is not fully utilized. The patch also introduces a periodic balance check that can down-migrate tasks if the faster domain is oversubscribed and the slower is under-utilized.
-
-** task-placement-v2: Morten Rasmussen’s patches using the per-task load to schedule threads on the big or LITTLE cores as appropriate. The patches take into account multiple domains when making decisions on task migration, with ftrace events added for tracking these migrations. 
-
-** Patches for making load values invariant to frequency settings. This helps reduce the chance of unnecessary up migrations to big cores. 
+** sched: Implement usage tracking
+** sched: Entity load tracking load_avg_ratio
+** sched: Task placement for heterogeneous systems based
+** sched: Forced task migration on heterogeneous systems
+** sched: Introduce priority based task migration filter
+** sched: Add HMP scheduling support for ARM architecture
+** sched: Use device tree to provide fast slow CPU
+** sched: Setup SCHED_HMP domains
+** sched: Add ftrace events for entity load tracking
+** sched: Add HMP task migration ftrace event
+** sched: SCHED_HMP multi domain task migration control
+** sched: Enable HMP priority filter by default
+** sched: Avoid empty slow HMP domain
+** sched: Only down migrate low priority tasks if allowe
+** sched: Fix arch_get_fast_and_slow_cpus to get logical
+** sched: Do not ignore grouped tasks during HMP forced 
+** sched: Ignore offline CPUs in HMP migration load stat
+** sched: Change load tracking scale using sysfs
+** sched: Experimental Frequency Invariant Load Scaling Pa
+** sched: Fix build breakage when big.LITTLE.conf is not u
+** sched: Basic global balancing support for HMP
+** sched: cfs.nr_running does not contain the intended m
+** sched: Revert sched Enable HMP priority filter by default
+** sched: Use unweighted load for hmp migration decisions
+** sched: Select least loaded CPU when performing HMP Migr
+** sched: Avoid multiple calls to hmp_domain_min_load in f
+** sched: Force new non kernel tasks onto big CPUs until l
+** sched: Restrict nohz balance kicks to stay in the HMP
+** sched: Experimental Force all rt tasks to start on litt
 
 h3. Platform Support. 
 
@@ -63,7 +85,7 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 ** Linaro Android IRC channel on irc.freenode.net at @#linaro-android@
 
 * Landing Team bug reports should be filed in "JIRA":http://cards.linaro.org/browse/ARM#selectedTab=com.atlassian.jira.plugin.system.project%3Aissues-panel by clicking on the "Create issue" button on the top menu bar.
- * You will need to login to your JIRA account.  If you do not have an account or are having problems, email its@linaro.org for help.
+** You will need to login to your JIRA account.  If you do not have an account or are having problems, email its@linaro.org for help.
 * More general bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro project":http://bugs.launchpad.net/linaro/+filebug.
 * Questions? "ask Linaro":http://ask.linaro.org/.
 * Interested in commercial support? inquire at "Linaro support":mailto:support@linaro.org
@@ -78,14 +100,14 @@ h3. General Issues
 
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
 * "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
-* "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplgging and reconnecting HDMI cable hangs vexpress Android
+* "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplugging and reconnecting HDMI cable hangs vexpress Android
 * "ARM-30":http://cards.linaro.org/browse/ARM-30 Intermittent rcu_sched messages reporting CPU stall observed, which keep on repeating
 * "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
 
 
 h3. Known Issues due to lack of video acceleration
 
-* "LP: #987155":https://launchpad.net/bugs/987155 vexpress: Angrybirds display severely trucated
+* "LP: #987155":https://launchpad.net/bugs/987155 vexpress: Angrybirds display severely truncated
 * "LP: #987172":https://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
 
 
@@ -100,7 +122,7 @@ None
 h3. Known Issues due to generic Ubuntu features
 
 * "LP: #966411":https://launchpad.net/bugs/966411 vexpress: ubuntu: Network manager doesn't manage ethernet connection
-* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermitent failure of LTP shmat01 testcase
+* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermittent failure of LTP shmat01 testcase
 
 h3. Known Issues due to u-boot not being supported by ARMLT
 
