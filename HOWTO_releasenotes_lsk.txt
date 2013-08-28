@@ -1,0 +1,144 @@
+h1. Versatile Express 13.08 Release
+
+p. Linaro releases monthly binary images for the ARM "Versatile Express":http://www.arm.com/products/tools/development-boards/versatile-express/index.php including support for Cortex-A9, Cortex-A5, TC2 (big.LITTLE) CoreTiles and RTSM.
+
+p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
+
+p. This release includes Linaro Android Jelly Bean and Ubuntu Raring for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images.
+
+h2. About the TC2 Engineering Build
+
+This release is based on the Linux v3.10 kernel.  As a consequence, almost all of the patches in the ARM Landing Team tree have been rebased and refactored to account for the latest upstream content.
+
+The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
+
+The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/heads/big-LITTLE-MP-master-v19. These patches have been developed and rigorously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This functionality has been optimised for energy and performance bringing it close to the Cortex-A7 (LITTLE) in energy consumption with near Cortex-A15 (big) performance. The patchset also includes optimizations that provide a considerable performance uplift across a wide range of benchmarks. The functionality introduced by this patchset is stable and ready for use on other platforms. Note that at present this release is the reference point for big.LITTLE MP functionality. In future, an LSK (Linaro Stable Kernel) release shall become this reference point and we will clearly advertise this when the change happens.
+
+The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.08-lsk.tar.bz2.  This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact support-sw@arm.com with 'Query about ARM big.LITTLE MP patchset package' in the subject line in case of any queries related to this package.
+
+Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact support-sw@arm.com with the subject line "Access to PSCI" to get access to the firmware code.
+
+h3. Scheduler modifications to support big.LITTLE
+
+The following patches make up the big.LITTLE MP patchset. 
+
+** sched: Implement usage tracking
+** sched: Entity load tracking load_avg_ratio
+** sched: Task placement for heterogeneous systems based
+** sched: Forced task migration on heterogeneous systems
+** sched: Introduce priority based task migration filter
+** sched: Add HMP scheduling support for ARM architecture
+** sched: Use device tree to provide fast slow CPU
+** sched: Setup SCHED_HMP domains
+** sched: Add ftrace events for entity load tracking
+** sched: Add HMP task migration ftrace event
+** sched: SCHED_HMP multi domain task migration control
+** sched: Enable HMP priority filter by default
+** sched: Avoid empty slow HMP domain
+** sched: Only down migrate low priority tasks if allowe
+** sched: Fix arch_get_fast_and_slow_cpus to get logical
+** sched: Do not ignore grouped tasks during HMP forced 
+** sched: Ignore offline CPUs in HMP migration load stat
+** sched: Change load tracking scale using sysfs
+** sched: Experimental Frequency Invariant Load Scaling Pa
+** sched: Fix build breakage when big.LITTLE.conf is not u
+** sched: Basic global balancing support for HMP
+** sched: cfs.nr_running does not contain the intended m
+** sched: Revert sched Enable HMP priority filter by default
+** sched: Use unweighted load for hmp migration decisions
+** sched: Select least loaded CPU when performing HMP Migr
+** sched: Avoid multiple calls to hmp_domain_min_load in f
+** sched: Force new non kernel tasks onto big CPUs until l
+** sched: Restrict nohz balance kicks to stay in the HMP
+** sched: Experimental Force all rt tasks to start on litt
+
+h3. Platform Support. 
+
+In addition to the big.LITTLE MP work the TC2 platform support includes:
+** TC2: reset CPUs spuriously woken up on cluster power up
+** vexpress: add shim layer for psci backend on TC2
+** vexpress: allow native pm ops backends to probe for psci suppport
+** psci: add cmdline option to enable use of psci
+** psci: add probe function to discover presence of a psci implementation
+** psci: convert psci '-EALREADYON' error code to linux '-EAGAIN'
+** vexpress: add psci support in TC2 device tree
+** psci: add constants to specify affinity levels
+** TC2: replace hard coded cluster and cpu values with constants
+** TC2: use generic accessors to extract cpu and cluster ids
+** CPUidle & CPUfreq support
+** hwmon driver allowing, amongst other things, TC2's power, current and energy measurements to be read through standard sysfs interfaces
+** Common clocks implementation
+** Regulator driver
+** Drivers for previously hard-coded configuration interfaces
+** Support self-hosted debugging through idle
+** In addition to the CPU PMUs the perf framework supports the CCI-400 PMUs
+** A patch from Thomas Gliexner which supports a IRQ affinity mask being specified in the command line. This can be used to reduce unnecessary IRQ wakeups on Cortex-A15. For instructions see the irqaffinity entry in Documentation/kernel-parameters.txt
+** arm-multi_pmu_v2 - enables the use of multiple PMU types or sources, for example profiling across both Cortex-A15 and Cortex-A7 clusters and getting results for CCI. 
+
+h2. Where To Find More Information
+
+More information on Linaro can be found on our "website.":http://www.linaro.org/
+
+h2. Feedback and Support
+
+Subscribe to the important Linaro mailing lists and join our IRC channels to stay on top of Linaro development.
+
+** Linaro Android Development "mailing list":http://lists.linaro.org/mailman/listinfo/linaro-android
+** Linaro Android IRC channel on irc.freenode.net at @#linaro-android@
+
+* Landing Team bug reports should be filed in "JIRA":http://cards.linaro.org/browse/ARM#selectedTab=com.atlassian.jira.plugin.system.project%3Aissues-panel by clicking on the "Create issue" button on the top menu bar.
+** You will need to login to your JIRA account.  If you do not have an account or are having problems, email its@linaro.org for help.
+* More general bug reports should be filed in Launchpad against the individual packages that are affected. If a suitable package cannot be identified, feel free to assign them to "Linaro project":http://bugs.launchpad.net/linaro/+filebug.
+* Questions? "ask Linaro":http://ask.linaro.org/.
+* Interested in commercial support? inquire at "Linaro support":mailto:support@linaro.org
+
+h2. Resolved in this release
+
+* "ARM-32":http://cards.linaro.org/browse/ARM-32 VE firmware from Linaro 1304 patch seemingly breaks the debugger connection to TC2 (A15x2, A7x3)
+* "ARM-48":http://cards.linaro.org/browse/ARM-48 Device Tree is unavailable on ARM Versatile Express A9 Android
+
+h2. Known Issues
+
+h3. General Issues
+
+* "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
+* "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
+* "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplugging and reconnecting HDMI cable hangs vexpress Android
+* "ARM-30":http://cards.linaro.org/browse/ARM-30 Intermittent rcu_sched messages reporting CPU stall observed, which keep on repeating
+* "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
+* "ARM-45":http://cards.linaro.org/browse/ARM-45 cpu_hotplug_latency_with_load/without_load failed to get trace
+* "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
+* "ARM-49":http://cards.linaro.org/browse/ARM-49 Vexpress-tc2 linaro 13.05 segfaults when cluster DTS node is removed
+* "ARM-50":http://cards.linaro.org/browse/ARM-50 perf shows zero for cycle and instruction counts on TC2
+
+h3. Known Issues due to lack of video acceleration
+
+* "LP: #987155":https://launchpad.net/bugs/987155 vexpress: Angrybirds display severely truncated
+* "LP: #987172":https://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
+
+h3. Known Issues due to lack of software implementation
+
+* "LP: #1042755":https://launchpad.net/bugs/1042755 TC2: powertop doesn't show correct frequency stats
+
+h3. Known Issues due to generic Android features
+
+* "ARM-47":http://cards.linaro.org/browse/ARM-47 /mnt/sdcard/.android_secure is missing on 4.3 Android builds
+
+h3. Known Issues due to generic Ubuntu features
+
+* "LP: #966411":https://launchpad.net/bugs/966411 vexpress: ubuntu: Network manager doesn't manage ethernet connection
+* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermittent failure of LTP shmat01 testcase
+
+h3. Known Issues due to u-boot not being supported by ARMLT
+
+U-Boot is not supported by the ARM Landing Team.  Therefore any u-boot bugs are marked as Won't Fix.
+
+* "LP: #912595":https://launchpad.net/bugs/912595 l-m-c fails on vexpress due to a change in u-boot name
+* "LP: #880859":https://launchpad.net/bugs/880859 U-Boot boot script doesn't work on Versatile Express
+
+h3. Known Issues due to hardware configuration in LAVA
+
+Hardware configuration in LAVA is not under Landing Team control.  Therefore any issues arising due to such hardware configuration are marked as Won't Fix by the Landing Team.
+
+* "LP: #1009326":https://launchpad.net/bugs/1009326 e2eaudio test failed on Origen, Snowball & vexpress ubuntu image.
+
