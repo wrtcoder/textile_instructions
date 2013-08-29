@@ -103,6 +103,7 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Resolved in this release
 
+* "ARM-30":http://cards.linaro.org/browse/ARM-30 Intermittent rcu_sched messages reporting CPU stall observed, which keep on repeating
 * "ARM-32":http://cards.linaro.org/browse/ARM-32 VE firmware from Linaro 1304 patch seemingly breaks the debugger connection to TC2 (A15x2, A7x3)
 * "ARM-48":http://cards.linaro.org/browse/ARM-48 Device Tree is unavailable on ARM Versatile Express A9 Android
 
@@ -113,7 +114,6 @@ h3. General Issues
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
 * "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
 * "ARM-29":http://cards.linaro.org/browse/ARM-29 Unplugging and reconnecting HDMI cable hangs vexpress Android
-* "ARM-30":http://cards.linaro.org/browse/ARM-30 Intermittent rcu_sched messages reporting CPU stall observed, which keep on repeating
 * "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
 * "ARM-45":http://cards.linaro.org/browse/ARM-45 cpu_hotplug_latency_with_load/without_load failed to get trace
 * "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
