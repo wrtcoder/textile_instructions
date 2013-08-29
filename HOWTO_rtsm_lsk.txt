@@ -31,9 +31,9 @@ RTSM will only deal with file systems up to 2GB in size, however the Linaro pre-
 
 The following command downloads all the Android OS components necessary to make up a complete Android image.
 
-bc. wget http://releases.linaro.org/13.08/android/vexpress/boot.tar.bz2
-wget http://releases.linaro.org/13.08/android/vexpress/system.tar.bz2
-wget http://releases.linaro.org/13.08/android/vexpress/userdata.tar.bz2
+bc. wget http://releases.linaro.org/13.08/android/vexpress-lsk/boot.tar.bz2
+wget http://releases.linaro.org/13.08/android/vexpress-lsk/system.tar.bz2
+wget http://releases.linaro.org/13.08/android/vexpress-lsk/userdata.tar.bz2
 
 Using the @linaro-android-media-create@, which is part of the @linaro-image-tools@, you can combine all the components into a single image.
 
