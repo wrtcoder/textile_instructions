@@ -2,16 +2,16 @@ h1. Accessing Source Code
 
 h2. Linaro Android JB Source Code
 
-Run the "linaro_android_build_cmds.sh":http://releases.linaro.org/13.08/android/vexpress-lsk/linaro_android_build_cmds.sh, it will download the entire source code for both Android JB and the kernel and attempt to build it.
+Run the "linaro_android_build_cmds.sh":http://releases.linaro.org/13.09/android/vexpress-lsk/linaro_android_build_cmds.sh, it will download the entire source code for both Android JB and the kernel and attempt to build it.
 
 The pinned and source manifests can be found here:
 
-* "Pinned Manifest":http://releases.linaro.org/13.08/android/vexpress-lsk/pinned-manifest.xml ("?":https://wiki.linaro.org/Platform/Android/ReproduceABuildExactly)
-* "Source Manifest":http://releases.linaro.org/13.08/android/vexpress-lsk/source-manifest.xml
+* "Pinned Manifest":http://releases.linaro.org/13.09/android/vexpress-lsk/pinned-manifest.xml ("?":https://wiki.linaro.org/Platform/Android/ReproduceABuildExactly)
+* "Source Manifest":http://releases.linaro.org/13.09/android/vexpress-lsk/source-manifest.xml
 
 h2. Kernel Source Code
 
-Obtain the exact *kernel source code* for this cycle by using the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/13.08/android/vexpress-lsk/linaro_kernel_build_cmds.sh script to download the source and build it. You can get the kernel configuration from "here":http://releases.linaro.org/13.08/android/vexpress-lsk/kernel_config (listed above)
+Obtain the exact *kernel source code* for this cycle by using the "linaro_kernel_build_cmds.sh":http://releases.linaro.org/13.09/android/vexpress-lsk/linaro_kernel_build_cmds.sh script to download the source and build it. You can get the kernel configuration from "here":http://releases.linaro.org/13.09/android/vexpress-lsk/kernel_config (listed above)
 
 h2. Compiling Linaro Android RootFS+Kernel
 
@@ -24,7 +24,7 @@ bc. sudo apt-get install zip curl flex bison build-essential git-core gnupg gper
 gcc-multilib g++-multilib libc6-dev-i386 ia32-libs lib32z-dev gcc-4.5 g++-4.5 cpp-4.5 gcc-4.5-multilib g++-4.5-multilib \
 uboot-mkimage uuid-dev openjdk-6-jdk ant lib32ncurses5-dev xsltproc
 
-* Download the Android building script for this release from "here":http://releases.linaro.org/13.08/android/vexpress-lsk/linaro_android_build_cmds.sh or from the list of artifacts listed above.
+* Download the Android building script for this release from "here":http://releases.linaro.org/13.09/android/vexpress-lsk/linaro_android_build_cmds.sh or from the list of artifacts listed above.
 
 * Run the script
 

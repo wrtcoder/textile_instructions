@@ -1,6 +1,6 @@
 Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
 
-The root file systems are described "here":http://releases.linaro.org/13.08/ubuntu/raring-images where you can also download them.
+The root file systems are described "here":http://releases.linaro.org/13.09/ubuntu/raring-images where you can also download them.
 
 Linaro provides two methods for installing Linaro binary builds:
 
@@ -18,7 +18,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress-raring_developer_20130826-443.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/13.08/ubuntu/vexpress/vexpress-raring_developer_20130826-443.img.gz
+* This release pre-built image (vexpress-raring_developer_20130826-443.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/13.09/ubuntu/vexpress/vexpress-raring_developer_20130826-443.img.gz
 
 h3. Installation Steps
 
@@ -46,9 +46,9 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-*Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/13.08/ubuntu/raring-images
-bc. wget http://releases.linaro.org/13.08/ubuntu/vexpress/hwpack_linaro-vexpress_20130826-443_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.08/ubuntu/vexpress/linaro-raring-developer-20130826-474.tar.gz
+*Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/13.09/ubuntu/raring-images
+bc. wget http://releases.linaro.org/13.09/ubuntu/vexpress/hwpack_linaro-vexpress_20130826-443_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.09/ubuntu/vexpress/linaro-raring-developer-20130826-474.tar.gz
 
 * Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
@@ -60,7 +60,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source </LI>
 
-bc. wget http://releases.linaro.org/13.08/components/platform/linaro-image-tools/linaro-image-tools-2013.08.tar.gz
+bc. wget http://releases.linaro.org/13.09/components/platform/linaro-image-tools/linaro-image-tools-2013.09.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
