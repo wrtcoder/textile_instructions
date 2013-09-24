@@ -34,12 +34,12 @@ We use a "Nano":http://releases.linaro.org/13.09/ubuntu/raring-images RootFS for
 
 Using the following command, you will download the RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.09/ubuntu/vexpress/hwpack_linaro-vexpress_20130826-443_armhf_supported.tar.gz
-wget https://releases.linaro.org/13.09/ubuntu/vexpress/linaro-raring-developer-20130826-474.tar.gz
+bc. wget http://releases.linaro.org/13.09/ubuntu/vexpress/hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.09/ubuntu/vexpress/linaro-raring-developer-20130922-501.tar.gz
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130826-443_armhf_supported.tar.gz --binary linaro-raring-developer-20130826-474.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz --binary linaro-raring-developer-20130922-501.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot
