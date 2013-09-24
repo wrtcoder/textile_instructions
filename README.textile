@@ -12,58 +12,11 @@ This release is based on the Linux v3.11-rc6 kernel.  As a consequence, almost a
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
 
-The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/heads/big-LITTLE-MP-master-v19. These patches have been developed and rigorously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This functionality has been optimised for energy and performance bringing it close to the Cortex-A7 (LITTLE) in energy consumption with near Cortex-A15 (big) performance. The patchset also includes optimizations that provide a considerable performance uplift across a wide range of benchmarks. The functionality introduced by this patchset is stable and ready for use on other platforms. Note that at present this release is the reference point for big.LITTLE MP functionality. In future, an LSK (Linaro Stable Kernel) release shall become this reference point and we will clearly advertise this when the change happens.
-
-The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.09-lsk.tar.bz2.  This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact "ARM support":mailto:support-sw@arm.com?subject=Query%20about%20ARM%20big.LITTLE%20MP%20patchset%20package in case of any queries related to this package.
-
-Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support": mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
-
-h3. Scheduler modifications to support big.LITTLE
-
-The following patches make up the big.LITTLE MP patchset. 
-
-| "sched: implement usage tracking":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0841c6ae0b53d43e4634cf4a1f88407b93c15399 | |
-| "sched: entity load-tracking load_avg_ratio":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=be6ef1d56e70bfdfd79174d7d23a4b12d5b911ee | |
-| "sched: Task placement for heterogeneous systems based on task load-tracking":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=798e82cab1a39f4d75796be024c4d7b08bc062e8 | |
-| "sched: Forced task migration on heterogeneous systems":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2dd22b22c95851445c189c3d4708c027aa19cf5f | |
-| "sched: Introduce priority-based task migration filter":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=943106d9437fcced79c4e48ed794410e5f750b4c | |
-| "ARM: Add HMP scheduling support for ARM architecture":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=d278bb1c4d5191e0d9b9911337e3b31a100a7f9f | |
-| "ARM: sched: Use device-tree to provide fast/slow CPU list for HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=dc68bd92107d8990f4608d8f42744770fe203f7f | |
-| "ARM: sched: Setup SCHED_HMP domains":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=1baaccf456ece33b8fa02f8cdf3977d6a95b393c | |
-| "sched: Add ftrace events for entity load-tracking":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=b9d3d5612899de4f8372ecfbc4c8f4ba5aa170ec | |
-| "sched: Add HMP task migration ftrace event":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0d811e649ad31994e8f06b6b18101f249b34e912 | |
-| "sched: SCHED_HMP multi-domain task migration control":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=76525733b4f4e0fdcc188dfe23941024ae626979 | |
-| "sched: Enable HMP priority filter by default":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=1b8ae251638844173bd04a4c9e543581f3d92fbd | |
-| "ARM: sched: Avoid empty 'slow' HMP domain":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=362036513b1dff299b2035d5b928a203742b98d7 | |
-| "sched: Only down migrate low priority tasks if allowed by affinity mask":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=eeebbf595c8dcd6392537c4d13b8cda78001f4e5 | |
-| "sched: fix arch_get_fast_and_slow_cpus to get logical cpumask correctly":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=a9f9bca843e44144670c660638274363f34b9847 | |
-| "sched: Do not ignore grouped tasks during HMP forced migration.":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=d2c920023cbc456414f8e07ff253a89be535b41b | |
-| "sched: Ignore offline CPUs in HMP migration & load stats":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=b64cc6f7e54b97536dbecc05d193b31b27feecf1 | |
-| "ARM: Change load tracking scale using sysfs":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0e48eed05c47aa2e00b772a519b36286e466621e | |
-| "ARM: Experimental Frequency-Invariant Load Scaling Patch":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=71b5dbd6d527d5de8aaef7e1f8658df95caf28aa | |
-| "ARM: Fix build breakage when big.LITTLE.conf is not used.":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=ae570aeb1d40d531a498e53e2a815a52996f0749 | |
-| "sched: Basic global balancing support for HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=cf71912f481c7b6fc39e9b2021e8f9c058116c26 | |
-| "sched: cfs.nr_running does not contain the intended metric":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7e6446630039fcbabb9582ebefdcbc30de32c0e2 | |
-| "Revert sched: Enable HMP priority filter by default":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7362251d8a422dcba5c56408b92fc2b6ad03b10c | |
-| "HMP: Use unweighted load for hmp migration decisions":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=ede58a69a32b187899e6cccbbd299a04d3f50b71 | |
-| "HMP: Select least-loaded CPU when performing HMP Migrations":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=08d7db89a214a138516419a85e17272b09180abd | |
-| "HMP: Avoid multiple calls to hmp_domain_min_load in fast path":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=3f3b210703f80fe60dbfa13c25b30d4effbf9f4b | |
-| "HMP: Force new non-kernel tasks onto big CPUs until load stabilises":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=954978dd2cff81cc15745b9e581a1709e238f8ef | |
-| "sched: Restrict nohz balance kicks to stay in the HMP domain":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=6eada0087366d8aec6bc38348a68f721f538cc5c | |
-| "HMP: experimental: Force all rt tasks to start on little domain":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=4ab2679351e9566a6b0822f2d841a902758ba066 | |
-| "HMP: select 'best' task for migration rather than 'current'":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=ee52487aaf659ef630ce3371de0e59944253581b | |
-| "sched: HMP fix traversing the rb-tree from the curr pointer":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=aaba2453951b3743d003be228102e1da63c75326 | |
-| "sched: track per-rq 'last migration time'":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=5fad81c7739db3a1fc6380dcc3d7902666ed5ee8 | |
-| "HMP: Modify the runqueue stats to add a new child stat":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=b98cd6acc86f2c3bc10902476836746727b73ba9 | |
-| "HMP: Explicitly implement all-load-is-max-load policy for HMP targets":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=6b695bd8a4e2c86cc466010517c0260dc3653742 | |
-| "sched: HMP change nr_running offload metric":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=1f435579ea80d4639061435d8337df5a2c92e530 | |
-| "HMP: Implement idle pull for HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=db20b7088c6d7f7920dace95c7fc8d9955650214 | |
-| "HMP: Access runqueue task clocks directly.":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=de66e01565848d0236ca9e7e9e2f6ecd5c27a021 | |
-| "HMP: Update migration timer when we fork-migrate":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=18e3c3d2cc1346cb7cc2e3fd777b2c6f4fbb6135 | |
+Provided in this release is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support": mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
 
 h3. Platform Support. 
 
-In addition to the big.LITTLE MP work the TC2 platform support includes:
+The TC2 platform support in this release includes:
 ** TC2: reset CPUs spuriously woken up on cluster power up
 ** vexpress: add shim layer for psci backend on TC2
 ** vexpress: allow native pm ops backends to probe for psci suppport
