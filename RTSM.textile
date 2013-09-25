@@ -8,9 +8,7 @@ h2. Prerequisites
 
 bc. sudo apt-get install kpartx
 
-Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
-
-The root file systems are described "here":http://releases.linaro.org/13.09/ubuntu/raring-images where you can also download them.
+Linaro OpemEmbedded images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
 
 h3. Install Linaro Image Tools
 
@@ -28,18 +26,16 @@ bc. wget http://releases.linaro.org/13.09/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the released pre-built image for Ubuntu Desktop requires a 4GB filesystem.  Therefore we will build our own Nano image using the pre-built artifacts as listed below.
-
-We use a "Nano":http://releases.linaro.org/13.09/ubuntu/raring-images RootFS for this example, however, you could use other RootFS types such as ALIP or Developer so long as you can install it to a 2GB file (Ubuntu Desktop doesn't fit the 2GB limit).
+RTSM will only deal with file systems up to 2GB in size, however the if the pre-built image may be larger.  In this case, you can build your own image using the pre-built artifacts as listed below.
 
 Using the following command, you will download the RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.09/ubuntu/vexpress/hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz
-wget https://releases.linaro.org/13.09/ubuntu/vexpress/linaro-raring-developer-20130922-501.tar.gz
+bc. wget http://releases.linaro.org/13.09/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20130922-471_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.09/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz --binary linaro-raring-developer-20130922-501.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_20130922-471_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot

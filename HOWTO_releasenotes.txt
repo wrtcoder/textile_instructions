@@ -4,7 +4,7 @@ p. Linaro releases monthly binary images for the ARM "Versatile Express":http://
 
 p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
 
-p. This release includes Linaro Android Jelly Bean and Ubuntu Raring for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/13.09/ubuntu/vexpress/#tabs-3 tab).
+p. This release includes Linaro Android Jelly Bean for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/13.09/android/vexpress/#tabs-3 tab).
 
 h2. About the TC2 Engineering Build
 
@@ -85,7 +85,7 @@ h3. Known Issues due to generic Android features
 
 * "ARM-51":http://cards.linaro.org/browse/ARM-51 Gallery app crashes on start on vexpress Android 4.3
 
-h3. Known Issues due to generic Ubuntu features
+h3. Known Issues due to generic Hardware Pack features
 
 * "LP: #966411":https://launchpad.net/bugs/966411 vexpress: ubuntu: Network manager doesn't manage ethernet connection
 * "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermittent failure of LTP shmat01 testcase

@@ -1,6 +1,4 @@
-Linaro Ubuntu images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
-
-The root file systems are described "here":http://releases.linaro.org/13.09/ubuntu/raring-images where you can also download them.
+Linaro OpenEmbedded images are made up of two components. The "Hardware Pack":https://wiki.linaro.org/HardwarePacks, which contains the kernel, boot loader and/or Device Tree blob and a Root file system (RootFS) of your choice to generate an image.
 
 Linaro provides two methods for installing Linaro binary builds:
 
@@ -18,7 +16,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress-raring_developer_20130922-471.img.gz), which you can downloaded from the above list of artifacts or from "here":http://releases.linaro.org/13.09/ubuntu/vexpress/vexpress-raring_developer_20130922-471.img.gz
+* This release "pre-built image":http://releases.linaro.org/13.09/openembedded/vexpress-lsk/vexpress-openembedded_alip-armv7a-gcc-4.8_20130925-474.img.gz.
 
 h3. Installation Steps
 
@@ -27,7 +25,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
-zcat vexpress-raring_developer_20130922-471.img.gz | sudo dd bs=64k of=$SDCARD
+zcat vexpress-openembedded_alip-armv7a-gcc-4.8_20130925-474.img.gz | sudo dd bs=64k of=$SDCARD
 
 When the image is created, skip down to the section "Booting the image".
 
@@ -37,7 +35,7 @@ When the image is created, skip down to the section "Booting the image".
 
 h2. Building a custom image using pre-built components
 
-Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
+Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
 Using components to generate the image will yield the same functionality found in the pre-built image of the same release.
 
@@ -46,9 +44,8 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-*Note:* The instructions above attempt to build an Ubuntu Desktop image. If you wish to create a small image, you can replace the ubuntu desktop tar ball with another root file system, which you can download from "here":http://releases.linaro.org/13.09/ubuntu/raring-images
-bc. wget http://releases.linaro.org/13.09/ubuntu/vexpress/hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.09/ubuntu/vexpress/linaro-raring-developer-20130922-501.tar.gz
+bc. wget http://releases.linaro.org/13.09/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20130922-471_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.09/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
 
 * Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
@@ -58,7 +55,7 @@ bc. sudo add-apt-repository ppa:linaro-maintainers/tools
 sudo apt-get update
 sudo apt-get install linaro-image-tools
 
-** Method 2: Building from source </LI>
+** Method 2: Building from source
 
 bc. wget http://releases.linaro.org/13.09/components/platform/linaro-image-tools/linaro-image-tools-2013.09.tar.gz
 
@@ -78,7 +75,7 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create media
 
-bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-vexpress_20130922-471_armhf_supported.tar.gz --binary linaro-raring-developer-20130922-501.tar.gz
+bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_20130922-471_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
 
 h2. Booting the image
 

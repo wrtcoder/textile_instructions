@@ -33,7 +33,7 @@ When the image is created, skip down to the section "Booting the image".
 
 h2. Building a custom image using pre-built components.
 
-Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks for Ubuntu or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
+Sometimes, you may wish to build your own custom image for a Versatile Express. Perhaps you wish to use a more recent snapshot of the "hardware pack":https://wiki.linaro.org/HardwarePacks or take the latest Android build. Whatever the reason, you will want to use the "Linaro Image Tools":https://wiki.linaro.org/Linaro-Image-Tools to create a custom image.
 
 Using components to generate the image will yield the same functionality found in the pre-built image of the same release.
 
