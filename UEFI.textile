@@ -4,24 +4,24 @@ h2. Tianocore baselines
 
 p. The Linaro UEFI tree is based on the following upstream versions of code from Tianocore:
 
-** edk2 at subversion revision 14395
-** edk2-fatdriver2 at subversion revision 73
-** edk2-buildtools at subversion revision 2582
+** edk2 at subversion revision 14628
+
+The latest version of the EDK2 code contains support for aarch64 plaforms upstream.
 
 h2. Platform Support
 
 p. Platforms currently supported include:
 
-** Versatile Express A5/A9/TC1/TC2 and RTSM A9x4 and A15x1, A15 MPCore.
+** Versatile Express A5/A9/TC1/TC2, RTSM A9x4 and A15x1, A15 MPCore and FVP Base models.
 ** Samsung Arndale
 ** TI Beagleboard
+** TI Pandaboard
 
 h2. Fixed in this release
 
 p. The following issues were fixed in this release:
 
-* "LP: #1171779":https://launchpad.net/bugs/1171779 UEFI: RTSM binaries don't have Linaro default config
-* "LP: #1193428":https://launchpad.net/bugs/1193428 UEFI: EditHIInputStr() doesn't wait for cariage return
+* "LP: #1192961":https://launchpad.net/bugs/1192961 UEFI: panda: BSP doesn't compile
 
 h2. Known Issues
 
@@ -35,13 +35,10 @@ p. The following issues were unresolved in this release:
 * "LP: #1166364":https://launchpad.net/bugs/1166364 UEFI: VExpress 4xA9 support not bindings compliant
 * "LP: #1057164":https://launchpad.net/bugs/1057164 Panda UEFI is not ready for real deployment
 * "LP: #942155":https://launchpad.net/bugs/942155 UEFI: TC2: copy/paste doesn't work over serial port
-* "LP: #942162":https://launchpad.net/bugs/942162 UEFI: vexpress A5 & TC1: No LCD/HDLCD support
-* "LP: #972623":https://launchpad.net/bugs/972623 UEFI: vexpress A9: flash to address zero
 * "LP: #1117464":https://launchpad.net/bugs/1117464 UEFI/TFTP: server must provide a filename in DHCPOFFER
 * "LP: #1131141":https://launchpad.net/bugs/1131141 UEFI: arndale does not store Boot Device config
 * "LP: #1161355":https://launchpad.net/bugs/1161355 Arndale port console should use SerialDxe
 * "LP: #1174318":https://launchpad.net/bugs/1174318 SetVirtualAddressMap ASSERT failure in DEBUG build 
 * "LP: #1192941":https://launchpad.net/bugs/1192941 Lava : vexpress-tc2-01 and vexpress-tc2-benchmark jobs are running incomplete due to various reasons
-* "LP: #1192961":https://launchpad.net/bugs/1192961 UEFI: panda: BSP doesn't compile
 * "LP: #1192963":https://launchpad.net/bugs/1192963 UEFI: origen: BSP doesn't compile
 
