@@ -18,7 +18,7 @@ The release contains the big.LITTLE MP patchset developed by ARM. This patchset 
 
 The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.08-lsk.tar.bz2.  This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact "ARM support":mailto:support-sw@arm.com?subject=Query%20about%20ARM%20big.LITTLE%20MP%20patchset%20package in case of any queries related to this package.
 
-Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support": mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
+Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support":mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
 
 h3. Scheduler modifications to support big.LITTLE
 
