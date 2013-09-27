@@ -23,7 +23,9 @@ You may want to set /media/VEMSD/config.txt AUTORUN to TRUE to be make the CoreT
 
 For TC2, you should set the DIP swich closest to the black reset button is down so that the Boot Monitor runs the boot script on power on.
 
-h2. Using TC2 as an A7 or A15 only board
+<br>
+
+h2. Using TC2 as an A7-only or A15-only board
 
 h3. Configure the Firmware
 
