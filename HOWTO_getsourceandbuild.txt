@@ -63,7 +63,7 @@ h3. Prerequisites
 * Download and install Ubuntu 12.04 64 bit or newer ("download":http://www.ubuntu.com)
 * Install the following packages by typing:
 
-bc. sudo apt-get install gcc-arm-linux-gnueabi curl git u-boot-tools libncurses5-dev
+bc. sudo apt-get install gcc-arm-linux-gnueabi curl git libncurses5-dev
 
 * Create a working subdirectory
 * Download the auto build script for this release from the list of artifacts above (the kernel configuration will be automatically downloaded).
