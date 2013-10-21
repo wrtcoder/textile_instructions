@@ -121,7 +121,6 @@ h3. General Issues
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
 * "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
 * "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
-* "ARM-45":http://cards.linaro.org/browse/ARM-45 cpu_hotplug_latency_with_load/without_load failed to get trace
 * "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
 * "ARM-49":http://cards.linaro.org/browse/ARM-49 Vexpress-tc2 linaro 13.05 segfaults when cluster DTS node is removed
 * "ARM-50":http://cards.linaro.org/browse/ARM-50 perf shows zero for cycle and instruction counts on TC2
@@ -141,23 +140,9 @@ h3. Known Issues due to generic Android features
 
 * "ARM-51":http://cards.linaro.org/browse/ARM-51 Gallery app crashes on start on vexpress Android 4.3
 
-h3. Known Issues due to generic Hardware Pack features
+h3. Known Issues due to generic features
 
-* "LP: #966411":https://launchpad.net/bugs/966411 vexpress: ubuntu: Network manager doesn't manage ethernet connection
-* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermittent failure of LTP shmat01 testcase
-
-h3. Known Issues due to u-boot not being supported by ARMLT
-
-U-Boot is not supported by the ARM Landing Team.  Therefore any u-boot bugs are marked as Won't Fix.
-
-* "LP: #912595":https://launchpad.net/bugs/912595 l-m-c fails on vexpress due to a change in u-boot name
-* "LP: #880859":https://launchpad.net/bugs/880859 U-Boot boot script doesn't work on Versatile Express
-
-h3. Known Issues due to hardware configuration in LAVA
-
-Hardware configuration in LAVA is not under Landing Team control.  Therefore any issues arising due to such hardware configuration are marked as Won't Fix by the Landing Team.
-
-* "LP: #1009326":https://launchpad.net/bugs/1009326 e2eaudio test failed on Origen, Snowball & vexpress ubuntu image.
+* "LP: #1231468":https://launchpad.net/bugs/1231468 HTML5 video playback failed, using Chromium but works with Firefox, on ARM Versatile Express ALIP image 
 
 h3. Additional information
 
