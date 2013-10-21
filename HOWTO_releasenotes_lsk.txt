@@ -1,4 +1,4 @@
-h1. Linaro Stable Kernel (LSK) 13.09 Release for Versatile Express (Android)
+h1. Linaro Stable Kernel (LSK) 13.10 Release for Versatile Express (Android)
 
 p. The Linaro Stable Kernel (LSK) is produced, validated and released by Linaro and is based on the linux stable kernel tree. It is produced to satisfy the requirements of Linaro members. The LSK focuses on quality and stability and is therefore a great basis for member products. It also includes backports of commonly desired features, provided they meet the quality requirements, and also any bug fixes.
 
@@ -6,7 +6,7 @@ p. Linaro releases monthly binary images for the ARM "Versatile Express":http://
 
 p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
 
-p. This release includes Linaro Android Jelly Bean for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/13.09/android/vexpress-lsk/#tabs-3 tab).
+p. This release includes Linaro Android Jelly Bean for both Versatile Express and Real-Time System Model ("RTSM":http://www.arm.com/products/tools/software-tools/ds-5/rtsm-simulator.php). The images are able to boot A5 (using U-Boot), A9 (ATAGS) and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/13.10/android/vexpress-lsk/#tabs-3 tab).
 
 h2. About the TC2 Engineering Build
 
@@ -14,9 +14,9 @@ This release is based on the Linux v3.10.12 kernel.  As a consequence, almost al
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI–400 coherent interconnect.
 
-The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/tags/big-LITTLE-MP-latest.  These patches have been developed and rigorously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This functionality has been optimised for energy and performance bringing it close to the Cortex-A7 (LITTLE) in energy consumption with near Cortex-A15 (big) performance. The patchset also includes optimizations that provide a considerable performance uplift across a wide range of benchmarks. The functionality introduced by this patchset is stable and ready for use on other platforms.  This release is the reference point for big.LITTLE MP functionality.
+The release contains the big.LITTLE MP patchset developed by ARM. This patchset is hosted by Linaro and can be found in the linked "git repository":https://git.linaro.org/gitweb?p=arm/big.LITTLE/mp.git;a=shortlog;h=refs/tags/big-LITTLE-MP-latest.  These patches have been developed and rigorously tested in order to enable the ARM Versatile Express V2P-CA15_A7 CoreTile (TC2) to run in full MP mode. This functionality has been optimised for energy and performance bringing it close to the Cortex-A7 (LITTLE) in energy consumption with near Cortex-A15 (big) performance. The patchset also includes optimizations that provide a considerable performance uplift across a wide range of benchmarks. The functionality introduced by this patchset is stable and ready for use on other platforms. Note that at present this LSK release is the reference point for big.LITTLE MP functionality.
 
-The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.08-lsk.tar.bz2.  This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact "ARM support":mailto:support-sw@arm.com?subject=Query%20about%20ARM%20big.LITTLE%20MP%20patchset%20package in case of any queries related to this package.
+The patches in the big.LITTLE MP patchset are generic and applicable to big.LITTLE systems with minimal porting effort. To ease porting, the patches are also available as an isolated package located "here":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=big-LITTLE-MP-scheduler-patchset-13.10-lsk.tar.bz2.  This package may be used directly by partners interested in porting the big.LITTLE MP scheduler functionality to their custom platform. Please contact "ARM support":mailto:support-sw@arm.com?subject=Query%20about%20ARM%20big.LITTLE%20MP%20patchset%20package in case of any queries related to this package.
 
 Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support":mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
 
@@ -62,6 +62,13 @@ The following patches make up the big.LITTLE MP patchset.
 | "HMP: Implement idle pull for HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=db20b7088c6d7f7920dace95c7fc8d9955650214 | |
 | "HMP: Access runqueue task clocks directly.":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=de66e01565848d0236ca9e7e9e2f6ecd5c27a021 | |
 | "HMP: Update migration timer when we fork-migrate":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=18e3c3d2cc1346cb7cc2e3fd777b2c6f4fbb6135 | |
+| "sched: HMP: Change default HMP thresholds" | |
+| "sched: HMP: Additional trace points for debugging HMP" | |
+| "arm: ipi raise/start/end tracing" | |
+| "smp: smp_cross_call function pointer tracing" | |
+| "sched: HMP: fix potential logical errors" | |
+| "hmp: Remove potential for task_struct access race" | |
+| "HMP: Implement task packing for small tasks in HMP" | |
 
 h3. Platform Support. 
 
@@ -152,3 +159,22 @@ Hardware configuration in LAVA is not under Landing Team control.  Therefore any
 
 * "LP: #1009326":https://launchpad.net/bugs/1009326 e2eaudio test failed on Origen, Snowball & vexpress ubuntu image.
 
+h3. Additional information
+
+NOTE: When using the interactive governor with Android, take care to use the following values for governor specific tunables. These values have been selected after careful analysis on this LSK version and result in optimal power-performance on TC2. In future LSK releases, additional system initialisation logic will use these values as defaults.
+
+Interactive settings for the Cortex-A7 cluster:
+
+'above_hispeed_delay': 20000
+'go_hispeed_load': 85
+'hispeed_freq': 800000
+'min_sample_time': 80000
+'timer_rate': 20000
+
+Interactive settings for the Cortex-A15 cluster:
+
+'above_hispeed_delay': 20000
+'go_hispeed_load': 85
+'hispeed_freq': 1000000
+'min_sample_time': 80000
+'timer_rate': 20000
