@@ -22,7 +22,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source
 
-bc. wget http://releases.linaro.org/13.09/components/platform/linaro-image-tools/linaro-image-tools-2013.09.tar.gz
+bc. wget http://releases.linaro.org/13.10/components/platform/linaro-image-tools/linaro-image-tools-2013.10.tar.gz
 
 h2. Create a 2GB image file
 
@@ -30,8 +30,8 @@ RTSM will only deal with file systems up to 2GB in size, however the if the pre-
 
 Using the following command, you will download the RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.09/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20130926-475_armhf_supported.tar.gz
-wget https://releases.linaro.org/13.09/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
+bc. wget http://releases.linaro.org/13.10/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20130926-475_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.10/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20130925-103.rootfs.tar.gz
 
 Now you need to create the image using the following commands.
 
