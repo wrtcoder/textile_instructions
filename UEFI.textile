@@ -12,16 +12,20 @@ h2. Platform Support
 
 p. Platforms currently supported include:
 
-** Versatile Express A5/A9/TC1/TC2, RTSM A9x4 and A15x1, A15 MPCore and FVP Base models.
+** Versatile Express A5/A9/TC1/TC2, RTSM A9x4 and A15x1, A15 MPCore, Foundation and FVP Base models.
 ** Samsung Arndale
 ** TI Beagleboard
 ** TI Pandaboard
+
+h2. Building UEFI
+
+For more instructions on how to build UEFI from source, please see the "LEG wiki build page":https://wiki.linaro.org/LEG/Engineering/Kernel/UEFI/build 
 
 h2. Fixed in this release
 
 p. The following issues were fixed in this release:
 
-* "LP: #1192961":https://launchpad.net/bugs/1192961 UEFI: panda: BSP doesn't compile
+None.
 
 h2. Known Issues
 
@@ -42,3 +46,6 @@ p. The following issues were unresolved in this release:
 * "LP: #1192941":https://launchpad.net/bugs/1192941 Lava : vexpress-tc2-01 and vexpress-tc2-benchmark jobs are running incomplete due to various reasons
 * "LP: #1192963":https://launchpad.net/bugs/1192963 UEFI: origen: BSP doesn't compile
 
+h2. More information
+
+The "LEG UEFI wiki":https://wiki.linaro.org/LEG/Engineering/Kernel/UEFI is a great place to start developing with Linaro's UEFI tree.
