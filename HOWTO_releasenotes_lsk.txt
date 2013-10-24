@@ -112,7 +112,12 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Resolved in this release
 
-* "ARM-47":http://cards.linaro.org/browse/ARM-47 /mnt/sdcard/.android_secure is missing on 4.3 Android builds
+* "ARM-23":http://cards.linaro.org/browse/ARM-23 LP:1129005 - Intermitent failure of LTP shmat01 testcase
+* "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
+* "ARM-45":http://cards.linaro.org/browse/ARM-45 cpu_hotplug_latency_with_load/without_load failed to get trace
+* "ARM-49":http://cards.linaro.org/browse/ARM-49 Vexpress-tc2 linaro 13.05 segfaults when cluster DTS node is removed 
+* "ARM-54":http://cards.linaro.org/browse/ARM-54 No audio on ARM Versatile Express A9 ALIP image
+* "ARM-55":http://cards.linaro.org/browse/ARM-55 HTML5 video playback failed, using Chromium but works with Firefox, on ARM Versatile Express ALIP image
 
 h2. Known Issues
 
@@ -120,9 +125,7 @@ h3. General Issues
 
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
 * "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
-* "ARM-35":http://cards.linaro.org/browse/ARM-35 Warning in kmalloc_slab when running Android on RTSM
 * "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
-* "ARM-49":http://cards.linaro.org/browse/ARM-49 Vexpress-tc2 linaro 13.05 segfaults when cluster DTS node is removed
 * "ARM-50":http://cards.linaro.org/browse/ARM-50 perf shows zero for cycle and instruction counts on TC2
 * "ARM-52":http://cards.linaro.org/browse/ARM-52 hrtimer issues with TC2 on Linaro 13.06
 * "ARM-53":http://cards.linaro.org/browse/ARM-53 Watchdog timeout booting Android on single core fastmodels
