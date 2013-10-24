@@ -76,6 +76,7 @@ h3. Run the model with UEFI
 
 bc. RTSM_MMC=linaro.img
 RTSM_UEFI_VARS=$HOME/uefi-vars.fd
+touch $RTSM_UEFI_VARS # create the file if it doesn't already exist
 
 bc. $RTSM_MODEL \
 -C motherboard.flashloader0.fname=$RTSM_UEFI \
