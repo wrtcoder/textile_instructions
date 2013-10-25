@@ -62,13 +62,13 @@ The following patches make up the big.LITTLE MP patchset.
 | "HMP: Implement idle pull for HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=db20b7088c6d7f7920dace95c7fc8d9955650214 | |
 | "HMP: Access runqueue task clocks directly.":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=de66e01565848d0236ca9e7e9e2f6ecd5c27a021 | |
 | "HMP: Update migration timer when we fork-migrate":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=18e3c3d2cc1346cb7cc2e3fd777b2c6f4fbb6135 | |
-| "sched: HMP: Change default HMP thresholds" | |
-| "sched: HMP: Additional trace points for debugging HMP" | |
-| "arm: ipi raise/start/end tracing" | |
-| "smp: smp_cross_call function pointer tracing" | |
-| "sched: HMP: fix potential logical errors" | |
-| "hmp: Remove potential for task_struct access race" | |
-| "HMP: Implement task packing for small tasks in HMP" | |
+| "sched: HMP: Change default HMP thresholds":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=d73babce9a77f8143136fe0d7b6c1ae44b5652dc |<p style="color:white;background-color:green">New in 13.08</p> |
+| "sched: HMP: Additional trace points for debugging HMP":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7b8e0b3f2af55b1ffb5c10be1daa59d8dc21d140 | <p style="color:white;background-color:green">New in 13.08</p> |
+| "arm: ipi raise/start/end tracing":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2353c1f8009c14e89b323b18ae246c485fc034e4 | <p style="color:white;background-color:green">New in 13.08</p> |
+| "smp: smp_cross_call function pointer tracing":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=5ecaba3d9f4ab514fe8d383534e24b306f116896 | <p style="color:white;background-color:green">New in 13.08</p> |
+| "sched: HMP: fix potential logical errors":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2e14ecb254a3eaa2993b5dd04014f41e1d6188ce | <p style="color:white;background-color:green">New in 13.08</p> |
+| "hmp: Remove potential for task_struct access race":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=cd5c2cc93d3dc581a19c62442f40895500d2a34c | <p style="color:white;background-color:green">New in 13.08</p> |
+| "HMP: Implement task packing for small tasks in HMP":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=d8063e7015122eb3f6173acf496171def8941734 | <p style="color:white;background-color:green">New in 13.10</p> |
 
 h3. Platform Support. 
 
