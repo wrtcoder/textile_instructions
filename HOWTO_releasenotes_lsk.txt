@@ -20,6 +20,8 @@ The patches in the big.LITTLE MP patchset are generic and applicable to big.LITT
 
 Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support":mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
 
+In this release the big.LITTLE MP patchset has been extended with experimental support for small task packing (see patch list below). At present, this functionality is disabled in the kernel configuration.
+
 h3. Scheduler modifications to support big.LITTLE
 
 The following patches make up the big.LITTLE MP patchset. 
