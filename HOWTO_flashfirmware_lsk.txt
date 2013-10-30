@@ -32,7 +32,7 @@ h3. Configure the Firmware
 It is possible to configure a TC2 development board as an A7 or A15 only board.  To do this, the developer should modify the /SITE1/HBI0249A/board.txt file on the Versatile Express firmware drive, usually mounted at /media/VEMSD.
 
 The relevant register is CFGREG6 on pages 78-81 of the following TRM:
-http://infocenter.arm.com/help/topic/com.arm.doc.ddi0503e/DDI0503E_v2p_ca15_a7_tc2_trm.pdf
+"http://infocenter.arm.com/help/topic/com.arm.doc.ddi0503e/DDI0503E_v2p_ca15_a7_tc2_trm.pdf":http://infocenter.arm.com/help/topic/com.arm.doc.ddi0503e/DDI0503E_v2p_ca15_a7_tc2_trm.pdf
 
 You should add the following setting in board.txt:
 

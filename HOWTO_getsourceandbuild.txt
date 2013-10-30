@@ -77,7 +77,7 @@ bc. chmod a+x linaro_kernel_build_cmds.sh
 bc. [*] Versatile Express Cortex-A9x4 tile
 [*] Device Tree support for Versatile Express platforms
 
-This will mean that the same kernel will run on A5, A9, A15-TC1, A15-TC2 and various RTSM models.
+This will mean that the same kernel will run on A5, A9, TC2 and various RTSM models.
 
 h1. Installing your kernel
 
