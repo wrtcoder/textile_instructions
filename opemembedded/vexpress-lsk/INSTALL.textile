@@ -16,7 +16,8 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release "pre-built image":http://releases.linaro.org/13.10/openembedded/vexpress-lsk/vexpress-openembedded_alip-armv7a-gcc-4.8_20131021-500.img.gz.
+* Download the pre-built image for this release
+bc. wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/vexpress-openembedded_alip-armv7a-gcc-4.8_${DATE}-${HWPACKNUM}.img.gz.
 
 h3. Installation Steps
 
@@ -25,7 +26,7 @@ h3. Installation Steps
 
 bc. dmesg
 SDCARD=/dev/sdX # sdcard found from dmesg above
-zcat vexpress-openembedded_alip-armv7a-gcc-4.8_20131021-500.img.gz | sudo dd bs=64k of=$SDCARD
+zcat vexpress-openembedded_alip-armv7a-gcc-4.8_${DATE}-${HWPACKNUM}.img.gz | sudo dd bs=64k of=$SDCARD
 
 When the image is created, skip down to the section "Booting the image".
 
@@ -44,8 +45,8 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/13.10/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20131021-500_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.10/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20131021-134.rootfs.tar.gz
+bc. wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
 
 * Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
@@ -57,7 +58,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source
 
-bc. wget http://releases.linaro.org/13.10/components/platform/linaro-image-tools/linaro-image-tools-2013.10.tar.gz
+bc. wget http://releases.linaro.org/13.11/components/platform/linaro-image-tools/linaro-image-tools-2013.11.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
@@ -75,7 +76,7 @@ Or, if your machine uses '/dev/mmcblkX', you may see a line line this:
 
 * Create media
 
-bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_20131021-500_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-20131021-134.rootfs.tar.gz
+bc. sudo linaro-media-create --mmc /dev/sdX --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_*_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-*.rootfs.tar.gz
 
 h2. Booting the image
 
