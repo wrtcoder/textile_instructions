@@ -10,7 +10,7 @@ p. This release includes Linaro Android Jelly Bean for both Versatile Express an
 
 h2. About the TC2 Engineering Build
 
-This release is based on the Linux v3.10.16 kernel.  As a consequence, almost all of the patches in the ARM Landing Team tree have been rebased and refactored to account for the latest upstream content.
+This release is based on the Linux v3.10.20 kernel.  As a consequence, almost all of the patches in the ARM Landing Team tree have been rebased and refactored to account for the latest upstream content.
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI-400 coherent interconnect.
 
