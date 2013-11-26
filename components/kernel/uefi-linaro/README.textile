@@ -4,18 +4,34 @@ h2. Tianocore baselines
 
 p. The Linaro UEFI tree is based on the following upstream versions of code from Tianocore:
 
-** edk2 at subversion revision 14628
+* edk2 at subversion revision 14795
 
-The latest version of the EDK2 code contains support for aarch64 plaforms upstream.
+The latest version of the EDK2 code contains support for aarch64 plaforms upstream in addition to the following topic branches:
+
+* linaro-topic-a5
+* linaro-topic-a9
+* linaro-topic-acpi
+* linaro-topic-arndale
+* linaro-topic-bds
+* linaro-topic-fvp
+* linaro-topic-misc
+* linaro-topic-origen
+* linaro-topic-panda
+* linaro-topic-pxeboot
+* linaro-topic-smbios
+* linaro-topic-tc1
+* linaro-topic-tc2
+* linaro-topic-upstream
+* linaro-topic-virtio
 
 h2. Platform Support
 
 p. Platforms currently supported include:
 
-** Versatile Express A5/A9/TC1/TC2, RTSM A9x4 and A15x1, A15 MPCore, Foundation and FVP Base models.
-** Samsung Arndale
-** TI Beagleboard
-** TI Pandaboard
+* Versatile Express A5/A9/TC1/TC2, RTSM A9x4 and A15x1, A15 MPCore, Foundation and FVP Base models.
+* Samsung Arndale
+* TI Beagleboard
+* TI Pandaboard
 
 h2. Building UEFI
 
