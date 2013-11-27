@@ -1,0 +1,163 @@
+Ensure that you update your Versatile Express board firmware to the latest version. To update your VE board firmware, please follow the instructions below:
+
+* Connect and mount your Versatile Express motherboard USB mass storage device to your PC
+* Install the Recovery firmware from the "v5.0 VE DVD":https://silver.arm.com/download/download.tm?pv=1335158 onto your board.
+* Download ARM's CPU Migration patch for version 5.0 from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1357386
+** Unzip the firmware zip to the root of the motherboard mounted drive
+** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
+
+* Download additional Linaro firmware (image.txt, board.txt, uefi.bin, ...) from "https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20131122-001.zip":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20131122-001.zip
+** Unzip the firmware zip to the root of the motherboard mounted drive
+** Please "contact Linaro":http://www.linaro.org/engineering/getting-started/discuss for any issues related to this firmware update
+
+* Unmount the Versatile Express motherboard
+* Reboot the Versatile Express board
+* At the "Cmd> " prompt, type the following commands:
+Cmd> flash
+Cmd> eraseall
+Cmd> exit
+Cmd> reboot
+** You may need to configure UEFI to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
+
+You may want to set /media/VEMSD/config.txt AUTORUN to TRUE to be make the CoreTile boot from power on.
+
+For TC2, you should set the DIP swich closest to the black reset button is down so that the Boot Monitor runs the boot script on power on.
+
+<br>
+
+h2. Using TC2 as an A7-only or A15-only board
+
+h3. Configure the Firmware
+
+It is possible to configure a TC2 development board as an A7 or A15 only board.  To do this, the developer should modify the /SITE1/HBI0249A/board.txt file on the Versatile Express firmware drive, usually mounted at /media/VEMSD.
+
+The relevant register is CFGREG6 on pages 78-81 of the following TRM:
+"http://infocenter.arm.com/help/topic/com.arm.doc.ddi0503e/DDI0503E_v2p_ca15_a7_tc2_trm.pdf":http://infocenter.arm.com/help/topic/com.arm.doc.ddi0503e/DDI0503E_v2p_ca15_a7_tc2_trm.pdf
+
+You should add the following setting in board.txt:
+
+bc. SCC: 0x018 0x1FFFFFFF     ; CFGRW6 - Reset register default (both clusters active)
+
+ - or -
+
+bc. SCC: 0x018 0x00001FFF     ; CFGRW6 - A15-only config
+
+ - or -
+
+bc. SCC: 0x018 0x1FFFF000     ; CFGRW6 - A7-only config
+
+Remember to update TOTALSCCS, eg, if it was 32 and you've added one register, it becomes 33: 
+
+bc. TOTALSCCS: 33                   ;Total Number of SCC registers
+
+h3. Configure the Device Tree
+
+Once the hardware is booting as an A7 or A15 only board, next you need to remove the unused CPU nodes from the device tree.
+
+In the kernel source tree, edit arch/arm/boot/dts/vexpress-v2p-ca15_a7.dts and remove the unused CPUs from this section:
+
+bc.    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+bc.        cpu2: cpu@2 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a7";
+            reg = <0x100>;
+            cluster = <&cluster1>;
+            core = <&core2>;
+            clock-frequency = <800000000>;
+            cci-control-port = <&cci_control2>;
+        };
+
+bc.        cpu3: cpu@3 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a7";
+            reg = <0x101>;
+            cluster = <&cluster1>;
+            core = <&core3>;
+            clock-frequency = <800000000>;
+            cci-control-port = <&cci_control2>;
+        };
+
+bc.        cpu4: cpu@4 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a7";
+            reg = <0x102>;
+            cluster = <&cluster1>;
+            core = <&core4>;
+            clock-frequency = <800000000>;
+            cci-control-port = <&cci_control2>;
+        };
+
+bc.        cpu0: cpu@0 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a15";
+            reg = <0>;
+            cluster = <&cluster0>;
+            core = <&core0>;
+            clock-frequency = <1000000000>;
+            cci-control-port = <&cci_control1>;
+        };
+
+bc.        cpu1: cpu@1 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a15";
+            reg = <1>;
+            cluster = <&cluster0>;
+            core = <&core1>;
+            clock-frequency = <1000000000>;
+            cci-control-port = <&cci_control1>;
+        };
+    };
+
+Next, you need to remove the GIC entries that are associated with the removed CPUs, eg:
+
+bc.    gic: interrupt-controller@2c001000 {
+        compatible = "arm,cortex-a15-gic", "arm,cortex-a9-gic";
+        #interrupt-cells = <3>;
+        #address-cells = <0>;
+        interrupt-controller;
+        reg = <0 0x2c001000 0 0x1000>,
+              <0 0x2c002000 0 0x1000>,
+              <0 0x2c004000 0 0x2000>,
+              <0 0x2c006000 0 0x2000>;
+        interrupts = <1 9 0xf04>;
+
+bc.        gic-cpuif@0 {
+            compatible = "arm,gic-cpuif";
+            cpuif-id = <0>;
+            cpu = <&cpu0>;
+        };
+
+bc.        gic-cpuif@1 {
+            compatible = "arm,gic-cpuif";
+            cpuif-id = <1>;
+            cpu = <&cpu1>;
+        };
+
+bc.        gic-cpuif@2 {
+            compatible = "arm,gic-cpuif";
+            cpuif-id = <2>;
+            cpu = <&cpu2>;
+        };
+
+bc.        gic-cpuif@3 {
+            compatible = "arm,gic-cpuif";
+            cpuif-id = <3>;
+            cpu = <&cpu3>;
+        };
+
+bc.        gic-cpuif@4 {
+            compatible = "arm,gic-cpuif";
+            cpuif-id = <4>;
+            cpu = <&cpu4>;
+        };
+    };
+
+
+Finally, you need to re-compile the DTS file and copy it to the SD card used to boot the system, eg:
+
+bc. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- dtbs
+cp arch/arm/boot/dts/vexpress-v2p-ca15_a7.dtb /media/boot/v2p-ca15-tc2.dtb
+
