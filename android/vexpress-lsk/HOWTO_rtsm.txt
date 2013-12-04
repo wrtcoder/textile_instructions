@@ -1,4 +1,4 @@
-This release was boot tested on RTSM A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other RTSM models.
+This release was boot tested on RTSM A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other RTSM models.  No UEFI binary exists for A15-A7 models; in this case, the A15 binary can be used, but the A7 CPUs will not be available
 
 h2. Prerequisites
 
