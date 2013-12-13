@@ -71,10 +71,10 @@ The following patches make up the big.LITTLE MP patchset.
 | "sched: HMP: fix potential logical errors":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2e14ecb254a3eaa2993b5dd04014f41e1d6188ce | |
 | "hmp: Remove potential for task_struct access race":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=cd5c2cc93d3dc581a19c62442f40895500d2a34c | |
 | "HMP: Implement task packing for small tasks in HMP":http://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=d8063e7015122eb3f6173acf496171def8941734 | |
-| "HMP: Avoid using the cpu stopper to stop runnable tasks":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2a68d1e9125582bedeac4ea34fb9901ab1f7de11 | <div style="color:white;background-color:green">New in this release</div> |
-| "sched: hmp: add read-only hmp domain sysfs file":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0b877c2baac65994016c6812804d1b30e89c18ed | <div style="color:white;background-color:green">New in this release</div> |
-| "Documentation: HMP: Small Task Packing explanation":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=f5be72980bc321f3491377861835c343cc27af0d | <div style="color:white;background-color:green">New in this release</div> |
-| "sched: hmp: Fix build breakage when not using CONFIG_SCHED_HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7cf6a7300bb9a88f543061270419427395ab4d2f | <div style="color:white;background-color:green">New in this release</div> |
+| "HMP: Avoid using the cpu stopper to stop runnable tasks":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=2a68d1e9125582bedeac4ea34fb9901ab1f7de11 | |
+| "sched: hmp: add read-only hmp domain sysfs file":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0b877c2baac65994016c6812804d1b30e89c18ed | |
+| "Documentation: HMP: Small Task Packing explanation":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=f5be72980bc321f3491377861835c343cc27af0d | |
+| "sched: hmp: Fix build breakage when not using CONFIG_SCHED_HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7cf6a7300bb9a88f543061270419427395ab4d2f | |
 
 
 h3. Platform Support. 
@@ -119,7 +119,10 @@ Subscribe to the important Linaro mailing lists and join our IRC channels to sta
 
 h2. Resolved in this release
 
-None.
+* "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
+* "ARM-53":http://cards.linaro.org/browse/ARM-53 Watchdog timeout booting Android on single core fastmodels
+* "ARM-58":http://cards.linaro.org/browse/ARM-58 LP:1231468 - HTML5 video playback failed, using Chromium but works with Firefox, on ARM Versatile Express ALIP image 
+* "ARM-60":http://cards.linaro.org/browse/ARM-60 LP:1254750 - Browser crashes regularly on vexpress with KitKat
 
 h2. Known Issues
 
@@ -127,23 +130,19 @@ h3. General Issues
 
 * "ARM-16":http://cards.linaro.org/browse/ARM-16 LP:1097309 - serial console doesn't received characters on TC2
 * "ARM-24":http://cards.linaro.org/browse/ARM-24 LP:1172350 - Audio playback under Android JellyBean stops sporadically on TC2 with release 13.03
-* "ARM-46":http://cards.linaro.org/browse/ARM-46 Booting using UEFI with bootmon from VE CD 5.2 fails
-* "ARM-50":http://cards.linaro.org/browse/ARM-50 perf shows zero for cycle and instruction counts on TC2
-* "ARM-53":http://cards.linaro.org/browse/ARM-53 Watchdog timeout booting Android on single core fastmodels
+* "ARM-50":http://cards.linaro.org/browse/ARM-50 LP:1217893 - perf shows zero for cycle and instruction counts on TC2
 * "ARM-57":http://cards.linaro.org/browse/ARM-57 LP:1243194 - power top doesn't show any stats
+* "ARM-61":http://cards.linaro.org/browse/ARM-61 LP:1254738 - Serial console doesn't work reliably on vexpress with KitKat 
+* "ARM-77":http://cards.linaro.org/browse/ARM-77 LP:1260320 - long running gator and DS-5 streaming capture reported kernel crash dump
 
 h3. Known Issues due to lack of video acceleration
 
-* "ARM-59":http://cards.linaro.org/browse/ARM-59 LP:987155 vexpress: Angrybirds display severely truncated
+* "ARM-59":http://cards.linaro.org/browse/ARM-59 LP:987155 - vexpress: Angrybirds display severely truncated
 * "LP: #987172":http://launchpad.net/bugs/987172 vexpress: YouTube video playback fails
 
 h3. Known Issues due to generic Android features
 
 * "ARM-51":http://cards.linaro.org/browse/ARM-51 Gallery app crashes on start on vexpress Android 4.3
-
-h3. Known Issues due to generic features
-
-* "LP: #1231468":https://launchpad.net/bugs/1231468 HTML5 video playback failed, using Chromium but works with Firefox, on ARM Versatile Express ALIP image 
 
 h3. Additional information
 
