@@ -22,7 +22,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source
 
-bc. wget http://releases.linaro.org/13.11/components/platform/linaro-image-tools/linaro-image-tools-2013.11.tar.gz
+bc. wget http://releases.linaro.org/13.12/components/platform/linaro-image-tools/linaro-image-tools-2013.12.tar.gz
 
 h2. Create a 2GB image file
 
@@ -30,8 +30,8 @@ Fast Models will only deal with file systems up to 2GB in size, however the if t
 
 Using the following command, you will download the RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
-wget https://releases.linaro.org/13.11/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
+bc. wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.12/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
 
 Now you need to create the image using the following commands.
 

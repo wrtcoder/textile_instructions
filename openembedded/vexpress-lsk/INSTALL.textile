@@ -17,7 +17,7 @@ h3. Prerequisites
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
 * Download the pre-built image for this release
-bc. wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/vexpress-openembedded_alip-armv7a-gcc-4.8_${DATE}-${HWPACKNUM}.img.gz.
+bc. wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/vexpress-openembedded_alip-armv7a-gcc-4.8_${DATE}-${HWPACKNUM}.img.gz.
 
 h3. Installation Steps
 
@@ -45,8 +45,8 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC ("www.ubuntu.com":http://www.ubuntu.com)
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
-wget http://releases.linaro.org/13.11/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
+bc. wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
+wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
 
 * Get "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools. There are multiple ways you can get the latest Linaro Image Tools:
 
@@ -58,7 +58,7 @@ sudo apt-get install linaro-image-tools
 
 ** Method 2: Building from source
 
-bc. wget http://releases.linaro.org/13.11/components/platform/linaro-image-tools/linaro-image-tools-2013.11.tar.gz
+bc. wget http://releases.linaro.org/13.12/components/platform/linaro-image-tools/linaro-image-tools-2013.12.tar.gz
 
 * Insert SD card and note the assigned @'/dev/sdX'@ or @'/dev/mmcblk0'@
 
