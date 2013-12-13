@@ -1,27 +1,33 @@
 Ensure that you update your Versatile Express board firmware to the latest version. To update your VE board firmware, please follow the instructions below:
 
+* Clone the Linaro Versatile Express Firmware repository
 * Connect and mount your Versatile Express motherboard USB mass storage device to your PC
-* Install the Recovery firmware from the "v5.0 VE DVD":https://silver.arm.com/download/download.tm?pv=1335158 onto your board.
-* Download ARM's CPU Migration patch for version 5.0 from "silver.arm.com":https://silver.arm.com/download/download.tm?pv=1357386
-** Unzip the firmware zip to the root of the motherboard mounted drive
-** Please contact "support@arm.com":mailto:support@arm.com for any issues related this firmware update
+* Remove all of the existing files from the USB mass storage device
+* Copy the Linaro Firmware to the board
 
-* Download additional Linaro firmware (image.txt, board.txt, uefi.bin, ...) from "https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20131122-001.zip":https://wiki.linaro.org/ARM/VersatileExpress?action=AttachFile&do=get&target=vemsd-armlt-20131122-001.zip
-** Unzip the firmware zip to the root of the motherboard mounted drive
-** Please "contact Linaro":http://www.linaro.org/engineering/getting-started/discuss for any issues related to this firmware update
+For example:
 
-* Unmount the Versatile Express motherboard
+bc. git clone git://git.linaro.org/arm/vexpress-firmware.git
+rm -rf /media/VEMSD/*
+cp -R vexpress-firmware/* /media/VEMSD
+
+Once you have finished copying the firmware over:
+
+* Safely unmount the Versatile Express motherboard
 * Reboot the Versatile Express board
-* At the "Cmd> " prompt, type the following commands:
-Cmd> flash
+* At the ARM Boot Loader "Cmd> " prompt, type the following commands:
+
+bc. Cmd> flash
 Cmd> eraseall
 Cmd> exit
 Cmd> reboot
-** You may need to configure UEFI to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
 
-You may want to set /media/VEMSD/config.txt AUTORUN to TRUE to be make the CoreTile boot from power on.
-
-For TC2, you should set the DIP swich closest to the black reset button is down so that the Boot Monitor runs the boot script on power on.
+* You may need to configure UEFI to boot from the image that you've created.  See the "UEFI page":https://wiki.linaro.org/ARM/UEFI#Configure_UEFI on the Linaro Wiki for more details on configuring UEFI.
+* You may want to set /media/VEMSD/config.txt AUTORUN to TRUE to be make the CoreTile boot from power on.
+* For TC2, you should set the DIP swich closest to the black reset button down so that the Boot Monitor runs the boot script on power on.
+* "Versatile Express version 5.2":https://silver.arm.com/browse/VE052 contains the original firmware and documentation for the Versatile Express platform
+* Please contact "support@arm.com":mailto:support@arm.com for any issues related their firmware
+* Please "contact Linaro":http://www.linaro.org/engineering/getting-started/discuss for any issues related to booting this release on the Versatile Express platform.
 
 <br>
 
