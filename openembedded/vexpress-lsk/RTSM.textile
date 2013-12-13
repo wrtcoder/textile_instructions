@@ -1,8 +1,8 @@
-This release was boot tested on RTSM A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other RTSM models.  No UEFI binary exists for A15-A7 models; in this case, the A15 binary can be used, but the A7 CPUs will not be available.
+This release was boot tested on FVP A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other models.  No UEFI binary exists for A15-A7 models; in this case, the A15 binary can be used, but the A7 CPUs will not be available
 
 h2. Prerequisites
 
-* Install the RTSM model(s) you wish to run. You must have a valid license and the environment set up to run models
+* Install the model(s) you wish to run. You must have a valid license and the environment set up to run models
 * Install "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools
 * Install kpartx which you can get by issuing the following command in your terminal
 
@@ -26,7 +26,7 @@ bc. wget http://releases.linaro.org/13.11/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-RTSM will only deal with file systems up to 2GB in size, however the if the pre-built image may be larger.  In this case, you can build your own image using the pre-built artifacts as listed below.
+Fast Models will only deal with file systems up to 2GB in size, however the if the pre-built image may be larger.  In this case, you can build your own image using the pre-built artifacts as listed below.
 
 Using the following command, you will download the RootFS, the hardware pack.
 
@@ -48,41 +48,42 @@ sudo kpartx -d linaro.img
 
 note: unless you use kpartx to delete the loop mappings as above, even if you update linaro.img and re-mount it, it will not refresh and you will end up using the old image.
 
-h2. Run RTSM with UEFI
+h2. Run Fast Models with UEFI
 
 The instructions for running UEFI on the various models are very similar.  The two differences are the UEFI binary and the model used.  Follow the model specific instruction below, then proceed to the generic instructions in the section "Run the model with UEFI".
 
 h3. Run A9x4 model with UEFI
 
-bc. RTSM_MODEL=/usr/local/DS-5/bin/RTSM_VE_Cortex-A9_MPx4
-RTSM_UEFI=rtsm/uefi_rtsm_ve-ca9x4.bin
+bc. MODEL=/usr/local/DS-5/bin/FVP_VE_Cortex-A9_MPx4
+UEFI=boot/rtsm/uefi_rtsm_ve-ca9x4.bin
 
 h3. Run A15x1 model with UEFI
 
-bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x1/RTSM_VE_Cortex-A15x1
-RTSM_UEFI=rtsm/uefi_rtsm_ve-ca15.bin
+bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x1
+UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x2 model with UEFI
 
-bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x2/RTSM_VE_Cortex-A15x2
-RTSM_UEFI=rtsm/uefi_rtsm_ve-ca15.bin
+bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x2
+UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x4 model with UEFI
 
-bc. RTSM_MODEL=$HOME/ARM/RTSM/Linux64_RTSM_VE_Cortex-A15x4/RTSM_VE_Cortex-A15x4
-RTSM_UEFI=rtsm/uefi_rtsm_ve-ca15.bin
+bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x4
+UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run the model with UEFI
 
-bc. RTSM_MMC=linaro.img
-RTSM_UEFI_VARS=$HOME/uefi-vars.fd
-touch $RTSM_UEFI_VARS # create the file if it doesn't already exist
+bc. MMC=linaro.img
+UEFI_VARS=$HOME/uefi-vars.fd
+touch $UEFI_VARS # create the file if it doesn't already exist
 
-bc. $RTSM_MODEL \
--C motherboard.flashloader0.fname=$RTSM_UEFI \
--C motherboard.flashloader1.fname=$RTSM_UEFI_VARS \
--C motherboard.flashloader1.fnameWrite=$RTSM_UEFI_VARS \
--C motherboard.mmc.p_mmc_file=$RTSM_MMC \
+bc. $MODEL \
+-C motherboard.flashloader0.fname=$UEFI \
+-C motherboard.flashloader1.fname=$UEFI_VARS \
+-C motherboard.flashloader1.fnameWrite=$UEFI_VARS \
+-C motherboard.mmc.p_mmc_file=$MMC \
 -C motherboard.pl011_uart0.unbuffered_output=true \
 -C motherboard.smsc_91c111.enabled=1 \
 -C motherboard.hostbridge.userNetworking=1
+
