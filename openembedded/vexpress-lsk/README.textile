@@ -22,6 +22,8 @@ Also provided is optional configurable kernel support for an implementation of A
 
 The recently-added small task packing functionality is disabled in the kernel configuration. Documentation for this feature is available at Documentation/arm/small-task-packing.txt. This release adds an optimization for migrating non-running tasks between HMP domains and a new file /sys/kernel/hmp/hmp_domains which exposes the HMP domains in use by the scheduler to userspace applications.
 
+Please note that no new big.LITTLE MP specific functionality or fixes have been added in this release.
+
 h3. Scheduler modifications to support big.LITTLE
 
 The following patches make up the big.LITTLE MP patchset. 
