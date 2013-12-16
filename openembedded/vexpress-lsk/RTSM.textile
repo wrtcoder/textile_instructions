@@ -1,4 +1,4 @@
-This release was boot tested on FVP A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other models.  No UEFI binary exists for A15-A7 models; in this case, the A15 binary can be used, but the A7 CPUs will not be available
+This release was boot tested on FVP A15x4 and A15x4-A7x4 models. No rigorous testing was carried out. This build is expected to run on other models.  No UEFI binary exists for A15-A7 models; in this case, the A15 binary can be used, but the A7 CPUs will not be available.
 
 h2. Prerequisites
 
@@ -41,7 +41,6 @@ bc. sudo kpartx -a linaro.img
 mkdir boot
 sudo mount /dev/mapper/loop0p1 boot
 cp boot/uImage .
-cp boot/uInitrd .
 cp -ar boot/rtsm rtsm
 sudo umount boot
 sudo kpartx -d linaro.img
@@ -50,39 +49,37 @@ note: unless you use kpartx to delete the loop mappings as above, even if you up
 
 h2. Run Fast Models with UEFI
 
-The instructions for running UEFI on the various models are very similar.  The two differences are the UEFI binary and the model used.  Follow the model specific instruction below, then proceed to the generic instructions in the section "Run the model with UEFI".
+The instructions for running UEFI on the various models are very similar.  The two differences are the UEFI binary and the model used.  Follow the model specific instruction below, then proceed to the generic instructions in the section "Run the model with UEFI".  Make sure that the model binary is on your path, or alter the MODEL variable definition to include the path to the binary.
 
 h3. Run A9x4 model with UEFI
 
-bc. MODEL=/usr/local/DS-5/bin/FVP_VE_Cortex-A9_MPx4
+bc. MODEL=FVP_VE_Cortex-A9_MPx4
 UEFI=boot/rtsm/uefi_rtsm_ve-ca9x4.bin
 
 h3. Run A15x1 model with UEFI
 
-bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x1
+bc. MODEL=FVP_VE_Cortex-A15x1
 UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x2 model with UEFI
 
-bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x2
+bc. MODEL=FVP_VE_Cortex-A15x2
 UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x4 model with UEFI
 
-bc. MODEL=$HOME/ARM/models/Linux64_GCC-4.1/FVP_VE_Cortex-A15x4
+bc. MODEL=FVP_VE_Cortex-A15x4
 UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run the model with UEFI
 
-bc. MMC=linaro.img
-UEFI_VARS=$HOME/uefi-vars.fd
-touch $UEFI_VARS # create the file if it doesn't already exist
+bc. touch uefi-vars.fd # create the file if it doesn't already exist
 
 bc. $MODEL \
 -C motherboard.flashloader0.fname=$UEFI \
--C motherboard.flashloader1.fname=$UEFI_VARS \
--C motherboard.flashloader1.fnameWrite=$UEFI_VARS \
--C motherboard.mmc.p_mmc_file=$MMC \
+-C motherboard.flashloader1.fname=uefi-vars.fd \
+-C motherboard.flashloader1.fnameWrite=uefi-vars.fd \
+-C motherboard.mmc.p_mmc_file=linaro.img \
 -C motherboard.pl011_uart0.unbuffered_output=true \
 -C motherboard.smsc_91c111.enabled=1 \
 -C motherboard.hostbridge.userNetworking=1
