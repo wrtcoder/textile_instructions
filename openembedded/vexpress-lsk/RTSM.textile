@@ -30,12 +30,12 @@ Fast Models will only deal with file systems up to 2GB in size, however the if t
 
 Using the following command, you will download the RootFS, the hardware pack.
 
-bc. wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_${DATE}-${HWPACKNUM}_armhf_supported.tar.gz
-wget https://releases.linaro.org/13.12/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-${DATE}-${IMAGENUM}.rootfs.tar.gz
+bc. wget http://releases.linaro.org/13.12/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20131215-557_armhf_supported.tar.gz
+wget https://releases.linaro.org/13.12/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20131215-186.rootfs.tar.gz
 
 Now you need to create the image using the following commands.
 
-bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_*_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-*.rootfs.tar.gz
+bc. linaro-media-create --image-file linaro.img --image-size 2000M --dev vexpress --hwpack hwpack_linaro-lsk-vexpress_20131215-557_armhf_supported.tar.gz --binary linaro-image-alip-genericarmv7a-20131215-186.rootfs.tar.gz
 
 bc. sudo kpartx -a linaro.img
 mkdir boot
