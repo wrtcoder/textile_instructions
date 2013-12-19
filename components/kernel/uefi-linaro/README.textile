@@ -33,6 +33,8 @@ p. Platforms currently supported include:
 * TI Beagleboard
 * TI Pandaboard
 
+This release was tested on the Versatile Express Foundation and FVP Base models. It may work on the other supported platforms since no feature changes were added.
+
 h2. Building UEFI
 
 For more instructions on how to build UEFI from source, please see the "LEG wiki build page":https://wiki.linaro.org/LEG/Engineering/Kernel/UEFI/build 
