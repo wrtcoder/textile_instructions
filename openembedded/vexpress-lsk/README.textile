@@ -10,7 +10,7 @@ p. This release includes Linaro OpenEmbedded for both Versatile Express and Fast
 
 h2. About the TC2 Engineering Build
 
-This release is based on the Linux v3.10.20 kernel.  As a consequence, almost all of the patches in the ARM Landing Team tree have been rebased and refactored to account for the latest upstream content.
+This release is based on the Linux v3.10.27 kernel.  As a consequence, almost all of the patches in the ARM Landing Team tree have been rebased and refactored to account for the latest upstream content.
 
 The TC2 CoreTile is the first example of a big.LITTLE system shipped by ARM and serves as a platform for development and test of big.LITTLE software. TC2 contains a tri-core Cortex-A7 cluster and a dual-core Cortex-A15 cluster linked using the CCI-400 coherent interconnect.
 
@@ -20,9 +20,9 @@ The patches in the big.LITTLE MP patchset are generic and applicable to big.LITT
 
 Also provided is optional configurable kernel support for an implementation of ARM's Power State Co-ordination Interface (PSCI). This support is disabled by default. To use PSCI support you will require secure firmware that is currently available to ARM licensees upon request to ARM. Please contact "ARM support":mailto:support-sw@arm.com?subject=Access%20to%20PSCI to get access to the firmware code.
 
-The recently-added small task packing functionality is disabled in the kernel configuration. Documentation for this feature is available at Documentation/arm/small-task-packing.txt. This release adds an optimization for migrating non-running tasks between HMP domains and a new file /sys/kernel/hmp/hmp_domains which exposes the HMP domains in use by the scheduler to userspace applications.
+The 'small task packing feature' is now enabled by default in the kernel configuration. However, the feature is disabled by default at run-time. (See the documentation for this feature located at 'Documentation/arm/small_task_packing.txt' within the kernel sources for instructions on enabling this feature if needed).
 
-Please note that no new big.LITTLE MP specific functionality or fixes have been added in this release.
+Please note that this release does not introduce any new functionality.  However the release does contain a number of important bug fixes - see the patches marked 'New in this release' in the list below for details.
 
 h3. Scheduler modifications to support big.LITTLE
 
@@ -77,6 +77,14 @@ The following patches make up the big.LITTLE MP patchset.
 | "sched: hmp: add read-only hmp domain sysfs file":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=0b877c2baac65994016c6812804d1b30e89c18ed | |
 | "Documentation: HMP: Small Task Packing explanation":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=f5be72980bc321f3491377861835c343cc27af0d | |
 | "sched: hmp: Fix build breakage when not using CONFIG_SCHED_HMP":https://git.linaro.org/gitweb?p=kernel/linux-linaro-stable.git;a=commit;h=7cf6a7300bb9a88f543061270419427395ab4d2f | |
+| "sched: reset blocked load decay_count during synchronization":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/f720a920e88f1ec79db8c9f0031f61c610e40b02 | <div style="color:white;background-color:green">New in this release</div>|
+| "sched: update runqueue clock before migrations away":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/7896b1e659db571556436b99ebb2e475e54a24f5 | <div style="color:white;background-color:green">New in this release</div> |
+| "sched: hmp: Make idle balance behaviour normal when packing disabled":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/257e5075a1433513bb354f202adcd2dea8a8dc08 | <div style="color:white;background-color:green">New in this release</div> |
+| "sched: hmp: Change TC2 packing config to disabled default if present":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/ba8ed8301f5bca4a44c80e2173c66391b76898df | <div style="color:white;background-color:green">New in this release</div> |
+| "config: Make packing present on TC2":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/5e0791511a938eaf28d9071b411ffa71a79ef8ed | <div style="color:white;background-color:green">New in this release</div> |
+| "sched: hmp: Fix potential task_struct memory leak":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/b2fafaba35f490947b78e8d0d4f4264a137e64cd | <div style="color:white;background-color:green">New in this release</div> |
+| "HMP: Restrict irq_default_affinity to hmp_slow_cpu_mask":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/1d462599bee9a2f5f3988aafa43feda602d5e188 | <div style="color:white;background-color:green">New in this release</div> |
+| "HMP: Fix rt task allowed cpu mask restriction code on 1x1 system":https://git.linaro.org/kernel/linux-linaro-stable.git/commit/b30814c74c184bbb231e24d6c857699af338468b | <div style="color:white;background-color:green">New in this release</div> |
 
 
 h3. Platform Support. 
