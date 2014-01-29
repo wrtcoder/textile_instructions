@@ -26,12 +26,12 @@ bc. wget http://releases.linaro.org/14.01/components/platform/linaro-image-tools
 
 h2. Create a 2GB image file
 
-Fast Models will only deal with file systems up to 2GB in size, however the if the pre-built image may be larger.  In this case, you can build your own image using the pre-built artifacts as listed below.
+Fast Models will only deal with file systems up to 2GB in size, however the pre-built image may be larger.  In this case, you can build your own image using the pre-built artifacts as listed below.
 
 Using the following command, you will download the RootFS, the hardware pack.
 
 bc. wget http://releases.linaro.org/14.01/openembedded/vexpress-lsk/hwpack_linaro-lsk-vexpress_20140126-596_armhf_supported.tar.gz
-wget https://releases.linaro.org/14.01/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20140127-224.rootfs.tar.gz
+wget http://releases.linaro.org/14.01/openembedded/vexpress-lsk/linaro-image-alip-genericarmv7a-20140127-224.rootfs.tar.gz
 
 Now you need to create the image using the following commands.
 
@@ -54,22 +54,22 @@ The instructions for running UEFI on the various models are very similar.  The t
 h3. Run A9x4 model with UEFI
 
 bc. MODEL=FVP_VE_Cortex-A9_MPx4
-UEFI=boot/rtsm/uefi_rtsm_ve-ca9x4.bin
+UEFI=rtsm/uefi_rtsm_ve-ca9x4.bin
 
 h3. Run A15x1 model with UEFI
 
 bc. MODEL=FVP_VE_Cortex-A15x1
-UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
+UEFI=rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x2 model with UEFI
 
 bc. MODEL=FVP_VE_Cortex-A15x2
-UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
+UEFI=rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run A15x4 model with UEFI
 
 bc. MODEL=FVP_VE_Cortex-A15x4
-UEFI=boot/rtsm/uefi_rtsm_ve-ca15.bin
+UEFI=rtsm/uefi_rtsm_ve-ca15.bin
 
 h3. Run the model with UEFI
 
