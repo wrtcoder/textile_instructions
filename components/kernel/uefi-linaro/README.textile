@@ -10,19 +10,15 @@ The latest version of the EDK2 code contains support for aarch64 plaforms upstre
 
 * linaro-topic-a5
 * linaro-topic-a9
-* linaro-topic-acpi
 * linaro-topic-arndale
 * linaro-topic-bds
 * linaro-topic-fvp
+* linaro-topic-leg
 * linaro-topic-misc
-* linaro-topic-origen
 * linaro-topic-panda
 * linaro-topic-pxeboot
-* linaro-topic-smbios
 * linaro-topic-tc1
 * linaro-topic-tc2
-* linaro-topic-upstream
-* linaro-topic-virtio
 
 h2. Platform Support
 
