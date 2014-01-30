@@ -6,6 +6,7 @@ p. The Linaro UEFI tree is based on the following upstream versions of code from
 
 * edk2 at subversion revision 14795
 
+
 The latest version of the EDK2 code contains support for aarch64 plaforms upstream in addition to the following topic branches:
 
 * linaro-topic-a5
@@ -28,6 +29,7 @@ p. Platforms currently supported include:
 * Samsung Arndale
 * TI Beagleboard
 * TI Pandaboard
+
 
 This release was tested on the Versatile Express Foundation and FVP Base models. It may work on the other supported platforms since no feature changes were added.
 
@@ -59,6 +61,7 @@ p. The following issues were unresolved in this release:
 * "LP: #1174318":https://launchpad.net/bugs/1174318 SetVirtualAddressMap ASSERT failure in DEBUG build 
 * "LP: #1192941":https://launchpad.net/bugs/1192941 Lava : vexpress-tc2-01 and vexpress-tc2-benchmark jobs are running incomplete due to various reasons
 * "LP: #1192963":https://launchpad.net/bugs/1192963 UEFI: origen: BSP doesn't compile
+* "LP: #1274126":http2://launchpad.net/bugs/1274126 UEFI: stub-kernel TFTP boot test fail
 
 h2. More information
 
