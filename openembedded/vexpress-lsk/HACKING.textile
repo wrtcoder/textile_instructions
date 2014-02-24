@@ -15,7 +15,7 @@ You can use GIT to obtain the kernel source code for this release:
 
 bc. git clone git://git.linaro.org/kernel/linux-linaro-stable.git
 cd linux-linaro-stable
-git checkout lsk-vexpress-14.01
+git checkout lsk-vexpress-14.02
 
 h3. Create a kernel config
 
