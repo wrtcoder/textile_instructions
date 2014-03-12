@@ -24,7 +24,6 @@ Do not use the defconfig for Versatile Express, instead, build a config from the
 bc. ARCH=arm scripts/kconfig/merge_config.sh \
 linaro/configs/linaro-base.conf \
 linaro/configs/distribution.conf \
-linaro/configs/big-LITTLE-MP.conf \
 linaro/configs/vexpress.conf
 
 Note: the config fragments are part of the git repository and the source tarball.
