@@ -6,7 +6,7 @@ p. Linaro releases monthly binary images for the ARM "Versatile Express":http://
 
 p. For support matters related to ARM hardware or firmware images downloaded from ARM sites, please contact "ARM support":mailto:support@arm.com
 
-p. This release includes Linaro Android Jelly Bean for both Versatile Express and Fast Models. The images are able to boot A5, A9 and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/14.04/android/vexpress-lsk/#tabs-3 tab).
+p. This release includes Linaro Android Jelly Bean for both Versatile Express and Fast Models. The images are able to boot A5, A9 and TC2 using UEFI. Sources are also made available so you can build your own images (see the "'Building from Source'":https://releases.linaro.org/14.04/android/armv7-lsk/#tabs-3 tab).
 
 h2. About the TC2 Engineering Build
 
