@@ -14,7 +14,7 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
 * 4GB SD card or larger
 * Latest firmware installed onto the Versatile Express. Please see "Firmware Update" tab
-* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts or just click "here":http://releases.linaro.org/14.03/android/vexpress-lsk/vexpress.img.bz2
+* This release pre-built image (vexpress.img.bz2), which you can downloaded from the above list of artifacts or just click "here":http://releases.linaro.org/14.04/android/vexpress-lsk/vexpress.img.bz2
 
 h3. Installation Steps
 
@@ -42,9 +42,9 @@ h3. Prerequisites
 * Ubuntu 12.04 64 bit or newer on your desktop PC, which you can download from "www.ubuntu.com":http://www.ubuntu.com
 * Download Artifacts from above or use the following command in your terminal
 
-bc. wget http://releases.linaro.org/14.03/android/vexpress-lsk/boot.tar.bz2
-wget http://releases.linaro.org/14.03/android/vexpress-lsk/system.tar.bz2
-wget http://releases.linaro.org/14.03/android/vexpress-lsk/userdata.tar.bz2
+bc. wget http://releases.linaro.org/14.04/android/vexpress-lsk/boot.tar.bz2
+wget http://releases.linaro.org/14.04/android/vexpress-lsk/system.tar.bz2
+wget http://releases.linaro.org/14.04/android/vexpress-lsk/userdata.tar.bz2
 
 * Download "Linaro image tools":https://wiki.linaro.org/Linaro-Image-Tools which can be obtained in two ways:
 
